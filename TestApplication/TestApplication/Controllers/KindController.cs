@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Entities.Models;
 using Entities.ModelsDto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -50,6 +51,21 @@ namespace TestApplication.Controllers
                 var kindDto = _mapper.Map<ReturnKindDto>(kind);
                 return Ok(kindDto);
             }
+        }
+        [HttpPost]
+        public IActionResult AddKind([FromBody] CreateKindDto kindDto)
+        {
+            if (kindDto == null)
+            {
+                _logger.LogError("KindDto object sent from client is null.");
+                return BadRequest("KindDto object is null");
+            }
+            var kind = _mapper.Map<Kind>(kindDto);
+            _modelsActions.Kind.CreateKind(kind);
+            _modelsActions.Save();
+
+            var returnKind = _mapper.Map<ReturnKindDto>(kind);
+            return Ok(returnKind);
         }
     }
 }

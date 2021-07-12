@@ -9,5 +9,7 @@ namespace Pact
     {
         public IEnumerable<Kind> GetAllKinds();
         public Kind GetKind(int kindId);
+
+        void CreateKind(Kind kind);
     }
 }
