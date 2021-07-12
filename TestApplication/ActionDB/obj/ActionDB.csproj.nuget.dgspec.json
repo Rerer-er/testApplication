@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj": {}
+    "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj": {
+    "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj",
+        "projectUniqueName": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj",
         "projectName": "ActionDB",
-        "projectPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\ActionDB\\obj\\",
+        "projectPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\ActionDB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Entities\\Entities.csproj"
+              "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
+                "projectPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Entities\\Entities.csproj"
               },
-              "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
-                "projectPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Pact\\Pact.csproj"
+              "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
+                "projectPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Pact\\Pact.csproj"
               }
             }
           }
@@ -61,21 +61,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
+    "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Entities\\Entities.csproj",
+        "projectUniqueName": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Entities\\obj\\",
+        "projectPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -129,21 +129,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
+    "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Pact\\Pact.csproj",
+        "projectUniqueName": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Pact\\Pact.csproj",
         "projectName": "Pact",
-        "projectPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Pact\\Pact.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Pact\\obj\\",
+        "projectPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Pact\\Pact.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Pact\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -157,8 +157,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Entities\\Entities.csproj"
+              "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
+                "projectPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Entities\\Entities.csproj"
               }
             }
           }
@@ -187,7 +187,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

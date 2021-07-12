@@ -30,17 +30,18 @@ namespace TestApplication.Controllers
             _mapper = mapper;
 
         }
-        [HttpGet(Name = "GetKinds"), Authorize]
-        public IActionResult GetKinds(int kindId)
+        //[HttpGet(Name = "GetKinds"), Authorize]
+        [HttpGet]
+        public IActionResult GetKinds()
         {
-            var kinds = _modelsActions.Kind.GetAllKinds();
+            var kinds = _modelsActions.Kind.GetAllKinds(false);
             var kindsDto = _mapper.Map<IEnumerable<ReturnKindDto>>(kinds);
             return Ok(kindsDto);
         }
         [HttpGet("{id}", Name = "KindById")]
         public IActionResult GetProduct(int id)
         {
-            var kind = _modelsActions.Kind.GetKind(id);
+            var kind = _modelsActions.Kind.GetKind(id, false);
             if (kind == null)
             {
                 _logger.LogInfo($"Company with id: {id} doesn't exist in the database.");
@@ -55,6 +56,7 @@ namespace TestApplication.Controllers
         [HttpPost]
         public IActionResult AddKind([FromBody] CreateKindDto kindDto)
         {
+
             if (kindDto == null)
             {
                 _logger.LogError("KindDto object sent from client is null.");
@@ -67,5 +69,39 @@ namespace TestApplication.Controllers
             var returnKind = _mapper.Map<ReturnKindDto>(kind);
             return Ok(returnKind);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteKind(int id)
+        {
+            var kind = _modelsActions.Kind.GetKind(id, false);
+            if (kind == null)
+            {
+                _logger.LogInfo($"Kind with id: {id} doesn't exist in the database.");
+                return NotFound();
+            }
+            _modelsActions.Kind.DeleteKind(kind);
+            _modelsActions.Save();
+            return NoContent();
+        }
+        [HttpPut("{id}")]
+        public IActionResult UpdateKind(int id, [FromBody] UpdateKindDto kindDto)
+        {
+            if (kindDto == null)
+            {
+                _logger.LogError("UpdateKindDto object sent from client is null.");
+                return BadRequest("UpdateKindDto object is null");
+            }
+            var kind = _modelsActions.Kind.GetKind(id, true);
+            if (kind == null)
+            {
+                _logger.LogInfo($"Kind with id: {id} doesn't exist in the database.");
+                return NotFound();
+            }
+            
+            _mapper.Map(kindDto, kind);
+            _modelsActions.Save();
+            return NoContent();
+        }
+
     }
 }

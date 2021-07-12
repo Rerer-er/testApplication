@@ -18,6 +18,9 @@ namespace TestApplication.AutoMapper
 
             CreateMap<Kind, ReturnKindDto>();
             CreateMap<CreateKindDto, Kind>();
+            CreateMap<UpdateKindDto, Kind>();
+
+
 
             CreateMap<UserForRegistrationDto, User>();
         }

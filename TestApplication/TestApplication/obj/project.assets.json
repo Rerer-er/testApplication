@@ -7117,19 +7117,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\TestApplication\\TestApplication.csproj",
+      "projectUniqueName": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\TestApplication\\TestApplication.csproj",
       "projectName": "TestApplication",
-      "projectPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\TestApplication\\TestApplication.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\TestApplication\\obj\\",
+      "projectPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\TestApplication\\TestApplication.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\TestApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7143,17 +7143,17 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj"
+            "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj": {
+              "projectPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj"
             },
-            "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Entities\\Entities.csproj"
+            "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
+              "projectPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Entities\\Entities.csproj"
             },
-            "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj"
+            "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj": {
+              "projectPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj"
             },
-            "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication\\TestApplication\\Pact\\Pact.csproj"
+            "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
+              "projectPath": "D:\\.rofl\\.TestApplication\\testApplication\\TestApplication\\Pact\\Pact.csproj"
             }
           }
         }
@@ -7209,7 +7209,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

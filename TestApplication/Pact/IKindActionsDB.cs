@@ -7,9 +7,9 @@ namespace Pact
 {
     public interface IKindActionsDB
     {
-        public IEnumerable<Kind> GetAllKinds();
-        public Kind GetKind(int kindId);
-
+        public IEnumerable<Kind> GetAllKinds(bool trackChange);
+        public Kind GetKind(int kindId, bool trackChange);
         void CreateKind(Kind kind);
+        void DeleteKind(Kind kind);
     }
 }

@@ -12,3 +12,17 @@ C:\Users\user\GitHub\testApplication\TestApplication\LoggerService\bin\Debug\net
 C:\Users\user\GitHub\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.csproj.CopyComplete
 C:\Users\user\GitHub\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\Entities.dll
 C:\Users\user\GitHub\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\Entities.pdb
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\LoggerService.deps.json
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\LoggerService.dll
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\LoggerService.pdb
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\Entities.dll
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\Pact.dll
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\Pact.pdb
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\Entities.pdb
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.csprojAssemblyReference.cache
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.AssemblyInfoInputs.cache
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.AssemblyInfo.cs
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.csproj.CoreCompileInputs.cache
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.csproj.CopyComplete
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.dll
+D:\.rofl\.TestApplication\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.pdb

@@ -10,8 +10,8 @@ namespace Pact
 {
     public interface IBaseActionDB<T>
     {
-        IQueryable<T> ReturnAll();
-        IQueryable<T> ReturnDistinct(Expression<Func<T, bool>> expression);
+        IQueryable<T> ReturnAll(bool trackChange);
+        IQueryable<T> ReturnDistinct(Expression<Func<T, bool>> expression, bool trackChange);
         void Create(T entity);
         void Update(T entity);
         void Delete(T entity);

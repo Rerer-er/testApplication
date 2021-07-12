@@ -7,3 +7,12 @@ C:\Users\user\GitHub\testApplication\TestApplication\Entities\obj\Debug\netcorea
 C:\Users\user\GitHub\testApplication\TestApplication\Entities\obj\Debug\netcoreapp3.1\Entities.csproj.CoreCompileInputs.cache
 C:\Users\user\GitHub\testApplication\TestApplication\Entities\obj\Debug\netcoreapp3.1\Entities.dll
 C:\Users\user\GitHub\testApplication\TestApplication\Entities\obj\Debug\netcoreapp3.1\Entities.pdb
+D:\.rofl\.TestApplication\testApplication\TestApplication\Entities\bin\Debug\netcoreapp3.1\Entities.deps.json
+D:\.rofl\.TestApplication\testApplication\TestApplication\Entities\bin\Debug\netcoreapp3.1\Entities.dll
+D:\.rofl\.TestApplication\testApplication\TestApplication\Entities\bin\Debug\netcoreapp3.1\Entities.pdb
+D:\.rofl\.TestApplication\testApplication\TestApplication\Entities\obj\Debug\netcoreapp3.1\Entities.csprojAssemblyReference.cache
+D:\.rofl\.TestApplication\testApplication\TestApplication\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfoInputs.cache
+D:\.rofl\.TestApplication\testApplication\TestApplication\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
+D:\.rofl\.TestApplication\testApplication\TestApplication\Entities\obj\Debug\netcoreapp3.1\Entities.csproj.CoreCompileInputs.cache
+D:\.rofl\.TestApplication\testApplication\TestApplication\Entities\obj\Debug\netcoreapp3.1\Entities.dll
+D:\.rofl\.TestApplication\testApplication\TestApplication\Entities\obj\Debug\netcoreapp3.1\Entities.pdb

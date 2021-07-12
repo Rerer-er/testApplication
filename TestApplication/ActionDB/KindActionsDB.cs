@@ -14,13 +14,17 @@ namespace ActionDB
         {
 
         }
-        public IEnumerable<Kind> GetAllKinds() => ReturnAll().ToList();
-        public Kind GetKind(int kindId) => ReturnDistinct(c => c.KindId.Equals(kindId)).SingleOrDefault();
+        public IEnumerable<Kind> GetAllKinds(bool trackChange) => ReturnAll(trackChange).ToList();
+        public Kind GetKind(int kindId, bool trackChange) => ReturnDistinct(c => c.KindId.Equals(kindId), trackChange).SingleOrDefault();
         
-        void CreateKind(Kind kind)
+        public void CreateKind(Kind kind)
         {
             Create(kind);
         }
+        public void DeleteKind(Kind kind)
+		{
+            Delete(kind);
+		}
     }
 }
  

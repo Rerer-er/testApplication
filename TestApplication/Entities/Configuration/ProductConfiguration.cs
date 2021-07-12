@@ -16,6 +16,7 @@ namespace Entities.Configuration
                 new Product
                 {
                     ProductId = 1,
+                    Price = 3500,
                     Name = "product",
                     ShipperId = 1,
                     KindId = 1
@@ -23,6 +24,7 @@ namespace Entities.Configuration
                 new Product
                 {
                     ProductId = 2,
+                    Price = 7000,
                     Name = "product",
                     ShipperId = 2,
                     KindId = 2

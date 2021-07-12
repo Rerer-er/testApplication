@@ -15,9 +15,9 @@ namespace ActionDB
         {
 
         }
-        public IEnumerable<Product> GetAllProducts(int kindId) =>
-            ReturnDistinct(e => e.KindId.Equals(kindId)).ToList();
-        public Product GetProduct(int kindId, int productId) => ReturnDistinct(c => c.ProductId.Equals(productId) && c.KindId.Equals(kindId)).SingleOrDefault();
+        public IEnumerable<Product> GetAllProducts(int kindId, bool trackChange) =>
+            ReturnDistinct(e => e.KindId.Equals(kindId), trackChange).ToList();
+        public Product GetProduct(int kindId, int productId, bool trackChange) => ReturnDistinct(c => c.ProductId.Equals(productId) && c.KindId.Equals(kindId), trackChange).SingleOrDefault();
 
         public void CreateProduct(int kindId, Product product)
         {

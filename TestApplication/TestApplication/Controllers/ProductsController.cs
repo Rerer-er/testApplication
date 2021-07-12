@@ -37,14 +37,14 @@ namespace TestApplication.Controllers
         public IActionResult GetProducts(int kindId)
         {
 
-            var products = _modelsActions.Product.GetAllProducts(kindId);
+            var products = _modelsActions.Product.GetAllProducts(kindId, false);
             var productsDto = _mapper.Map<IEnumerable<ReturnProductDto>>(products);
             return Ok(productsDto);
         }
         [HttpGet("{id}", Name = " ProductById")]
         public IActionResult GetProduct(int kindId, int id)
         {
-            var product = _modelsActions.Product.GetProduct(kindId, id);
+            var product = _modelsActions.Product.GetProduct(kindId, id, false);
             if (product == null)
             {
                 _logger.LogInfo($"Company with id: {id} doesn't exist in the database.");
