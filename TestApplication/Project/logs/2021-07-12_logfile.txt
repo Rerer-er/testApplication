@@ -1,0 +1,141 @@
+2021-07-12 10:30:12.0554 INFO Here is info message from our values controller.
+2021-07-12 10:30:12.0754 DEBUG Here is debug message from our values controller.
+2021-07-12 10:30:12.0754 WARN Here is warn message from our values controller.
+2021-07-12 10:30:12.0754 ERROR Here is an error message from our values controller.
+2021-07-12 10:30:53.7839 INFO Here is info message from our values controller.
+2021-07-12 10:30:53.8053 DEBUG Here is debug message from our values controller.
+2021-07-12 10:30:53.8053 WARN Here is warn message from our values controller.
+2021-07-12 10:30:53.8053 ERROR Here is an error message from our values controller.
+2021-07-12 10:37:18.6573 INFO Here is info message from our values controller.
+2021-07-12 10:37:18.6797 DEBUG Here is debug message from our values controller.
+2021-07-12 10:37:18.6797 WARN Here is warn message from our values controller.
+2021-07-12 10:37:18.6797 ERROR Here is an error message from our values controller.
+2021-07-12 10:49:02.2277 INFO Here is info message from our values controller.
+2021-07-12 10:49:02.2447 DEBUG Here is debug message from our values controller.
+2021-07-12 10:49:02.2447 WARN Here is warn message from our values controller.
+2021-07-12 10:49:02.2447 ERROR Here is an error message from our values controller.
+2021-07-12 10:49:10.7943 ERROR Something went wrong: System.Exception: Exception
+   at TestApplication.Controllers.ProductsController.GetProduct() in C:\Users\user\GitHub\testApplication\TestApplication\TestApplication\Controllers\ProductsController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-07-12 11:02:52.2749 INFO Here is info message from our values controller.
+2021-07-12 11:02:52.2918 DEBUG Here is debug message from our values controller.
+2021-07-12 11:02:52.2918 WARN Here is warn message from our values controller.
+2021-07-12 11:02:52.2918 ERROR Here is an error message from our values controller.
+2021-07-12 11:11:45.2431 INFO Here is info message from our values controller.
+2021-07-12 11:11:45.2601 DEBUG Here is debug message from our values controller.
+2021-07-12 11:11:45.2601 WARN Here is warn message from our values controller.
+2021-07-12 11:11:45.2601 ERROR Here is an error message from our values controller.
+2021-07-12 11:14:58.6270 INFO Here is info message from our values controller.
+2021-07-12 11:14:58.6488 DEBUG Here is debug message from our values controller.
+2021-07-12 11:14:58.6488 WARN Here is warn message from our values controller.
+2021-07-12 11:14:58.6488 ERROR Here is an error message from our values controller.
+2021-07-12 11:15:43.2117 INFO Here is info message from our values controller.
+2021-07-12 11:15:43.2284 DEBUG Here is debug message from our values controller.
+2021-07-12 11:15:43.2284 WARN Here is warn message from our values controller.
+2021-07-12 11:15:43.2284 ERROR Here is an error message from our values controller.
+2021-07-12 11:16:12.8320 ERROR Something went wrong: System.Exception: Exception
+   at TestApplication.Controllers.ProductsController.GetProduct() in C:\Users\user\GitHub\testApplication\TestApplication\TestApplication\Controllers\ProductsController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
+2021-07-12 11:16:23.9758 INFO Here is info message from our values controller.
+2021-07-12 11:16:23.9955 DEBUG Here is debug message from our values controller.
+2021-07-12 11:16:23.9955 WARN Here is warn message from our values controller.
+2021-07-12 11:16:23.9955 ERROR Here is an error message from our values controller.
+2021-07-12 11:16:34.4656 INFO Here is info message from our values controller.
+2021-07-12 11:16:34.4813 DEBUG Here is debug message from our values controller.
+2021-07-12 11:16:34.4813 WARN Here is warn message from our values controller.
+2021-07-12 11:16:34.4914 ERROR Here is an error message from our values controller.
+2021-07-12 11:16:43.0394 INFO Here is info message from our values controller.
+2021-07-12 11:16:43.0569 DEBUG Here is debug message from our values controller.
+2021-07-12 11:16:43.0569 WARN Here is warn message from our values controller.
+2021-07-12 11:16:43.0569 ERROR Here is an error message from our values controller.
+2021-07-12 11:17:13.7454 INFO Here is info message from our values controller.
+2021-07-12 11:17:13.7624 DEBUG Here is debug message from our values controller.
+2021-07-12 11:17:13.7725 WARN Here is warn message from our values controller.
+2021-07-12 11:17:13.7725 ERROR Here is an error message from our values controller.
+2021-07-12 11:19:34.8391 INFO Here is info message from our values controller.
+2021-07-12 11:19:34.8544 DEBUG Here is debug message from our values controller.
+2021-07-12 11:19:34.8544 WARN Here is warn message from our values controller.
+2021-07-12 11:19:34.8544 ERROR Here is an error message from our values controller.
+2021-07-12 11:21:24.1187 INFO Here is info message from our values controller.
+2021-07-12 11:21:24.1358 DEBUG Here is debug message from our values controller.
+2021-07-12 11:21:24.1358 WARN Here is warn message from our values controller.
+2021-07-12 11:21:24.1358 ERROR Here is an error message from our values controller.
+2021-07-12 11:23:42.2910 INFO Here is info message from our values controller.
+2021-07-12 11:23:42.3075 DEBUG Here is debug message from our values controller.
+2021-07-12 11:23:42.3075 WARN Here is warn message from our values controller.
+2021-07-12 11:23:42.3075 ERROR Here is an error message from our values controller.
+2021-07-12 11:24:32.6847 INFO Here is info message from our values controller.
+2021-07-12 11:24:32.7114 DEBUG Here is debug message from our values controller.
+2021-07-12 11:24:32.7114 WARN Here is warn message from our values controller.
+2021-07-12 11:24:32.7114 ERROR Here is an error message from our values controller.
+2021-07-12 11:53:40.0930 INFO Here is info message from our values controller.
+2021-07-12 11:53:40.1177 DEBUG Here is debug message from our values controller.
+2021-07-12 11:53:40.1177 WARN Here is warn message from our values controller.
+2021-07-12 11:53:40.1177 ERROR Here is an error message from our values controller.
+2021-07-12 11:58:28.8223 INFO Here is info message from our values controller.
+2021-07-12 11:58:28.8390 DEBUG Here is debug message from our values controller.
+2021-07-12 11:58:28.8390 WARN Here is warn message from our values controller.
+2021-07-12 11:58:28.8390 ERROR Here is an error message from our values controller.
+2021-07-12 12:22:53.4290 INFO Here is info message from our values controller.
+2021-07-12 12:22:53.4598 DEBUG Here is debug message from our values controller.
+2021-07-12 12:22:53.4598 WARN Here is warn message from our values controller.
+2021-07-12 12:22:53.4598 ERROR Here is an error message from our values controller.
+2021-07-12 12:25:24.1846 INFO Here is info message from our values controller.
+2021-07-12 12:25:24.2001 DEBUG Here is debug message from our values controller.
+2021-07-12 12:25:24.2001 WARN Here is warn message from our values controller.
+2021-07-12 12:25:24.2001 ERROR Here is an error message from our values controller.
+2021-07-12 12:30:25.8285 INFO Here is info message from our values controller.
+2021-07-12 12:30:25.8528 DEBUG Here is debug message from our values controller.
+2021-07-12 12:30:25.8528 WARN Here is warn message from our values controller.
+2021-07-12 12:30:25.8528 ERROR Here is an error message from our values controller.
+2021-07-12 12:30:45.6324 INFO Company with id: 3 doesn't exist in the database.
+2021-07-12 13:33:32.7936 INFO Here is info message from our values controller.
+2021-07-12 13:33:32.8207 DEBUG Here is debug message from our values controller.
+2021-07-12 13:33:32.8207 WARN Here is warn message from our values controller.
+2021-07-12 13:33:32.8207 ERROR Here is an error message from our values controller.
+2021-07-12 13:36:52.9524 INFO Here is info message from our values controller.
+2021-07-12 13:36:52.9764 DEBUG Here is debug message from our values controller.
+2021-07-12 13:36:52.9764 WARN Here is warn message from our values controller.
+2021-07-12 13:36:52.9764 ERROR Here is an error message from our values controller.
+2021-07-12 13:37:04.7583 INFO Here is info message from our values controller.
+2021-07-12 13:37:04.7750 DEBUG Here is debug message from our values controller.
+2021-07-12 13:37:04.7750 WARN Here is warn message from our values controller.
+2021-07-12 13:37:04.7750 ERROR Here is an error message from our values controller.
+2021-07-12 16:35:33.0872 INFO Here is info message from our values controller.
+2021-07-12 16:35:33.1046 DEBUG Here is debug message from our values controller.
+2021-07-12 16:35:33.1160 WARN Here is warn message from our values controller.
+2021-07-12 16:35:33.1160 ERROR Here is an error message from our values controller.
+2021-07-12 16:40:05.2438 INFO Here is info message from our values controller.
+2021-07-12 16:40:05.2572 DEBUG Here is debug message from our values controller.
+2021-07-12 16:40:05.2572 WARN Here is warn message from our values controller.
+2021-07-12 16:40:05.2572 ERROR Here is an error message from our values controller.
