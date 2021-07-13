@@ -15,14 +15,14 @@ namespace ActionDB
         {
 
         }
-        public async Task<IEnumerable<Shipper>> GetAllShippersAsync(int kindId, bool trackChange) =>
-            await ReturnDistinct(e => e.ShipperId.Equals(kindId), trackChange).ToListAsync();
+        public async Task<IEnumerable<Shipper>> GetAllShippersAsync( bool trackChange) =>
+            await ReturnAll(trackChange).ToListAsync();
         public async Task<Shipper> GetShipperAsync(int shipperId, bool trackChange) => 
             await ReturnDistinct(c => c.ShipperId.Equals(shipperId), trackChange).SingleOrDefaultAsync();
 
-        public void CreateShipper(int shipperId, Shipper shipper)
+        public void CreateShipper(Shipper shipper)
         {
-            shipper.ShipperId = shipperId;
+            //shipper.ShipperId = shipperId;
             Create(shipper);
         }
         public void DeleteShipper(Shipper shipper)

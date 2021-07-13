@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Entities.ModelsDto
 {
-    public class CreateShipperDto
+    public class UpdateShipperDto
     {
         public string Name { get; set; }
     }

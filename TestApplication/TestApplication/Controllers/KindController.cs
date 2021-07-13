@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TestApplication.ActionFilters;
 
 namespace TestApplication.Controllers
 {
@@ -55,18 +56,9 @@ namespace TestApplication.Controllers
             }
         }
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateKind([FromBody] CreateKindDto kindDto)
         {
-            if (kindDto == null)
-            {
-                _logger.LogError("KindDto object sent from client is null.");
-                return BadRequest("KindDto object is null");
-            }
-            if (!ModelState.IsValid)
-            {
-                _logger.LogError("Invalid model state for the EmployeeForCreationDto object");
-                return UnprocessableEntity(ModelState);
-            }
             var kind = _mapper.Map<Kind>(kindDto);
             _modelsActions.Kind.CreateKind(kind);
             await _modelsActions.SaveAsync();
@@ -88,45 +80,20 @@ namespace TestApplication.Controllers
             await _modelsActions.SaveAsync();
             return NoContent();
         }
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateKind(int id, [FromBody]UpdateKindDto kindDto)
         {
-            if (kindDto == null)
-            {
-                _logger.LogError("UpdateKindDto object sent from client is null.");
-                return BadRequest("UpdateKindDto object is null");
-            }
+            
             var kind = await _modelsActions.Kind.GetKindAsync(id, true);
             if (kind == null)
             {
                 _logger.LogInfo($"Kind with id: {id} doesn't exist in the database.");
                 return NotFound();
             }
-            
             _mapper.Map(kindDto, kind);
             await _modelsActions.SaveAsync();
             return NoContent();
         }
-
-        //[HttpPatch("{id}")]
-        //public async Task<IActionResult> PartiallyUpdateKind(int id, [FromBody]JsonPatchDocument<UpdateKindDto> patchDoc)
-        //{
-        //    if (patchDoc == null)
-        //    {
-        //        _logger.LogError("patchDoc object sent from client is null.");
-        //        return BadRequest("patchDoc object is null");
-        //    }
-        //    var kind = await _modelsActions.Kind.GetKindAsync(id, true);
-        //    if (kind == null)
-        //    {
-        //        _logger.LogInfo($"Employee with id: {id} doesn't exist in the database.");
-        //        return NotFound();
-        //    }
-        //    var kindToPatch = _mapper.Map<UpdateKindDto>(kind);
-        //    patchDoc.ApplyTo(kindToPatch);
-        //    _mapper.Map(kindToPatch, kind);
-        //    await _modelsActions.SaveAsync();
-        //    return NoContent();
-        //}
     }
 }

@@ -86,6 +86,8 @@ namespace TestApplication.Services
                 };
             });
         }
+
+
         public static void ConfigureSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(s =>

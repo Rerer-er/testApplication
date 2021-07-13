@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -18,6 +19,7 @@ using Pact;
 using Microsoft.AspNetCore.HttpOverrides;
 using ActionDB;
 using TestApplication.Currency;
+using TestApplication.ActionFilters;
 
 namespace TestApplication
 {
@@ -46,12 +48,15 @@ namespace TestApplication
             services.AddScoped<IAuthenticationManager, AuthenticationManager>();
             services.ConfigureSwagger();
 
+            services.AddScoped<ValidationFilterAttribute>();
+
             services.AddHostedService<CurrencyService>();
             services.AddMemoryCache();
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
+            
 
 
             services.AddControllers().AddNewtonsoftJson();

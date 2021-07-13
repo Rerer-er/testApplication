@@ -16,6 +16,7 @@ namespace ActionDB
 
         private IProductActionsDB product;
         private IKindActionsDB kind;
+        private IShipperActionsDB shipper;
 
         public AllModelsActions(ApplicationContext _context)
         {
@@ -37,6 +38,15 @@ namespace ActionDB
                 if (kind == null)
                     kind = new KindActionsDB(context);
                 return kind;
+            }
+        }
+        public IShipperActionsDB Shipper
+        {
+            get
+            {
+                if (shipper == null)
+                    shipper = new ShipperActionsDB(context);
+                return shipper;
             }
         }
         public async Task SaveAsync() => await context.SaveChangesAsync();

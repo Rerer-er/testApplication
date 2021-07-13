@@ -11,6 +11,7 @@ using Entities.ModelsDto;
 using ActionDB;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
+using Entities.RequestFeatures;
 
 namespace TestApplication.Controllers
 {
@@ -34,10 +35,10 @@ namespace TestApplication.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetProducts(int kindId)
-        {
+        public async Task<IActionResult> GetProducts(int kindId, [FromQuery] ProductParameters productParameters)
 
-            var products = await _modelsActions.Product.GetAllProductsAsync(kindId, false);
+        {
+            var products = await _modelsActions.Product.GetAllProductsAsync(kindId, productParameters, false);
             var productsDto = _mapper.Map<IEnumerable<ReturnProductDto>>(products);
             return Ok(productsDto);
         }
@@ -136,7 +137,7 @@ namespace TestApplication.Controllers
                 _logger.LogInfo($"Company with id: {kindId} doesn't exist in the database.");
                 return NotFound();
             }
-            var product = await _modelsActions.Product.GetProductAsync(kindId, id, true);
+            var product = await  _modelsActions.Product.GetProductAsync(kindId, id, true);
             if (product == null)
             {
                 _logger.LogInfo($"Employee with id: {id} doesn't exist in the database.");

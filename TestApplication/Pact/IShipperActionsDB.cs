@@ -8,9 +8,9 @@ namespace Pact
 {
     public interface IShipperActionsDB
     {
-        Task<IEnumerable<Shipper>> GetAllShippersAsync(int ShipperId, bool trackChange);
+        Task<IEnumerable<Shipper>> GetAllShippersAsync( bool trackChange);
         Task<Shipper> GetShipperAsync(int SipperId, bool trackChange);
-        void CreateShipper(int kintId, Shipper shipper);
+        void CreateShipper( Shipper shipper);
         public void DeleteShipper(Shipper shipper);
     }
 }
