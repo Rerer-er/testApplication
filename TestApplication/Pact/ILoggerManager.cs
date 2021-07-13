@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Pact
+﻿namespace Pact
 {
     public interface ILoggerManager
     {

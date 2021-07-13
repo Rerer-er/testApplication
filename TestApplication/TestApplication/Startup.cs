@@ -48,9 +48,13 @@ namespace TestApplication
 
             services.AddHostedService<CurrencyService>();
             services.AddMemoryCache();
-          
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
 
-            services.AddControllers();
+
+            services.AddControllers().AddNewtonsoftJson();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger)

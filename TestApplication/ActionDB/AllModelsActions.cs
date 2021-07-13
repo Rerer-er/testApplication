@@ -5,6 +5,7 @@ using System.Text;
 using Pact;
 using Entities;
 using Entities.Models;
+using System.Threading.Tasks;
 
 namespace ActionDB
 {
@@ -38,6 +39,6 @@ namespace ActionDB
                 return kind;
             }
         }
-        public void Save() => context.SaveChanges();
+        public async Task SaveAsync() => await context.SaveChangesAsync();
     }
 }

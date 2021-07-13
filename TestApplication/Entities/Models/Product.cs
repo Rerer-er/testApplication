@@ -11,8 +11,13 @@ namespace Entities.Models
         [Column("ProductId")]
         [Key]
         public int ProductId { get; set; }
-        public string Name { get; set; }
         
+        [Required(ErrorMessage = "Product name is a required field.")]
+        [MaxLength(60, ErrorMessage = "Maximum length for the Name is 60 characters.")]
+        public string Name { get; set; }
+
+        [Column(TypeName = "decimal(18, 2)")]
+        [Required(ErrorMessage = "Price is a required field.")]
         public decimal Price { get; set; }
 
         [ForeignKey(nameof(Kind))]

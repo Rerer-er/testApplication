@@ -15,10 +15,11 @@ namespace TestApplication.AutoMapper
         {
             CreateMap<Product, ReturnProductDto>();
             CreateMap<CreateProductDto, Product>();
+            CreateMap<UpdateProductDto, Product>().ReverseMap();
 
             CreateMap<Kind, ReturnKindDto>();
             CreateMap<CreateKindDto, Kind>();
-            CreateMap<UpdateKindDto, Kind>();
+            CreateMap<UpdateKindDto, Kind>().ReverseMap();
 
 
 

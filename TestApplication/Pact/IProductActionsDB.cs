@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Entities.Models;
 using System.Collections.Generic;
-using System.Text;
-
-using Entities.Models;
+using System.Threading.Tasks;
 
 namespace Pact
 {
     public interface IProductActionsDB
     {
-        IEnumerable<Product> GetAllProducts(int kindId, bool trackChange);
-        Product GetProduct(int kindId, int ProductId, bool trackChange);
+        Task<IEnumerable<Product>> GetAllProductsAsync(int kindId, bool trackChange);
+        Task<Product> GetProductAsync(int kindId, int ProductId, bool trackChange);
         void CreateProduct(int kintId, Product product);
+        public void DeleteProduct(Product product);
     }
 }

@@ -26,3 +26,17 @@ D:\.rofl\.TestApplication\testApplication\TestApplication\ActionDB\bin\Debug\net
 D:\.rofl\.TestApplication\testApplication\TestApplication\ActionDB\bin\Debug\netcoreapp3.1\Entities.pdb
 D:\.rofl\.TestApplication\testApplication\TestApplication\ActionDB\bin\Debug\netcoreapp3.1\Pact.pdb
 D:\.rofl\.TestApplication\testApplication\TestApplication\ActionDB\obj\Debug\netcoreapp3.1\ActionDB.csproj.CopyComplete
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\bin\Debug\netcoreapp3.1\ActionDB.deps.json
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\bin\Debug\netcoreapp3.1\ActionDB.dll
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\bin\Debug\netcoreapp3.1\ActionDB.pdb
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\bin\Debug\netcoreapp3.1\Pact.dll
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\bin\Debug\netcoreapp3.1\Pact.pdb
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\obj\Debug\netcoreapp3.1\ActionDB.csproj.AssemblyReference.cache
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\obj\Debug\netcoreapp3.1\ActionDB.AssemblyInfoInputs.cache
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\obj\Debug\netcoreapp3.1\ActionDB.AssemblyInfo.cs
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\obj\Debug\netcoreapp3.1\ActionDB.csproj.CoreCompileInputs.cache
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\obj\Debug\netcoreapp3.1\ActionDB.csproj.CopyComplete
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\obj\Debug\netcoreapp3.1\ActionDB.dll
+C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\ActionDB\obj\Debug\netcoreapp3.1\ActionDB.pdb

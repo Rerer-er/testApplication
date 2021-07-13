@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Threading.Tasks;
 
 namespace Pact
 {
@@ -8,6 +6,6 @@ namespace Pact
     {
         IProductActionsDB Product { get; }
         IKindActionsDB Kind { get; }
-        void Save();
+        Task SaveAsync();
     }
 }
