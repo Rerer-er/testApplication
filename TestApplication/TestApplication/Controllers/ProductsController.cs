@@ -12,6 +12,9 @@ using ActionDB;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Entities.RequestFeatures;
+using Newtonsoft.Json;
+using Microsoft.Extensions.Caching.Memory;
+using Entities.Сurrency;
 
 namespace TestApplication.Controllers
 {
@@ -26,19 +29,25 @@ namespace TestApplication.Controllers
 
         private readonly IMapper _mapper;
 
-        public ProductsController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper)
+        private IMemoryCache _memoryCache;
+
+        public ProductsController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper, IMemoryCache memoryCache)
         {
             _logger = logger;
             _modelsActions = modelsActions;
             _mapper = mapper;
+            _memoryCache = memoryCache;
 
         }
-
         [HttpGet]
         public async Task<IActionResult> GetProducts(int kindId, [FromQuery] ProductParameters productParameters)
-
         {
+            
             var products = await _modelsActions.Product.GetAllProductsAsync(kindId, productParameters, false);
+            
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(products.MetaData));
+            _memoryCache.TryGetValue("key_currency", out CurrencyConverter model);
+            model.ConvertToCurrent(products, productParameters.Currency);
             var productsDto = _mapper.Map<IEnumerable<ReturnProductDto>>(products);
             return Ok(productsDto);
         }

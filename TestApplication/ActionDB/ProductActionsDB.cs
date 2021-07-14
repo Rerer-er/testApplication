@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Entities.RequestFeatures;
 
+using ActionDB.Extensions;
+
 namespace ActionDB
 {
     public class ProductActionsDB : BaseActionDB<Product> , IProductActionsDB
@@ -18,10 +20,14 @@ namespace ActionDB
         {
 
         }
-        public async Task<IEnumerable<Product>> GetAllProductsAsync(int kindId, ProductParameters productParameters, bool trackChange) =>
-            await ReturnDistinct(e => (e.KindId.Equals(kindId)), trackChange).OrderBy(p => p.Name)
-            .Skip((productParameters.PageNumber - 1) * productParameters.PageSize)
-            .Take(productParameters.PageSize).ToListAsync();
+        public async Task<PagedList<Product>> GetAllProductsAsync(int kindId, ProductParameters productParameters, bool trackChange)
+        {
+            var products = await ReturnDistinct(e => (e.KindId.Equals(kindId)), trackChange)
+                .FilterProduct(productParameters.MinPrice, productParameters.MaxPrice)
+                .Search(productParameters.SearchTerm).OrderBy(e => e.Name).ToListAsync();
+            return PagedList<Product>.ToPagedList(products, productParameters.PageNumber,
+            productParameters.PageSize);
+        }
         public async Task<Product> GetProductAsync(int kindId, int productId, bool trackChange) => 
             await ReturnDistinct(c => c.ProductId.Equals(productId) && c.KindId.Equals(kindId), trackChange).SingleOrDefaultAsync();
 
