@@ -38,9 +38,15 @@ namespace TestApplication.Currency
 
 
                     CurrencyConverter currencyConverter = new CurrencyConverter();
+
+
                     currencyConverter.Currency.Add("usd", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "840").Elements("Value").FirstOrDefault().Value));
                     currencyConverter.Currency.Add("eur", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "978").Elements("Value").FirstOrDefault().Value));
                     currencyConverter.Currency.Add("byn", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "933").Elements("Value").FirstOrDefault().Value));
+
+
+
+
                     //currencyConverter.Currency.Add("rub", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "810").Elements("Value").FirstOrDefault().Value));
 
                     currencyConverter.USD = Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "840").Elements("Value").FirstOrDefault().Value);

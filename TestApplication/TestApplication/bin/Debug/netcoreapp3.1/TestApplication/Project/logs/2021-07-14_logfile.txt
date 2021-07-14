@@ -22,3 +22,7 @@
 2021-07-14 16:41:30.7714 DEBUG Here is debug message from our values controller.
 2021-07-14 16:41:30.7714 WARN Here is warn message from our values controller.
 2021-07-14 16:41:30.7714 ERROR Here is an error message from our values controller.
+2021-07-14 16:43:43.2326 INFO Here is info message from our values controller.
+2021-07-14 16:43:43.2560 DEBUG Here is debug message from our values controller.
+2021-07-14 16:43:43.2560 WARN Here is warn message from our values controller.
+2021-07-14 16:43:43.2560 ERROR Here is an error message from our values controller.

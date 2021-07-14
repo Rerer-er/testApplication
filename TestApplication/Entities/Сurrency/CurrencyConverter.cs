@@ -16,7 +16,7 @@ namespace Entities.Сurrency
 
         public void ConvertToCurrent(ICollection<Product> products, string currency)
         {
-            if (!Currency.ContainsKey(currency)) return; 
+            if (!Currency.ContainsKey(currency)) return;
             foreach(var product in products)
             {
                 product.Price = Math.Round(product.Price / Currency[currency], 2);
