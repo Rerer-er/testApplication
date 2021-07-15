@@ -14,7 +14,8 @@ using Microsoft.AspNetCore.JsonPatch;
 using Entities.RequestFeatures;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Caching.Memory;
-using Entities.Сurrency;
+using Microsoft.AspNetCore.Authorization;
+using TestApplication.ActionFilters;
 
 namespace TestApplication.Controllers
 {
@@ -41,6 +42,7 @@ namespace TestApplication.Controllers
             _currencyConverter = currencyConverter;
 
         }
+        //[Authorize(Roles = "Manager")]
         [HttpGet]
         public async Task<IActionResult> GetProducts(int kindId, [FromQuery] ProductParameters productParameters)
         {
@@ -61,12 +63,11 @@ namespace TestApplication.Controllers
             return Ok(productsDto);
         }
         [HttpGet("{id}", Name = " ProductById")]
-        public async Task<IActionResult> GetProduct(int kindId,int id, string currency)
+        public async Task<IActionResult> GetProduct(int kindId,int id, string currency = "rub")
         {
 
             _currencyConverter.UpdateCurrency();
             var product = await _modelsActions.Product.GetProductAsync(kindId, id, false);
-            _currencyConverter.ConvertToCurrent(product, currency);
             if (product == null)
             {
                 _logger.LogInfo($"Company with id: {id} doesn't exist in the database.");
@@ -74,11 +75,14 @@ namespace TestApplication.Controllers
             }
             else
             {
+                _currencyConverter.ConvertToCurrent(product, currency);
                 var productDto = _mapper.Map<ReturnProductDto>(product);
                 return Ok(productDto);
             }
         }
         [HttpPost]
+        [Authorize(Roles = "Shipper Administrator")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateProduct(int kindId, [FromBody]CreateProductDto productDto)
         {
             if(productDto == null)
@@ -100,6 +104,7 @@ namespace TestApplication.Controllers
             return Ok(ReturnProduct);
         }
         [HttpDelete("{id}", Name = " ProductById")]
+        [Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> DeleteProduct(int kindId, int id)
         {
             var kind = await _modelsActions.Kind.GetKindAsync(kindId, false);
@@ -119,6 +124,8 @@ namespace TestApplication.Controllers
             return NoContent();
         }
         [HttpPut("{id}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> UpdateProduct(int kindId, int id, [FromBody] UpdateProductDto productDto)
         {
             if (productDto == null)
@@ -143,7 +150,9 @@ namespace TestApplication.Controllers
             await _modelsActions.SaveAsync();
             return NoContent();
         }
+
         [HttpPatch("{id}")]
+        [Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> PartiallyUpdateEmployeeForCompany(int kindId, int id,
             [FromBody] JsonPatchDocument<UpdateProductDto> patchDoc)
         {

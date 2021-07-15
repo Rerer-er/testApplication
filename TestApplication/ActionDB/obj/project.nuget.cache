@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vbVa5GxqB3krGAse5EqjRBB1BKLG+gQIuycxADsDzbXENv7V/yYXjN/SZmOUCcDUkJMHFY2jebXnMAJhSGAePA==",
+  "dgSpecHash": "iN3HJolsehif7RYHa5pXrHli7JAhUjoboE7xlz+7IZuYGHAUnlDd4xHR7sWO+KfnwSSto67lNyS1xV8DDitHaw==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj",
   "expectedPackageFiles": [
@@ -80,6 +80,7 @@
     "C:\\Users\\user\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.linq.dynamic.core\\1.2.10\\system.linq.dynamic.core.1.2.10.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",

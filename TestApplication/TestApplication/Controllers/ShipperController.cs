@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TestApplication.ActionFilters;
 
 namespace TestApplication.Controllers
 {
@@ -50,6 +51,7 @@ namespace TestApplication.Controllers
             }
         }
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateShipper([FromBody] CreateShipperDto shipperDto)
         {
             if (shipperDto == null)
@@ -84,6 +86,7 @@ namespace TestApplication.Controllers
             return NoContent();
         }
         [HttpPut("{id}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateShipper(int id, [FromBody] UpdateShipperDto shipperDto)
         {
             if (shipperDto == null)

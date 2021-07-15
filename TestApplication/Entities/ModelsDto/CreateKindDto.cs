@@ -10,8 +10,8 @@ namespace Entities.ModelsDto
         [Required(ErrorMessage = "Kind name is a required field.")]
         [MaxLength(60, ErrorMessage = "Maximum length for the Name is 60 characters.")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Kind name is a required field.")]
-        [MaxLength(60, ErrorMessage = "Maximum length for the Name is 60 characters.")]
+        [Required(ErrorMessage = "Kind about is a required field.")]
+        [MaxLength(60, ErrorMessage = "Maximum length for the about is 60 characters.")]
         public string About { get; set; }
     }
 }

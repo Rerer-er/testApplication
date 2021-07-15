@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TestApplication.ActionFilters;
 
 namespace TestApplication.Controllers
 {
@@ -29,6 +30,7 @@ namespace TestApplication.Controllers
             _authManager = authManager;
         }
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         //[ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
         {
@@ -46,13 +48,14 @@ namespace TestApplication.Controllers
             return StatusCode(201);
         }
         [HttpPost("login")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         //[ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> Authenticate([FromBody] UserForAuthenticationDto user)
         {
             if (!await _authManager.ValidateUser(user))
             {
                 _logger.LogWarn($"{nameof(Authenticate)}: Authentication failed. Wrong user name or password.");
-            return Unauthorized();
+                return Unauthorized();
             }
             return Ok(new { Token = await _authManager.CreateToken() });
         }

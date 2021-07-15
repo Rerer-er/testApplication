@@ -24,7 +24,8 @@ namespace ActionDB
         {
             var products = await ReturnDistinct(e => (e.KindId.Equals(kindId)), trackChange)
                 .FilterProduct(productParameters.MinPrice, productParameters.MaxPrice)
-                .Search(productParameters.SearchTerm).OrderBy(e => e.Name).ToListAsync();
+                .Search(productParameters.SearchTerm).OrderBy(e => e.Name)
+                .Sort(productParameters.OrderBy).ToListAsync();
             return PagedList<Product>.ToPagedList(products, productParameters.PageNumber,
             productParameters.PageSize);
         }

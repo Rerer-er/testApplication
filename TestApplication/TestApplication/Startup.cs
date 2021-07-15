@@ -18,7 +18,6 @@ using TestApplication.Extensions;
 using Pact;
 using Microsoft.AspNetCore.HttpOverrides;
 using ActionDB;
-using TestApplication.Currency;
 using TestApplication.ActionFilters;
 
 namespace TestApplication
@@ -69,7 +68,7 @@ namespace TestApplication
                 app.UseDeveloperExceptionPage();
             }
 
-            app.ConfigureExceptionHandler(logger);
+            //app.ConfigureExceptionHandler(logger);
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");

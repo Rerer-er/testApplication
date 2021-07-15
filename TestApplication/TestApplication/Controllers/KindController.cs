@@ -14,7 +14,7 @@ using TestApplication.ActionFilters;
 
 namespace TestApplication.Controllers
 {
-    [Route("api/kind")]
+    [Route("api/kinds")]
     [ApiController]
     [ApiExplorerSettings(GroupName = "v1")]
     public class KindController : ControllerBase
