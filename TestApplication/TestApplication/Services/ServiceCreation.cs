@@ -136,5 +136,7 @@ namespace TestApplication.Services
                 });
             });
         }
+        public static void ConfigureCurrencyService(this IServiceCollection services) =>
+            services.AddScoped<ICurrencyConverter, CurrencyConverter>();
     }
 }

@@ -1,4 +1,4 @@
-﻿using Entities.Сurrency;
+﻿//using Entities.Сurrency;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -10,60 +10,54 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Pact;
+using ActionDB;
 namespace TestApplication.Currency
 {
-    public class CurrencyService : BackgroundService
+    public class CurrencyService
     {
-        private readonly IMemoryCache memoryCache;
-
-        public CurrencyService(IMemoryCache memoryCache)
+        //private readonly IMemoryCache memoryCache;
+        private ICurrencyConverter currencyConverter;
+        public CurrencyService(ICurrencyConverter _currencyConverter)
         {
-            this.memoryCache = memoryCache;
+            currencyConverter = _currencyConverter; 
+        }
+        public void Parse()
+        {
+            XDocument xml = XDocument.Load("http://www.cbr.ru/scripts/XML_daily.asp");
+            //currencyConverter.Add("usd", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "840").Elements("Value").FirstOrDefault().Value));
+            //currencyConverter.Add("eur", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "978").Elements("Value").FirstOrDefault().Value));
+            //currencyConverter.Add("byn", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "933").Elements("Value").FirstOrDefault().Value));
         }
 
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-        {
-            while (!stoppingToken.IsCancellationRequested)
-            {
-                try
-                {
+        //protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        //{
+            
 
-                    Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
+                  
 
 
-                    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        //            XDocument xml = XDocument.Load("http://www.cbr.ru/scripts/XML_daily.asp");
 
 
-                    XDocument xml = XDocument.Load("http://www.cbr.ru/scripts/XML_daily.asp");
+        //           // CurrencyConverter currencyConverter = new CurrencyConverter();
 
-
-                    CurrencyConverter currencyConverter = new CurrencyConverter();
-
-
-                    currencyConverter.Currency.Add("usd", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "840").Elements("Value").FirstOrDefault().Value));
-                    currencyConverter.Currency.Add("eur", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "978").Elements("Value").FirstOrDefault().Value));
-                    currencyConverter.Currency.Add("byn", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "933").Elements("Value").FirstOrDefault().Value));
+        //            currencyConverter.Add("usd", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "840").Elements("Value").FirstOrDefault().Value));
+        //            currencyConverter.Add("eur", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "978").Elements("Value").FirstOrDefault().Value));
+        //            currencyConverter.Add("byn", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "933").Elements("Value").FirstOrDefault().Value));
 
 
 
 
-                    //currencyConverter.Currency.Add("rub", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "810").Elements("Value").FirstOrDefault().Value));
+        //            //currencyConverter.Currency.Add("rub", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "810").Elements("Value").FirstOrDefault().Value));
 
-                    currencyConverter.USD = Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "840").Elements("Value").FirstOrDefault().Value);
-                    currencyConverter.EUR = Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "978").Elements("Value").FirstOrDefault().Value);
-                    currencyConverter.BYN = Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "933").Elements("Value").FirstOrDefault().Value);
+        //            //currencyConverter.USD = Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "840").Elements("Value").FirstOrDefault().Value);
+        //            //currencyConverter.EUR = Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "978").Elements("Value").FirstOrDefault().Value);
+        //            //currencyConverter.BYN = Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "933").Elements("Value").FirstOrDefault().Value);
                     
 
-                    memoryCache.Set("key_currency", currencyConverter, TimeSpan.FromMinutes(1440));
-                }
-                catch (Exception e)
-                {
-              
-                }
+        //            //memoryCache.Set("key_currency", currencyConverter, TimeSpan.FromMinutes(1440));
 
-
-                await Task.Delay(3600000, stoppingToken);
-            }
-        }
+            
+        //}
     }
 }

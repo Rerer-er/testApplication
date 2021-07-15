@@ -10,7 +10,8 @@ namespace Entities.RequestFeatures
     {
         public string Currency { get; set; } = "rub";
         public decimal MinPrice { get; set; } = 0;
-        public decimal MaxPrice { get; set; } = 50000000;
+        public decimal MaxPrice { get; set; } = 50000000;//decimal.MaxValue;
+
 
         public string SearchTerm { get; set; }
 

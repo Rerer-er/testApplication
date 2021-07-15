@@ -29,32 +29,44 @@ namespace TestApplication.Controllers
 
         private readonly IMapper _mapper;
 
-        private IMemoryCache _memoryCache;
+        private readonly ICurrencyConverter _currencyConverter;
 
-        public ProductsController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper, IMemoryCache memoryCache)
-        {
+        //private IMemoryCache _memoryCache;
+
+        public ProductsController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper, ICurrencyConverter currencyConverter) { 
+
             _logger = logger;
             _modelsActions = modelsActions;
             _mapper = mapper;
-            _memoryCache = memoryCache;
+            _currencyConverter = currencyConverter;
 
         }
         [HttpGet]
         public async Task<IActionResult> GetProducts(int kindId, [FromQuery] ProductParameters productParameters)
         {
+            _currencyConverter.UpdateCurrency();
+            productParameters.MinPrice = _currencyConverter.ConvertToCurrentForFiltr(productParameters.MinPrice, productParameters.Currency);
+            productParameters.MaxPrice = _currencyConverter.ConvertToCurrentForFiltr(productParameters.MaxPrice, productParameters.Currency);
             
             var products = await _modelsActions.Product.GetAllProductsAsync(kindId, productParameters, false);
             
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(products.MetaData));
-            _memoryCache.TryGetValue("key_currency", out CurrencyConverter model);
-            model.ConvertToCurrent(products, productParameters.Currency);
+            
+            foreach(var product in products)
+            {
+                _currencyConverter.ConvertToCurrent(product, productParameters.Currency);
+            }
+
             var productsDto = _mapper.Map<IEnumerable<ReturnProductDto>>(products);
             return Ok(productsDto);
         }
         [HttpGet("{id}", Name = " ProductById")]
-        public async Task<IActionResult> GetProduct(int kindId, int id)
+        public async Task<IActionResult> GetProduct(int kindId,int id, string currency)
         {
+
+            _currencyConverter.UpdateCurrency();
             var product = await _modelsActions.Product.GetProductAsync(kindId, id, false);
+            _currencyConverter.ConvertToCurrent(product, currency);
             if (product == null)
             {
                 _logger.LogInfo($"Company with id: {id} doesn't exist in the database.");

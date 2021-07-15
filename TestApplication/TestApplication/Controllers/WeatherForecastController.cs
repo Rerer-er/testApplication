@@ -27,16 +27,16 @@ namespace TestApplication.Controllers
         public IEnumerable<string> Get()
         {
 
-            if (!_memoryCache.TryGetValue("key_currency", out CurrencyConverter model))
-            {
-                throw new Exception("Ошибка получения данных");
-            }
+            //if (!_memoryCache.TryGetValue("key_currency", out CurrencyConverter model))
+            //{
+            //    throw new Exception("Ошибка получения данных");
+            //}
      
             _logger.LogInfo("Here is info message from our values controller.");
             _logger.LogDebug("Here is debug message from our values controller.");
             _logger.LogWarn("Here is warn message from our values controller.");
             _logger.LogError("Here is an error message from our values controller.");
-            return new string[] { $"{model.EUR}", $"{model.USD}", $"{model.BYN}" };
+            return new string[] { $"11" };// {model.EUR}", $"{model.USD}", $"{model.BYN}" };
         }
     }
 }
