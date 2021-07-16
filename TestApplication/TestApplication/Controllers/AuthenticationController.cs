@@ -25,7 +25,10 @@ namespace TestApplication.Controllers
             _userManager = userManager;
             _authManager = authManager;
         }
-        [HttpPost]
+
+
+
+        [HttpPost]  
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         //[ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
