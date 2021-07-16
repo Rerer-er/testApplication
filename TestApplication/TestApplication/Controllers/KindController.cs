@@ -40,6 +40,7 @@ namespace TestApplication.Controllers
             var kindsDto = _mapper.Map<IEnumerable<ReturnKindDto>>(kinds);
             return Ok(kindsDto);
         }
+
         [HttpGet("{id}", Name = "KindById")]
         public async Task<IActionResult> GetProduct(int id)
         {
@@ -57,6 +58,7 @@ namespace TestApplication.Controllers
         }
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> CreateKind([FromBody] CreateKindDto kindDto)
         {
             var kind = _mapper.Map<Kind>(kindDto);
@@ -68,6 +70,7 @@ namespace TestApplication.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteKind(int id)
         {
             var kind = await _modelsActions.Kind.GetKindAsync(id, false);
@@ -82,6 +85,7 @@ namespace TestApplication.Controllers
         }
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> UpdateKind(int id, [FromBody]UpdateKindDto kindDto)
         {
             

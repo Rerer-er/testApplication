@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Entities.Models;
 using Entities.ModelsDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Pact;
@@ -52,6 +53,7 @@ namespace TestApplication.Controllers
         }
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> CreateShipper([FromBody] CreateShipperDto shipperDto)
         {
             if (shipperDto == null)
@@ -73,6 +75,7 @@ namespace TestApplication.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteShipper(int id)
         {
             var shipper = await _modelsActions.Shipper.GetShipperAsync(id, false);
@@ -87,6 +90,7 @@ namespace TestApplication.Controllers
         }
         [HttpPut("{id}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> UpdateShipper(int id, [FromBody] UpdateShipperDto shipperDto)
         {
             if (shipperDto == null)

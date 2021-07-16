@@ -1352,3 +1352,4 @@ token: '[PII is hidden. For more details, see https://aka.ms/IdentityModel/PII.]
 2021-07-15 14:50:56.1078 ERROR Invalid model state for the object. Controller: Kind, action: CreateKind 
 2021-07-15 14:51:38.1482 ERROR Invalid model state for the object. Controller: Shipper, action: CreateShipper 
 2021-07-15 14:52:15.7819 ERROR Invalid model state for the object. Controller: Authentication, action: RegisterUser 
+2021-07-15 15:59:40.3430 INFO Company with id: 13 doesn't exist in the database.

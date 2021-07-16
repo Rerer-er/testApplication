@@ -27,5 +27,9 @@
     <ProjectReference Include="..\Pact\Pact.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ExceptionFilters\" />
+  </ItemGroup>
+
 
 </Project>
