@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
 using Entities.Models;
 using Entities.ModelsDto;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Pact;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TestApplication.ActionFilters;
 

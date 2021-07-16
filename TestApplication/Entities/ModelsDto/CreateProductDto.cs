@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Entities.ModelsDto
 {
@@ -12,6 +9,6 @@ namespace Entities.ModelsDto
         [MaxLength(60, ErrorMessage = "Maximum length for the Name is 60 characters.")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Price is a required field.")]
-        public int Price { get; set; } 
+        public int Price { get; set; }
     }
 }

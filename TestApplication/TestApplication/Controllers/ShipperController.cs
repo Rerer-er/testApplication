@@ -2,12 +2,9 @@
 using Entities.Models;
 using Entities.ModelsDto;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Pact;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TestApplication.ActionFilters;
 

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Pact;
-using Entities;
-using System.Linq;
+﻿using Entities;
 using Microsoft.EntityFrameworkCore;
+using Pact;
+using System;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace ActionDB
@@ -13,9 +10,9 @@ namespace ActionDB
     public abstract class BaseActionDB<T> : IBaseActionDB<T> where T : class
     {
         protected ApplicationContext _context;
-        public BaseActionDB(ApplicationContext context) 
-        { 
-            _context = context; 
+        public BaseActionDB(ApplicationContext context)
+        {
+            _context = context;
         }
 
         public IQueryable<T> ReturnAll(bool trackChanges) => !trackChanges ?

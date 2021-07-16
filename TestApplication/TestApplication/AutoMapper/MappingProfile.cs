@@ -1,8 +1,4 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 using Entities.Models;
 using Entities.ModelsDto;
@@ -21,10 +17,10 @@ namespace TestApplication.AutoMapper
             CreateMap<CreateKindDto, Kind>();
             CreateMap<UpdateKindDto, Kind>().ReverseMap();
 
-            CreateMap<Shipper, ReturnShipperDto>(); 
-            CreateMap<CreateShipperDto, Shipper>(); 
+            CreateMap<Shipper, ReturnShipperDto>();
+            CreateMap<CreateShipperDto, Shipper>();
             CreateMap<UpdateShipperDto, Shipper>().ReverseMap();
-            
+
             CreateMap<UserForRegistrationDto, User>();
         }
 

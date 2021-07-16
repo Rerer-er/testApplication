@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Pact;
-using Entities.Models;
+﻿
+using ActionDB.Extensions;
 using Entities;
+using Entities.Models;
+using Entities.RequestFeatures;
+using Microsoft.EntityFrameworkCore;
+using Pact;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Entities.RequestFeatures;
-
-using ActionDB.Extensions;
 
 namespace ActionDB
 {
-    public class ProductActionsDB : BaseActionDB<Product> , IProductActionsDB
+    public class ProductActionsDB : BaseActionDB<Product>, IProductActionsDB
     {
         public ProductActionsDB(ApplicationContext context) : base(context)
         {
@@ -29,7 +25,7 @@ namespace ActionDB
             return PagedList<Product>.ToPagedList(products, productParameters.PageNumber,
             productParameters.PageSize);
         }
-        public async Task<Product> GetProductAsync(int kindId, int productId, bool trackChange) => 
+        public async Task<Product> GetProductAsync(int kindId, int productId, bool trackChange) =>
             await ReturnDistinct(c => c.ProductId.Equals(productId) && c.KindId.Equals(kindId), trackChange).SingleOrDefaultAsync();
 
         public void CreateProduct(int kindId, Product product)

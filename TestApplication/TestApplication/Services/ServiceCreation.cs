@@ -1,22 +1,19 @@
-﻿using Entities;
+﻿using ActionDB;
+using Entities;
+using Entities.Models;
+using LoggerService;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using Pact;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
-using System.Configuration;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using LoggerService;
-using Pact;
-using ActionDB;
-using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Entities.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.OpenApi.Models;
 //using Entities.ActionDB;
 
 namespace TestApplication.Services
@@ -66,7 +63,7 @@ namespace TestApplication.Services
             configuration)
         {
             var jwtSettings = configuration.GetSection("JwtSettings");
-           
+
             //var secretKey = Environment.GetEnvironmentVariable("SECRET");
             services.AddAuthentication(opt =>
             {

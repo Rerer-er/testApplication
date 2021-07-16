@@ -1,6 +1,5 @@
 ﻿using Entities.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Reflection;
@@ -34,11 +33,11 @@ namespace ActionDB.Extensions
                 if (string.IsNullOrWhiteSpace(param)) continue;
 
                 var propertyFromQueryName = param.Split(" ")[0];
-                var objectProperty = propertyInfos.FirstOrDefault(pi => 
-                pi.Name.Equals(propertyFromQueryName, 
+                var objectProperty = propertyInfos.FirstOrDefault(pi =>
+                pi.Name.Equals(propertyFromQueryName,
                 StringComparison.InvariantCultureIgnoreCase));
 
-                if (objectProperty == null)continue;
+                if (objectProperty == null) continue;
 
                 var direction = param.EndsWith(" desc") ? "descending" : "ascending";
                 orderQueryBuilder.Append($"{objectProperty.Name.ToString()} {direction}, ");

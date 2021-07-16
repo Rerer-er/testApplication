@@ -1,9 +1,6 @@
 ﻿using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Entities.Configuration
 {
@@ -24,7 +21,7 @@ namespace Entities.Configuration
                     Name = "food2",
                     About = "about food2"
                 }
-                ); 
+                );
         }
     }
 }

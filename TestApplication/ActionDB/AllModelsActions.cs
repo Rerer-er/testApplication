@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using Pact;
+﻿
 using Entities;
-using Entities.Models;
+using Pact;
 using System.Threading.Tasks;
 
 namespace ActionDB

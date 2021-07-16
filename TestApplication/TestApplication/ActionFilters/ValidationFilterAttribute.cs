@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Pact;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace TestApplication.ActionFilters
 {
@@ -15,7 +12,7 @@ namespace TestApplication.ActionFilters
         {
             _logger = logger;
         }
-        public void OnActionExecuting(ActionExecutingContext context) 
+        public void OnActionExecuting(ActionExecutingContext context)
         {
             var action = context.RouteData.Values["action"];
             var controller = context.RouteData.Values["controller"];

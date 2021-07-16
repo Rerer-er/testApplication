@@ -1,10 +1,4 @@
-﻿
-using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Entities.RequestFeatures
+﻿namespace Entities.RequestFeatures
 {
     public class ProductParameters : RequestParameters
     {
@@ -23,5 +17,5 @@ namespace Entities.RequestFeatures
         public bool ValidAgeRange => MaxPrice > MinPrice;
 
     }
-    
+
 }

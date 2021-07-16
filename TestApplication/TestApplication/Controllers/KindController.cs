@@ -2,13 +2,9 @@
 using Entities.Models;
 using Entities.ModelsDto;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Pact;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TestApplication.ActionFilters;
 
@@ -86,9 +82,9 @@ namespace TestApplication.Controllers
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id}")]
         [Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> UpdateKind(int id, [FromBody]UpdateKindDto kindDto)
+        public async Task<IActionResult> UpdateKind(int id, [FromBody] UpdateKindDto kindDto)
         {
-            
+
             var kind = await _modelsActions.Kind.GetKindAsync(id, true);
             if (kind == null)
             {

@@ -1,6 +1,5 @@
 ﻿using Entities.Models;
 using Entities.RequestFeatures;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Pact

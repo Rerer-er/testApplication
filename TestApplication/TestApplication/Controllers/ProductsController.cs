@@ -1,20 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-using Pact;
+﻿using AutoMapper;
 using Entities.Models;
 using Entities.ModelsDto;
-using ActionDB;
-using AutoMapper;
-using Microsoft.AspNetCore.JsonPatch;
 using Entities.RequestFeatures;
-using Newtonsoft.Json;
-using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Pact;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using TestApplication.ActionFilters;
 
 namespace TestApplication.Controllers
@@ -34,7 +28,8 @@ namespace TestApplication.Controllers
 
         //private IMemoryCache _memoryCache;
 
-        public ProductsController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper, ICurrencyConverter currencyConverter) { 
+        public ProductsController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper, ICurrencyConverter currencyConverter)
+        {
 
             _logger = logger;
             _modelsActions = modelsActions;
@@ -49,12 +44,12 @@ namespace TestApplication.Controllers
             _currencyConverter.UpdateCurrency();
             productParameters.MinPrice = _currencyConverter.ConvertToCurrentForFiltr(productParameters.MinPrice, productParameters.Currency);
             productParameters.MaxPrice = _currencyConverter.ConvertToCurrentForFiltr(productParameters.MaxPrice, productParameters.Currency);
-            
+
             var products = await _modelsActions.Product.GetAllProductsAsync(kindId, productParameters, false);
-            
+
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(products.MetaData));
-            
-            foreach(var product in products)
+
+            foreach (var product in products)
             {
                 _currencyConverter.ConvertToCurrent(product, productParameters.Currency);
             }
@@ -63,7 +58,7 @@ namespace TestApplication.Controllers
             return Ok(productsDto);
         }
         [HttpGet("{id}", Name = " ProductById")]
-        public async Task<IActionResult> GetProduct(int kindId,int id, string currency = "rub")
+        public async Task<IActionResult> GetProduct(int kindId, int id, string currency = "rub")
         {
 
             _currencyConverter.UpdateCurrency();
@@ -83,9 +78,9 @@ namespace TestApplication.Controllers
         [HttpPost]
         [Authorize(Roles = "Shipper Administrator")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        public async Task<IActionResult> CreateProduct(int kindId, [FromBody]CreateProductDto productDto)
+        public async Task<IActionResult> CreateProduct(int kindId, [FromBody] CreateProductDto productDto)
         {
-            if(productDto == null)
+            if (productDto == null)
             {
                 _logger.LogError("ProductDto object sent from client is null.");
                 return BadRequest("ProductnDto object is null");
@@ -167,7 +162,7 @@ namespace TestApplication.Controllers
                 _logger.LogInfo($"Company with id: {kindId} doesn't exist in the database.");
                 return NotFound();
             }
-            var product = await  _modelsActions.Product.GetProductAsync(kindId, id, true);
+            var product = await _modelsActions.Product.GetProductAsync(kindId, id, true);
             if (product == null)
             {
                 _logger.LogInfo($"Employee with id: {id} doesn't exist in the database.");
