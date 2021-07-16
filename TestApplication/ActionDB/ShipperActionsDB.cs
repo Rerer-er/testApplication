@@ -10,7 +10,9 @@ namespace ActionDB
     public class ShipperActionsDB : BaseActionDB<Shipper>, IShipperActionsDB
     {
         public ShipperActionsDB(ApplicationContext context) : base(context)
-        {
+        { 
+
+
 
         }
         public async Task<IEnumerable<Shipper>> GetAllShippersAsync(bool trackChange) =>
