@@ -39,6 +39,7 @@ namespace TestApplication
             services.AddScoped<IAuthenticationManager, AuthenticationManager>();
             services.ConfigureSwagger();
             services.ConfigureCurrencyService();
+            services.ConfigureFilters();
             services.AddScoped<ValidationFilterAttribute>();
 
             //services.AddHostedService<CurrencyService>();

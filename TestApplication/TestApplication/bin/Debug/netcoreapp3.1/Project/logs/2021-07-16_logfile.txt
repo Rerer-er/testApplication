@@ -39,3 +39,23 @@
 2021-07-16 12:10:59.2414 ERROR Invalid model state for the object. Controller: Products, action: CreateProduct 
 2021-07-16 12:11:54.9993 ERROR Invalid model state for the object. Controller: Products, action: CreateProduct 
 2021-07-16 12:18:12.4989 ERROR Invalid model state for the object. Controller: Authentication, action: Authenticate 
+2021-07-16 14:15:30.7836 ERROR Invalid model state for the object. Controller: Kind, action: CreateKind 
+2021-07-16 14:15:54.1925 ERROR Object sent from client is null. Controller: Kind, action: CreateKind 
+2021-07-16 14:19:13.2341 ERROR Object sent from client is null. Controller: Kind, action: CreateKind 
+2021-07-16 14:19:35.1836 INFO KindDto is null.
+2021-07-16 14:29:33.5974 ERROR Object sent from client is null. Controller: Kind, action: CreateKind 
+2021-07-16 14:31:16.4863 ERROR Object sent from client is null. Controller: Kind, action: CreateKind 
+2021-07-16 14:31:17.8645 ERROR Object sent from client is null. Controller: Kind, action: CreateKind 
+2021-07-16 14:31:18.4808 ERROR Object sent from client is null. Controller: Kind, action: CreateKind 
+2021-07-16 14:38:33.8744 ERROR Invalid model state for the object. Controller: Kind, action: CreateKind 
+2021-07-16 14:38:33.9018 ERROR Object sent from client is null. Controller: Kind, action: CreateKind 
+2021-07-16 14:38:41.3727 INFO Kind with id: 0 doesn't exist in the database.
+2021-07-16 14:43:24.1374 INFO Object with id: 0 doesn't exist in the database.
+2021-07-16 14:43:43.7046 INFO Object with id: 8 doesn't exist in the database.
+2021-07-16 14:49:47.4353 INFO Object with id: 8 doesn't exist in the database.
+2021-07-16 14:49:50.6432 INFO Object with id: 8 doesn't exist in the database.
+2021-07-16 14:50:17.7781 INFO Object with id: 8 doesn't exist in the database.
+2021-07-16 14:50:18.4945 INFO Object with id: 8 doesn't exist in the database.
+2021-07-16 14:50:18.9675 INFO Object with id: 8 doesn't exist in the database.
+2021-07-16 14:50:19.2769 INFO Object with id: 8 doesn't exist in the database.
+2021-07-16 14:51:18.4224 INFO Object with id: 8 doesn't exist in the database.

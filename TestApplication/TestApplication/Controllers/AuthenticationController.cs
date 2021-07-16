@@ -26,8 +26,6 @@ namespace TestApplication.Controllers
             _authManager = authManager;
         }
 
-
-
         [HttpPost]  
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         //[ServiceFilter(typeof(ValidationFilterAttribute))]

@@ -38,23 +38,17 @@ namespace TestApplication.Controllers
         }
 
         [HttpGet("{id}", Name = "ProductById")]
+        [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         public async Task<IActionResult> GetKinds(int id)
         {
             var kind = await _modelsActions.Kind.GetKindAsync(id, false);
-            if (kind == null)
-            {
-                _logger.LogInfo($"Product with id: {id} doesn't exist in the database.");
-                return NotFound("Product not found");
-            }
-            else
-            {
-                var kindDto = _mapper.Map<ReturnKindDto>(kind);
-                return Ok(kindDto);
-            }
+            
+            var kindDto = _mapper.Map<ReturnKindDto>(kind);
+            return Ok(kindDto);
         }
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public async Task<IActionResult> CreateKind([FromBody] CreateKindDto kindDto)
         {
             var kind = _mapper.Map<Kind>(kindDto);
@@ -70,15 +64,12 @@ namespace TestApplication.Controllers
         public async Task<IActionResult> DeleteKind(int id)
         {
             var kind = await _modelsActions.Kind.GetKindAsync(id, false);
-            if (kind == null)
-            {
-                _logger.LogInfo($"Kind with id: {id} doesn't exist in the database.");
-                return NotFound();
-            }
+
             _modelsActions.Kind.DeleteKind(kind);
             await _modelsActions.SaveAsync();
             return NoContent();
         }
+        [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id}")]
         [Authorize(Roles = "Administrator")]
@@ -86,11 +77,7 @@ namespace TestApplication.Controllers
         {
 
             var kind = await _modelsActions.Kind.GetKindAsync(id, true);
-            if (kind == null)
-            {
-                _logger.LogInfo($"Kind with id: {id} doesn't exist in the database.");
-                return NotFound();
-            }
+            
             _mapper.Map(kindDto, kind);
             await _modelsActions.SaveAsync();
             return NoContent();
