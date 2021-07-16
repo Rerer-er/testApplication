@@ -14,6 +14,10 @@ namespace ActionDB
     {
         public ProductActionsDB(ApplicationContext context) : base(context)
         {
+               
+
+
+
 
         }
         public async Task<PagedList<Product>> GetAllProductsAsync(int kindId, ProductParameters productParameters, bool trackChange)
