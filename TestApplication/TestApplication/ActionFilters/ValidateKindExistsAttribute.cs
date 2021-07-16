@@ -23,7 +23,7 @@ namespace TestApplication.ActionFilters
             var kind = await _modelsActions.Kind.GetKindAsync(id, trackChanges);
             if (kind == null)
             {
-                _logger.LogInfo($"Company with id: {id} doesn't exist in the database.");
+                _logger.LogInfo($"Object with id: {id} doesn't exist in the database.");
                 context.Result = new NotFoundResult();
             }
             else

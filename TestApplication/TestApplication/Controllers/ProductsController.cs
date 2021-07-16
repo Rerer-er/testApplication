@@ -83,7 +83,7 @@ namespace TestApplication.Controllers
             if (productDto == null)
             {
                 _logger.LogError("ProductDto object sent from client is null.");
-                return BadRequest("ProductnDto object is null");
+                return BadRequest("Invalid data");
             }
             if (!ModelState.IsValid)
             {
