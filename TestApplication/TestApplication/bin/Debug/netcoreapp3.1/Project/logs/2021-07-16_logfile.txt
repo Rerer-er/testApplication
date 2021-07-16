@@ -1,0 +1,6 @@
+2021-07-16 10:46:29.8700 INFO Company with id: 13 doesn't exist in the database.
+2021-07-16 10:50:35.3878 ERROR Invalid model state for the object. Controller: Authentication, action: RegisterUser 
+2021-07-16 10:53:53.9331 ERROR Invalid model state for the object. Controller: Authentication, action: RegisterUser 
+2021-07-16 10:55:12.7544 ERROR Invalid model state for the object. Controller: Products, action: CreateProduct 
+2021-07-16 10:55:15.2547 ERROR Invalid model state for the object. Controller: Products, action: CreateProduct 
+2021-07-16 10:55:15.9973 ERROR Invalid model state for the object. Controller: Products, action: CreateProduct 

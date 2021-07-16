@@ -37,14 +37,14 @@ namespace TestApplication.Controllers
             return Ok(kindsDto);
         }
 
-        [HttpGet("{id}", Name = "KindById")]
-        public async Task<IActionResult> GetProduct(int id)
+        [HttpGet("{id}", Name = "ProductById")]
+        public async Task<IActionResult> GetKinds(int id)
         {
             var kind = await _modelsActions.Kind.GetKindAsync(id, false);
             if (kind == null)
             {
-                _logger.LogInfo($"Company with id: {id} doesn't exist in the database.");
-                return NotFound();
+                _logger.LogInfo($"Product with id: {id} doesn't exist in the database.");
+                return NotFound("Product not found");
             }
             else
             {

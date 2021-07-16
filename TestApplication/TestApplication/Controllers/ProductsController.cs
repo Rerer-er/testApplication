@@ -76,7 +76,7 @@ namespace TestApplication.Controllers
             }
         }
         [HttpPost]
-        [Authorize(Roles = "Shipper Administrator")]
+        //[Authorize(Roles = "Shipper Administrator")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateProduct(int kindId, [FromBody] CreateProductDto productDto)
         {
@@ -99,7 +99,7 @@ namespace TestApplication.Controllers
             return Ok(ReturnProduct);
         }
         [HttpDelete("{id}", Name = " ProductById")]
-        [Authorize(Roles = "Shipper Administrator")]
+        //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> DeleteProduct(int kindId, int id)
         {
             var kind = await _modelsActions.Kind.GetKindAsync(kindId, false);
@@ -120,7 +120,7 @@ namespace TestApplication.Controllers
         }
         [HttpPut("{id}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [Authorize(Roles = "Shipper Administrator")]
+        //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> UpdateProduct(int kindId, int id, [FromBody] UpdateProductDto productDto)
         {
             if (productDto == null)
@@ -147,7 +147,7 @@ namespace TestApplication.Controllers
         }
 
         [HttpPatch("{id}")]
-        [Authorize(Roles = "Shipper Administrator")]
+        //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> PartiallyUpdateEmployeeForCompany(int kindId, int id,
             [FromBody] JsonPatchDocument<UpdateProductDto> patchDoc)
         {
