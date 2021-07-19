@@ -31,12 +31,15 @@ namespace TestApplication.ActionFilters
                 _logger.LogInfo($"Kind with id: {kindId} doesn't exist in the database.");
                 context.Result = new NotFoundResult();
             }
-            var id = (int)context.ActionArguments["id"];
-            var product = _modelsActions.Product.GetProduct(kindId, id, trackChanges);
-            if (kind == null)
+            if (context.ActionArguments.Equals("id"))
             {
-                _logger.LogInfo($"Product with id: {kindId} doesn't exist in the database.");
-                context.Result = new NotFoundResult();
+                var id = (int)context.ActionArguments["id"];
+                var product = _modelsActions.Product.GetProduct(kindId, id, trackChanges);
+                if (kind == null)
+                {
+                    _logger.LogInfo($"Product with id: {kindId} doesn't exist in the database.");
+                    context.Result = new NotFoundResult();
+                }
             }
         }
         public void OnActionExecuted(ActionExecutedContext context) { }

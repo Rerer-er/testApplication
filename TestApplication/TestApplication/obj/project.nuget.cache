@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "SYA3ScBNApo35Q+EM+fUmD/XlYPilhbqmj0sop28s6Ez/HPjCE4wTA0LlblAHbmszmBeOTqKA0zbZRNe6Y76tQ==",
+  "dgSpecHash": "n/bySY6dR9Zy3+I2ZPa7xFunAZcrrEOrrs0IoEpHDqXLwKq9lKHdjTqKNMDL0C+QPWCp3CNahGBZg4l+COxMPA==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\TestApplication\\TestApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication.azuread.ui\\3.1.13\\microsoft.aspnetcore.authentication.azuread.ui.3.1.13.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.16\\microsoft.aspnetcore.authentication.jwtbearer.3.1.16.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.13\\microsoft.aspnetcore.authentication.openidconnect.3.1.13.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.7\\microsoft.aspnetcore.cryptography.internal.5.0.7.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.7\\microsoft.aspnetcore.cryptography.keyderivation.5.0.7.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\5.0.7\\microsoft.aspnetcore.identity.entityframeworkcore.5.0.7.nupkg.sha512",

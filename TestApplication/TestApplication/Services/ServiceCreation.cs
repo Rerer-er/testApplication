@@ -139,6 +139,7 @@ namespace TestApplication.Services
         public static void ConfigureFilters(this IServiceCollection services)
         {
             services.AddScoped<ValidateKindExistsAttribute>();
+            services.AddScoped<ValidateProductExistsAttribute>();
             services.AddScoped<ValidationFilterAttribute>();
         }
         public static void ConfigureCurrencyService(this IServiceCollection services) =>

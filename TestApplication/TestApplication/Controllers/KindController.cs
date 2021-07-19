@@ -61,6 +61,7 @@ namespace TestApplication.Controllers
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "Administrator")]
+        [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         public async Task<IActionResult> DeleteKind(int id)
         {
             var kind = await _modelsActions.Kind.GetKindAsync(id, false);

@@ -39,6 +39,7 @@ namespace TestApplication.Controllers
         }
         //[Authorize(Roles = "Manager")]
         [HttpGet]
+        [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         public async Task<IActionResult> GetProducts(int kindId, [FromQuery] ProductParameters productParameters)
         {
             _currencyConverter.UpdateCurrency();
@@ -58,26 +59,20 @@ namespace TestApplication.Controllers
             return Ok(productsDto);
         }
         [HttpGet("{id}", Name = " ProductById")]
+        [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         public async Task<IActionResult> GetProduct(int kindId, int id, string currency = "rub")
         {
-
             _currencyConverter.UpdateCurrency();
             var product = await _modelsActions.Product.GetProductAsync(kindId, id, false);
-            if (product == null)
-            {
-                _logger.LogInfo($"Company with id: {id} doesn't exist in the database.");
-                return NotFound();
-            }
-            else
-            {
-                _currencyConverter.ConvertToCurrent(product, currency);
-                var productDto = _mapper.Map<ReturnProductDto>(product);
-                return Ok(productDto);
-            }
+            
+            _currencyConverter.ConvertToCurrent(product, currency);
+            var productDto = _mapper.Map<ReturnProductDto>(product);
+            return Ok(productDto);
         }
         [HttpPost]
         //[Authorize(Roles = "Shipper Administrator")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         public async Task<IActionResult> CreateProduct(int kindId, [FromBody] CreateProductDto productDto)
         {
             if (productDto == null)
@@ -99,6 +94,8 @@ namespace TestApplication.Controllers
             return Ok(ReturnProduct);
         }
         [HttpDelete("{id}", Name = " ProductById")]
+        [ServiceFilter(typeof(ValidateKindExistsAttribute))]
+
         //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> DeleteProduct(int kindId, int id)
         {
@@ -119,6 +116,7 @@ namespace TestApplication.Controllers
             return NoContent();
         }
         [HttpPut("{id}")]
+        [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> UpdateProduct(int kindId, int id, [FromBody] UpdateProductDto productDto)
@@ -147,6 +145,7 @@ namespace TestApplication.Controllers
         }
 
         [HttpPatch("{id}")]
+        [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> PartiallyUpdateEmployeeForCompany(int kindId, int id,
             [FromBody] JsonPatchDocument<UpdateProductDto> patchDoc)
