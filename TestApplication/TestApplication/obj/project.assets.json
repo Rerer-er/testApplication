@@ -6961,11 +6961,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\TestApplication\\TestApplication.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\TestApplication\\TestApplication.csproj",
       "projectName": "TestApplication",
-      "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\TestApplication\\TestApplication.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\TestApplication\\TestApplication.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\TestApplication\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\TestApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6982,17 +6982,17 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj"
+            "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj"
             },
-            "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Entities\\Entities.csproj"
+            "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Entities\\Entities.csproj"
             },
-            "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj"
+            "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj"
             },
-            "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Pact\\Pact.csproj"
+            "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Pact\\Pact.csproj"
             }
           }
         }
