@@ -6610,11 +6610,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Pact\\Pact.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Pact\\Pact.csproj",
       "projectName": "Pact",
-      "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Pact\\Pact.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Pact\\Pact.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Pact\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Pact\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6631,8 +6631,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Entities\\Entities.csproj"
+            "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Entities\\Entities.csproj"
             }
           }
         }

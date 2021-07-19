@@ -40,3 +40,17 @@ C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\LoggerServ
 C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.csproj.CopyComplete
 C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.dll
 C:\Users\user\GitHub\testApplication1\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.pdb
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\LoggerService.deps.json
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\LoggerService.dll
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\LoggerService.pdb
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\Pact.dll
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\Pact.pdb
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.AssemblyInfo.cs
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.csproj.CopyComplete
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.dll
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\LoggerService\obj\Debug\netcoreapp3.1\LoggerService.pdb

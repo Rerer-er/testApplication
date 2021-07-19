@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ExceptionFilters\**" />
+    <Content Remove="ExceptionFilters\**" />
+    <EmbeddedResource Remove="ExceptionFilters\**" />
+    <None Remove="ExceptionFilters\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.16" />
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="5.0.7" />
@@ -25,10 +32,6 @@
     <ProjectReference Include="..\Entities\Entities.csproj" />
     <ProjectReference Include="..\LoggerService\LoggerService.csproj" />
     <ProjectReference Include="..\Pact\Pact.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ExceptionFilters\" />
   </ItemGroup>
 
 

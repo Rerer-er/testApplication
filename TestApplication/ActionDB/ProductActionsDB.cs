@@ -32,6 +32,9 @@ namespace ActionDB
         public async Task<Product> GetProductAsync(int kindId, int productId, bool trackChange) =>
             await ReturnDistinct(c => c.ProductId.Equals(productId) && c.KindId.Equals(kindId), trackChange).SingleOrDefaultAsync();
 
+        public Product GetProduct(int kindId, int productId, bool trackChange) =>
+           ReturnDistinct(c => c.ProductId.Equals(productId) && c.KindId.Equals(kindId), trackChange).SingleOrDefault();
+
         public void CreateProduct(int kindId, Product product)
         {
             product.KindId = kindId;

@@ -6675,11 +6675,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj",
       "projectName": "ActionDB",
-      "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\ActionDB\\ActionDB.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\ActionDB\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\ActionDB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6696,11 +6696,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Entities\\Entities.csproj"
+            "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Entities\\Entities.csproj"
             },
-            "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Pact\\Pact.csproj"
+            "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Pact\\Pact.csproj"
             }
           }
         }

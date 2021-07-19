@@ -16,6 +16,7 @@ namespace ActionDB
         public async Task<IEnumerable<Kind>> GetAllKindsAsync(bool trackChange) => await ReturnAll(trackChange).ToListAsync();
         public async Task<Kind> GetKindAsync(int kindId, bool trackChange) => await ReturnDistinct(c => c.KindId.Equals(kindId), trackChange).SingleOrDefaultAsync();
 
+        public Kind GetKind(int kindId, bool trackChange) => ReturnDistinct(c => c.KindId.Equals(kindId), trackChange).SingleOrDefault();
         public void CreateKind(Kind kind)
         {
             Create(kind);

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Entities\\Entities.csproj": {}
+    "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
+    "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",

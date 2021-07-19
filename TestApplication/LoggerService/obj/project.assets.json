@@ -6710,11 +6710,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj",
       "projectName": "LoggerService",
-      "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\LoggerService\\LoggerService.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\LoggerService\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\LoggerService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6731,8 +6731,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
-              "projectPath": "C:\\Users\\user\\GitHub\\testApplication1\\testApplication\\TestApplication\\Pact\\Pact.csproj"
+            "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Pact\\Pact.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\Новая папка\\testApplication\\TestApplication\\Pact\\Pact.csproj"
             }
           }
         }

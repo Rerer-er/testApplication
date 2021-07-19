@@ -8,6 +8,7 @@ namespace Pact
     {
         public Task<IEnumerable<Kind>> GetAllKindsAsync(bool trackChange);
         public Task<Kind> GetKindAsync(int kindId, bool trackChange);
+        public Kind GetKind(int kindId, bool trackChange);
         void CreateKind(Kind kind);
         void DeleteKind(Kind kind);
     }
