@@ -10,6 +10,8 @@ using TestApplication.ActionFilters;
 
 namespace TestApplication.Controllers
 {
+
+    // todo: Add ValidateShipper
     [Route("api/shipper")]
     [ApiController]
     public class ShipperController : ControllerBase
@@ -27,6 +29,7 @@ namespace TestApplication.Controllers
             _mapper = mapper;
         }
         [HttpGet]
+        [ServiceFilter(typeof(ValidateShipperExistsAttribute))]
         public async Task<IActionResult> GetShippers()
         {
             var shippers = await _modelsActions.Shipper.GetAllShippersAsync(false);
@@ -34,19 +37,16 @@ namespace TestApplication.Controllers
             return Ok(shipperDto);
         }
         [HttpGet("{id}", Name = "ShipperById")]
+        [ServiceFilter(typeof(ValidateShipperExistsAttribute))] 
         public async Task<IActionResult> GetShippers(int id)
         {
             var shipper = await _modelsActions.Shipper.GetShipperAsync(id, false);
-            if (shipper == null)
-            {
-                _logger.LogInfo($"Company with id: {id} doesn't exist in the database.");
-                return NotFound();
-            }
-            else
-            {
-                var shipperDto = _mapper.Map<ReturnShipperDto>(shipper);
-                return Ok(shipperDto);
-            }
+              
+
+
+
+            var shipperDto = _mapper.Map<ReturnShipperDto>(shipper);
+            return Ok(shipperDto);
         }
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]

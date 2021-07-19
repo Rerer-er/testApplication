@@ -3,6 +3,7 @@ using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Pact;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ActionDB
@@ -20,6 +21,8 @@ namespace ActionDB
         public async Task<Shipper> GetShipperAsync(int shipperId, bool trackChange) =>
             await ReturnDistinct(c => c.ShipperId.Equals(shipperId), trackChange).SingleOrDefaultAsync();
 
+        public Shipper GetShipper(int shipperId, bool trackChange) =>
+            ReturnDistinct(c => c.ShipperId.Equals(shipperId), trackChange).SingleOrDefault();
         public void CreateShipper(Shipper shipper)
         {
             //shipper.ShipperId = shipperId;

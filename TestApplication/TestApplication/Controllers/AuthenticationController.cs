@@ -46,7 +46,6 @@ namespace TestApplication.Controllers
         }
         [HttpPost("login")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        //[ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> Authenticate([FromBody] UserForAuthenticationDto user)
         {
             if (!await _authManager.ValidateUser(user))

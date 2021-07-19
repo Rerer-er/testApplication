@@ -21,6 +21,7 @@ namespace TestApplication.Services
 {
     public static class ServiceCreation
     {
+        //todo: clear serviceCreation
         public static void ConfigureCors(this IServiceCollection services) =>
             services.AddCors(options =>
             {
@@ -140,6 +141,7 @@ namespace TestApplication.Services
         {
             services.AddScoped<ValidateKindExistsAttribute>();
             services.AddScoped<ValidateProductExistsAttribute>();
+            services.AddScoped<ValidateShipperExistsAttribute>();
             services.AddScoped<ValidationFilterAttribute>();
         }
         public static void ConfigureCurrencyService(this IServiceCollection services) =>

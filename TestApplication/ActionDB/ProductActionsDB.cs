@@ -14,12 +14,8 @@ namespace ActionDB
     {
         public ProductActionsDB(ApplicationContext context) : base(context)
         {
-               
-
-
-
-
         }
+        // todo: maybe, maybe there is an error in this code(check all classes)(0 => 3500)
         public async Task<PagedList<Product>> GetAllProductsAsync(int kindId, ProductParameters productParameters, bool trackChange)
         {
             var products = await ReturnDistinct(e => (e.KindId.Equals(kindId)), trackChange)

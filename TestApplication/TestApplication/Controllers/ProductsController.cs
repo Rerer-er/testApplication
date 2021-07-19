@@ -99,18 +99,8 @@ namespace TestApplication.Controllers
         //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> DeleteProduct(int kindId, int id)
         {
-            var kind = await _modelsActions.Kind.GetKindAsync(kindId, false);
-            if (kind == null)
-            {
-                _logger.LogInfo($"Kind with id: {id} doesn't exist in the database.");
-                return NotFound();
-            }
             var product = await _modelsActions.Product.GetProductAsync(kindId, id, false);
-            if (product == null)
-            {
-                _logger.LogInfo($"Product with id: {id} doesn't exist in the database.");
-                return NotFound();
-            }
+            
             _modelsActions.Product.DeleteProduct(product);
             await _modelsActions.SaveAsync();
             return NoContent();
@@ -121,24 +111,7 @@ namespace TestApplication.Controllers
         //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> UpdateProduct(int kindId, int id, [FromBody] UpdateProductDto productDto)
         {
-            if (productDto == null)
-            {
-                _logger.LogError("UpdateProductDto object sent from client is null.");
-                return BadRequest("UpdateProductDto object is null");
-            }
-            var kind = await _modelsActions.Kind.GetKindAsync(kindId, false); ;
-            if (kind == null)
-            {
-                _logger.LogInfo($"Kind with id: {id} doesn't exist in the database.");
-                return NotFound();
-            }
-
             var product = await _modelsActions.Product.GetProductAsync(kindId, id, true);
-            if (product == null)
-            {
-                _logger.LogInfo($"Product with id: {id} doesn't exist in the database.");
-                return NotFound();
-            }
             _mapper.Map(productDto, product);
             await _modelsActions.SaveAsync();
             return NoContent();
@@ -156,17 +129,9 @@ namespace TestApplication.Controllers
                 return BadRequest("patchDoc object is null");
             }
             var kind = await _modelsActions.Kind.GetKindAsync(kindId, false);
-            if (kind == null)
-            {
-                _logger.LogInfo($"Company with id: {kindId} doesn't exist in the database.");
-                return NotFound();
-            }
+            
             var product = await _modelsActions.Product.GetProductAsync(kindId, id, true);
-            if (product == null)
-            {
-                _logger.LogInfo($"Employee with id: {id} doesn't exist in the database.");
-                return NotFound();
-            }
+            
             var productToPatch = _mapper.Map<UpdateProductDto>(product);
             patchDoc.ApplyTo(productToPatch);
             _mapper.Map(productToPatch, product);
