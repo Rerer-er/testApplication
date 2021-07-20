@@ -28,7 +28,7 @@ namespace TestApplication.Controllers
             _mapper = mapper;
 
         }
-       
+        
         //[HttpGet(Name = "GetKinds"), Authorize]
         [HttpGet]
         public async Task<IActionResult> GetKinds()
