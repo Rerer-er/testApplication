@@ -14,7 +14,7 @@ using TestApplication.ActionFilters;
 namespace TestApplication.Controllers
 {
     //[Route("api/companies/{companyId}/employees")]
-    [Route("api/kinds/{KindId}/products")]
+    [Route("api/kinds/{kindId}/products")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
