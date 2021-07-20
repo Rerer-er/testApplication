@@ -37,7 +37,10 @@ namespace TestApplication.Controllers
             _currencyConverter = currencyConverter;
 
         }
-        //[Authorize(Roles = "Manager")]
+
+        // <summary>
+        /// Gets the list of all products
+        /// <summary>
         [HttpGet]
         [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         public async Task<IActionResult> GetProducts(int kindId, [FromQuery] ProductParameters productParameters)
@@ -58,6 +61,10 @@ namespace TestApplication.Controllers
             var productsDto = _mapper.Map<IEnumerable<ReturnProductDto>>(products);
             return Ok(productsDto);
         }
+
+        /// <summary>
+        /// Get a product by id
+        /// </summary>
         [HttpGet("{id}", Name = " ProductById")]
         [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         public async Task<IActionResult> GetProduct(int kindId, int id, string currency = "rub")
@@ -69,10 +76,14 @@ namespace TestApplication.Controllers
             var productDto = _mapper.Map<ReturnProductDto>(product);
             return Ok(productDto);
         }
+
+        /// <summary>
+        /// Creating a product
+        /// </summary>
         [HttpPost]
-        //[Authorize(Roles = "Shipper Administrator")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [ServiceFilter(typeof(ValidateProductExistsAttribute))]
+        //[ServiceFilter(typeof(ValidateProductExistsAttribute))]
+        //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> CreateProduct(int kindId, [FromBody] CreateProductDto productDto)
         {
             if (productDto == null)
@@ -93,9 +104,12 @@ namespace TestApplication.Controllers
             var ReturnProduct = _mapper.Map<ReturnProductDto>(product);
             return Ok(ReturnProduct);
         }
-        [HttpDelete("{id}", Name = " ProductById")]
-        [ServiceFilter(typeof(ValidateKindExistsAttribute))]
 
+        /// <summary>
+        /// Deleting a product
+        /// </summary>
+        [HttpDelete("{id}", Name = " ProductById")]
+        [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> DeleteProduct(int kindId, int id)
         {
@@ -105,8 +119,12 @@ namespace TestApplication.Controllers
             await _modelsActions.SaveAsync();
             return NoContent();
         }
+
+        /// <summary>
+        /// Updating a product
+        /// </summary>
         [HttpPut("{id}")]
-        [ServiceFilter(typeof(ValidateKindExistsAttribute))]
+        [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> UpdateProduct(int kindId, int id, [FromBody] UpdateProductDto productDto)
@@ -117,10 +135,13 @@ namespace TestApplication.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Updating a product
+        /// </summary>
         [HttpPatch("{id}")]
-        [ServiceFilter(typeof(ValidateKindExistsAttribute))]
+        [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         //[Authorize(Roles = "Shipper Administrator")]
-        public async Task<IActionResult> PartiallyUpdateEmployeeForCompany(int kindId, int id,
+        public async Task<IActionResult> PatchProduct(int kindId, int id,
             [FromBody] JsonPatchDocument<UpdateProductDto> patchDoc)
         {
             if (patchDoc == null)
