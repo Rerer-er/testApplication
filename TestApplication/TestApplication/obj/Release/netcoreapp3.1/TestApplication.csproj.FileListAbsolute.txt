@@ -121,3 +121,4 @@ C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\Test
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\obj\Release\netcoreapp3.1\TestApplication.dll
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\obj\Release\netcoreapp3.1\TestApplication.pdb
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\obj\Release\netcoreapp3.1\TestApplication.genruntimeconfig.cache
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\bin\Release\netcoreapp3.1\TestApplication.xml

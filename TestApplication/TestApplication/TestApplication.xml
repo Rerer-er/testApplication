@@ -29,6 +29,11 @@
             Updating a kind
             </summary>
         </member>
+        <member name="M:TestApplication.Controllers.KindV2Controller.GetKinds">
+            <summary>
+            Gets the list of all kinds
+            </summary>
+        </member>
         <!-- Badly formed XML comment ignored for member "M:TestApplication.Controllers.ProductsController.GetProducts(System.Int32,Entities.RequestFeatures.ProductParameters)" -->
         <member name="M:TestApplication.Controllers.ProductsController.GetProduct(System.Int32,System.Int32,System.String)">
             <summary>

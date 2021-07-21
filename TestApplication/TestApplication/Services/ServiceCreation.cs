@@ -5,6 +5,7 @@ using LoggerService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -90,6 +91,16 @@ namespace TestApplication.Services
             });
         }
 
+        public static void ConfigureVersioning(this IServiceCollection services)
+        {
+            services.AddApiVersioning(opt =>
+            {
+                opt.ReportApiVersions = true;
+                opt.AssumeDefaultVersionWhenUnspecified = true;
+                opt.DefaultApiVersion = new ApiVersion(1, 0);
+            });
+        }
+
 
         public static void ConfigureSwagger(this IServiceCollection services)
         {
@@ -99,6 +110,12 @@ namespace TestApplication.Services
                 {
                     Title = "Code Maze API",
                     Version = "v1",
+                });
+
+                s.SwaggerDoc("v2", new OpenApiInfo
+                {
+                    Title = "Code Maze API",
+                    Version = "v2",
                 });
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);

@@ -4,7 +4,7 @@
     <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
     <ActiveDebugProfile>TestApplication</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\Properties\PublishProfiles\TestApplication20210720114010 - Zip Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\Properties\PublishProfiles\Rerer-erWeb - Zip Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

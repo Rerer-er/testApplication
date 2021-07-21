@@ -10,6 +10,7 @@ using TestApplication.ActionFilters;
 
 namespace TestApplication.Controllers
 {
+    [ApiVersion("1.0")]
     [Route("api/kinds")]
     [ApiController]
     [ApiExplorerSettings(GroupName = "v1")]

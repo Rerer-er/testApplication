@@ -41,6 +41,7 @@ namespace TestApplication
             services.ConfigureCurrencyService();
             services.ConfigureFilters();
             services.AddScoped<ValidationFilterAttribute>();
+            services.ConfigureVersioning();
 
             //services.AddHostedService<CurrencyService>();
             //services.AddMemoryCache();
@@ -73,6 +74,7 @@ namespace TestApplication
             app.UseSwaggerUI(s =>
             {
                 s.SwaggerEndpoint("/swagger/v1/swagger.json", "Code Maze API v1");
+                s.SwaggerEndpoint("/swagger/v2/swagger.json", "Code Maze API v2");
             });
 
 
