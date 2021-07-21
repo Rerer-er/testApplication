@@ -32,8 +32,7 @@ namespace TestApplication.Controllers
         // <summary>
         /// Gets the list of all shippers
         /// <summary>
-        [HttpGet]
-        [ServiceFilter(typeof(ValidateShipperExistsAttribute))]
+        [HttpGet]  
         public async Task<IActionResult> GetShippers()
         {
             var shippers = await _modelsActions.Shipper.GetAllShippersAsync(false);
