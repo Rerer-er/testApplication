@@ -473,3 +473,4 @@ C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\Test
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.AzureAD.UI.Views.dll
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.AzureAD.UI.dll
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\bin\Debug\netcoreapp3.1\TestApplication.xml

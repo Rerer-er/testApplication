@@ -13,6 +13,8 @@ using Microsoft.OpenApi.Models;
 using Pact;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Text;
 using TestApplication.ActionFilters;
 //using Entities.ActionDB;
@@ -97,20 +99,11 @@ namespace TestApplication.Services
                 {
                     Title = "Code Maze API",
                     Version = "v1",
-                    Description = "TestApi API by CodeMaze",
-                    TermsOfService = new Uri("https://example.com/terms"),
-                    Contact = new OpenApiContact
-                    {
-                        Name = "John Doe",
-                        Email = "John.Doe@gmail.com",
-                        Url = new Uri("https://twitter.com/johndoe"),
-                    },
-                    License = new OpenApiLicense
-                    {
-                        Name = "CompanyEmployees API LICX",
-                        Url = new Uri("https://example.com/license"),
-                    }
                 });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                s.IncludeXmlComments(xmlPath);
+
                 s.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     In = ParameterLocation.Header,

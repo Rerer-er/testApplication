@@ -28,6 +28,10 @@ namespace TestApplication.Controllers
             _modelsActions = modelsActions;
             _mapper = mapper;
         }
+
+        // <summary>
+        /// Gets the list of all shippers
+        /// <summary>
         [HttpGet]
         [ServiceFilter(typeof(ValidateShipperExistsAttribute))]
         public async Task<IActionResult> GetShippers()
@@ -36,18 +40,23 @@ namespace TestApplication.Controllers
             var shipperDto = _mapper.Map<IEnumerable<ReturnShipperDto>>(shippers);
             return Ok(shipperDto);
         }
+
+        /// <summary>
+        /// Get a shipper by id
+        /// </summary>
         [HttpGet("{id}", Name = "ShipperById")]
         [ServiceFilter(typeof(ValidateShipperExistsAttribute))] 
         public async Task<IActionResult> GetShippers(int id)
         {
             var shipper = await _modelsActions.Shipper.GetShipperAsync(id, false);
-              
-
-
-
+            
             var shipperDto = _mapper.Map<ReturnShipperDto>(shipper);
             return Ok(shipperDto);
         }
+
+        /// <summary>
+        /// Creating a shipper
+        /// </summary>
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [Authorize(Roles = "Administrator")]
@@ -71,6 +80,9 @@ namespace TestApplication.Controllers
             return Ok(returnKind);
         }
 
+        /// <summary>
+        /// Deleting a product
+        /// </summary>
         [HttpDelete("{id}")]
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteShipper(int id)
@@ -85,12 +97,15 @@ namespace TestApplication.Controllers
             await _modelsActions.SaveAsync();
             return NoContent();
         }
+
+        /// <summary>
+        /// Updating a product
+        /// </summary>
         [HttpPut("{id}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> UpdateShipper(int id, [FromBody] UpdateShipperDto shipperDto)
         {
-
             ///sdgffdsg
             if (shipperDto == null)
             {

@@ -31,8 +31,8 @@ namespace TestApplication.ActionFilters
                 _logger.LogInfo($"Kind with id: {kindId} doesn't exist in the database.");
                 context.Result = new NotFoundResult();
             }
-            if (context.ActionArguments.Equals("id"))
-            {
+            //todo: change validation product controller 
+            if (context.ActionArguments.ContainsKey("id")) { }
                 var id = (int)context.ActionArguments["id"];
                 var product = _modelsActions.Product.GetProduct(kindId, id, trackChanges);
                 if (kind == null)
@@ -40,7 +40,7 @@ namespace TestApplication.ActionFilters
                     _logger.LogInfo($"Product with id: {kindId} doesn't exist in the database.");
                     context.Result = new NotFoundResult();
                 }
-            }
+            
         }
         public void OnActionExecuted(ActionExecutedContext context) { }
     }

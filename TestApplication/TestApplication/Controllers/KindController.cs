@@ -28,7 +28,10 @@ namespace TestApplication.Controllers
             _mapper = mapper;
 
         }
-        
+
+        /// <summary>
+        /// Gets the list of all kinds
+        /// </summary>
         //[HttpGet(Name = "GetKinds"), Authorize]
         [HttpGet]
         public async Task<IActionResult> GetKinds()
@@ -38,15 +41,22 @@ namespace TestApplication.Controllers
             return Ok(kindsDto);
         }
 
+        /// <summary>
+        /// Get a kind by id
+        /// </summary>
         [HttpGet("{id}", Name = "ProductById")]
         [ServiceFilter(typeof(ValidateKindExistsAttribute))]
-        public async Task<IActionResult> GetKinds(int id)
+        public async Task<IActionResult> GetKind(int id)
         {
             var kind = await _modelsActions.Kind.GetKindAsync(id, false);
             
             var kindDto = _mapper.Map<ReturnKindDto>(kind);
             return Ok(kindDto);
         }
+
+        /// <summary>
+        /// Creating a kind
+        /// </summary>
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         //[Authorize(Roles = "Administrator")]
@@ -60,6 +70,9 @@ namespace TestApplication.Controllers
             return Ok(returnKind);
         }
 
+        /// <summary>
+        /// Deleting a kind
+        /// </summary>
         [HttpDelete("{id}")]
         [Authorize(Roles = "Administrator")]
         [ServiceFilter(typeof(ValidateKindExistsAttribute))]
@@ -71,6 +84,10 @@ namespace TestApplication.Controllers
             await _modelsActions.SaveAsync();
             return NoContent();
         }
+
+        /// <summary>
+        /// Updating a kind
+        /// </summary>
         [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id}")]
