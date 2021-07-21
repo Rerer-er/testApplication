@@ -17,6 +17,7 @@ C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\Test
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.AspNetCore.Mvc.Versioning.dll
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Data.SqlClient.dll
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 C:\Users\user\Desktop\Новая папка\testApplication\TestApplication\TestApplication\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll

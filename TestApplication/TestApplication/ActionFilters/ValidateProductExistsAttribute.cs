@@ -32,14 +32,16 @@ namespace TestApplication.ActionFilters
                 context.Result = new NotFoundResult();
             }
             //todo: change validation product controller 
-            if (context.ActionArguments.ContainsKey("id")) { }
+            if (context.ActionArguments.ContainsKey("id"))
+            {
                 var id = (int)context.ActionArguments["id"];
                 var product = _modelsActions.Product.GetProduct(kindId, id, trackChanges);
-                if (kind == null)
+                if (product == null)
                 {
                     _logger.LogInfo($"Product with id: {kindId} doesn't exist in the database.");
                     context.Result = new NotFoundResult();
                 }
+            }
             
         }
         public void OnActionExecuted(ActionExecutedContext context) { }
