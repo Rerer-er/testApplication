@@ -55,5 +55,26 @@
             Updating a product
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:TestApplication.Controllers.ShipperController.GetShippers" -->
+        <member name="M:TestApplication.Controllers.ShipperController.GetShippers(System.Int32)">
+            <summary>
+            Get a shipper by id
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ShipperController.CreateShipper(Entities.ModelsDto.CreateShipperDto)">
+            <summary>
+            Creating a shipper
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ShipperController.DeleteShipper(System.Int32)">
+            <summary>
+            Deleting a product
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ShipperController.UpdateShipper(System.Int32,Entities.ModelsDto.UpdateShipperDto)">
+            <summary>
+            Updating a product
+            </summary>
+        </member>
     </members>
 </doc>
