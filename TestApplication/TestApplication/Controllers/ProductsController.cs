@@ -82,7 +82,7 @@ namespace TestApplication.Controllers
         /// </summary>
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        //[ServiceFilter(typeof(ValidateProductExistsAttribute))]
+        [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> CreateProduct(int kindId, [FromBody] CreateProductDto productDto)
         {
@@ -90,11 +90,6 @@ namespace TestApplication.Controllers
             {
                 _logger.LogError("ProductDto object sent from client is null.");
                 return BadRequest("Invalid data");
-            }
-            if (!ModelState.IsValid)
-            {
-                _logger.LogError("Invalid model state for the EmployeeForCreationDto object");
-                return UnprocessableEntity(ModelState);
             }
             var product = _mapper.Map<Product>(productDto);
             product.ShipperId = 1;

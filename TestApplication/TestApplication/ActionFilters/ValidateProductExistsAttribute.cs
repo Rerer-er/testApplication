@@ -31,7 +31,7 @@ namespace TestApplication.ActionFilters
                 _logger.LogInfo($"Kind with id: {kindId} doesn't exist in the database.");
                 context.Result = new NotFoundResult();
             }
-            //todo: change validation product controller 
+            
             if (context.ActionArguments.ContainsKey("id"))
             {
                 var id = (int)context.ActionArguments["id"];
