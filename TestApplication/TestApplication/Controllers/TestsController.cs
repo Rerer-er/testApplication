@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestApplication.Controllers
 {
-    [Route("api/values")]
+    [Route("test")]
     [ApiController]
     public class TestsController : ControllerBase
     {

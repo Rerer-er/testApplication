@@ -12,7 +12,7 @@ namespace TestApplication.Controllers
 {
 
     // todo: Add ValidateShipper
-    [Route("api/shipper")]
+    [Route("shipper")]
     [ApiController]
     public class ShipperController : ControllerBase
     {
