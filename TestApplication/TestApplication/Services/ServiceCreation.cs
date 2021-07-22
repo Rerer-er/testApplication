@@ -108,13 +108,13 @@ namespace TestApplication.Services
             {
                 s.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "Code Maze API",
+                    Title = "Rerer-er Web Api",
                     Version = "v1",
                 });
 
                 s.SwaggerDoc("v2", new OpenApiInfo
                 {
-                    Title = "Code Maze API",
+                    Title = "Rerer-er Web Api",
                     Version = "v2",
                 });
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
