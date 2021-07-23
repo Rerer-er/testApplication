@@ -16,8 +16,11 @@ jobs:
           DOCKER_USER: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}   
           DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} 
         run: |
-          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+          docker login -u rere1111 -p keyskeys1
       - name: docker build
         run: |
           docker build ./TestApplication -t rere1111/webapiproduct:latest
+      - name: docker build
+        run: |
+          docker push rere1111/webapiproduct:latest
         
