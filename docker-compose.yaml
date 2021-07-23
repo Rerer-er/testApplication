@@ -1,12 +1,12 @@
 version: "3.4"
 services:
-  csharp: #docker run -it -v ${PWD}:/TestApplication -w /TestApplication -p rere1111/webapiproduct:latest /bin/sh
+  csharp: #docker run -it -v ${PWD}:/TestApplication -w /TestApplication -p 5001:5000 rere1111/webapiproduct:latest /bin/sh
     container_name: csharp
     image: rere1111/webapiproduct:latest
     build:
       context: ./TestApplication
       target: debug
     volumes:
-    - ./TestApplication/:/TestApplication/
+    - ./TestApplication/TestApplication/:/TestApplication/
     ports:
       - 5001:5000
