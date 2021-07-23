@@ -4,7 +4,7 @@ services:
     container_name: csharp
     image: rere1111/webapiproduct:latest
     build:
-      context: ./TestApplication
+      context: .
       target: debug
     volumes:
     - ./TestApplication/TestApplication/:/TestApplication/
