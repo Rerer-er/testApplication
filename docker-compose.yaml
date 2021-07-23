@@ -7,6 +7,6 @@ services:
       context: ./testApplication
       target: debug
     volumes:
-    - ./TestApplication/:/TestApplication/
+    - ./TestApplication/TestApplication/:/TestApplication/
     ports:
       - 5001:5000
