@@ -15,5 +15,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: docker build
         run: |
-          docker build ./TestApplication -t aimvector/csharp:1.0.0
+          docker build ./TestApplication -t rere1111/webapiproduct:latest
         
