@@ -35,6 +35,7 @@ namespace TestApplication.Controllers
         /// </summary>
         //[HttpGet(Name = "GetKinds"), Authorize]
         [HttpGet]
+        //[Authorize]
         public async Task<IActionResult> GetKinds()
         {
             var kinds = await _modelsActions.Kind.GetAllKindsAsync(false);
@@ -75,7 +76,7 @@ namespace TestApplication.Controllers
         /// Deleting a kind
         /// </summary>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         public async Task<IActionResult> DeleteKind(int id)
         {
@@ -92,7 +93,7 @@ namespace TestApplication.Controllers
         [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id}")]
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public async Task<IActionResult> UpdateKind(int id, [FromBody] UpdateKindDto kindDto)
         {
 

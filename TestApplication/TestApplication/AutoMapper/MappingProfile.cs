@@ -10,6 +10,7 @@ namespace TestApplication.AutoMapper
         public MappingProfile()
         {
             CreateMap<Product, ReturnProductDto>();
+            CreateMap<UserForRegistrationDto, UserForAuthenticationDto>();
             CreateMap<CreateProductDto, Product>();
             CreateMap<UpdateProductDto, Product>().ReverseMap();
 

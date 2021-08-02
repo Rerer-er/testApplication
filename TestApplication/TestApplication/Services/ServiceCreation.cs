@@ -117,6 +117,7 @@ namespace TestApplication.Services
                     Title = "Rerer-er Web Api",
                     Version = "v2",
                 });
+
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 s.IncludeXmlComments(xmlPath);

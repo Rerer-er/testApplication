@@ -27,10 +27,11 @@ namespace TestApplication.Controllers
         }
 
         [HttpPost]  
-        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        //[ServiceFilter(typeof(ValidationFilterAttribute))]
         //[ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
         {
+            _logger.LogInfo(userForRegistration.Password);
             var user = _mapper.Map<User>(userForRegistration);
             var result = await _userManager.CreateAsync(user, userForRegistration.Password);
             if (!result.Succeeded)
@@ -42,10 +43,17 @@ namespace TestApplication.Controllers
                 return BadRequest(ModelState);
             }
             await _userManager.AddToRolesAsync(user, userForRegistration.Roles);
-            return StatusCode(201);
+            var userAuth = _mapper.Map<UserForAuthenticationDto>(userForRegistration);
+            if (!await _authManager.ValidateUser(userAuth))
+            {
+                _logger.LogWarn($"{nameof(RegisterUser)}: Authentication failed. Wrong user name or password.");
+                return Unauthorized();
+            }
+            return Ok(new { Token = await _authManager.CreateToken() });
+            //return StatusCode(201);
         }
         [HttpPost("login")]
-        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        //[ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> Authenticate([FromBody] UserForAuthenticationDto user)
         {
             if (!await _authManager.ValidateUser(user))
