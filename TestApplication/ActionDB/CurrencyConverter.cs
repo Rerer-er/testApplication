@@ -18,6 +18,7 @@ namespace ActionDB
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
             XDocument xml = XDocument.Load("http://www.cbr.ru/scripts/XML_daily.asp");
             Currency = new Dictionary<string, decimal>();
             Currency.Add("rub", 1);

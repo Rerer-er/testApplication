@@ -59,7 +59,11 @@ namespace TestApplication.Controllers
             }
 
             var productsDto = _mapper.Map<IEnumerable<ReturnProductDto>>(products);
-            return Ok(productsDto);
+            ReturnProductAndCountDto retProducts = new ReturnProductAndCountDto();
+            retProducts.ProductsDto = productsDto;
+            retProducts.CountPage = products.MetaData.TotalPages;
+            retProducts.CurrentPage = products.MetaData.CurrentPage;
+            return Ok(retProducts);
         }
 
         /// <summary>
