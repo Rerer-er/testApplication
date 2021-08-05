@@ -5,6 +5,8 @@ using Pact;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entities.RequestFeatures;
+using ActionDB.Extensions;
 
 namespace ActionDB
 {
@@ -14,7 +16,14 @@ namespace ActionDB
         {
 
         }
-        public async Task<IEnumerable<Kind>> GetAllKindsAsync(bool trackChange) => await ReturnAll(trackChange).ToListAsync();
+
+        public async Task<PagedList<Kind>> GetAllKindsAsync(KindParameters kindParameters, bool trackChange)
+        {
+            var kinds = await ReturnAll(trackChange).Search(kindParameters.SearchTerm).ToListAsync();   
+            return PagedList<Kind>.ToPagedList(kinds, kindParameters.PageNumber, kindParameters.PageSize);
+
+        }
+            //=> await ReturnAll(trackChange).ToListAsync();
         public async Task<Kind> GetKindAsync(int kindId, bool trackChange) => await ReturnDistinct(c => c.KindId.Equals(kindId), trackChange).SingleOrDefaultAsync();
 
         public Kind GetKind(int kindId, bool trackChange) => ReturnDistinct(c => c.KindId.Equals(kindId), trackChange).SingleOrDefault();

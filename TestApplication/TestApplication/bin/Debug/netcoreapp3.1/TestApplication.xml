@@ -4,7 +4,7 @@
         <name>TestApplication</name>
     </assembly>
     <members>
-        <member name="M:TestApplication.Controllers.KindController.GetKinds">
+        <member name="M:TestApplication.Controllers.KindController.GetKinds(Entities.RequestFeatures.KindParameters)">
             <summary>
             Gets the list of all kinds
             </summary>
@@ -29,7 +29,7 @@
             Updating a kind
             </summary>
         </member>
-        <member name="M:TestApplication.Controllers.KindV2Controller.GetKinds">
+        <member name="M:TestApplication.Controllers.KindV2Controller.GetKinds(Entities.RequestFeatures.KindParameters)">
             <summary>
             Gets the list of all kinds
             </summary>

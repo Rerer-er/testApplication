@@ -38,7 +38,7 @@ namespace TestApplication.Controllers
 
         }
 
-        // <summary>
+        /// <summary>
         /// Gets the list of all products
         /// <summary>
         [HttpGet]
@@ -51,7 +51,7 @@ namespace TestApplication.Controllers
 
             var products = await _modelsActions.Product.GetAllProductsAsync(kindId, productParameters, false);
 
-            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(products.MetaData));
+            //Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(products.MetaData));
 
             foreach (var product in products)
             {
@@ -63,6 +63,7 @@ namespace TestApplication.Controllers
             retProducts.ProductsDto = productsDto;
             retProducts.CountPage = products.MetaData.TotalPages;
             retProducts.CurrentPage = products.MetaData.CurrentPage;
+
             return Ok(retProducts);
         }
 
@@ -100,8 +101,8 @@ namespace TestApplication.Controllers
             _modelsActions.Product.CreateProduct(kindId, product);
             await _modelsActions.SaveAsync();
 
-            var ReturnProduct = _mapper.Map<ReturnProductDto>(product);
-            return Ok(ReturnProduct);
+            var returnProduct = _mapper.Map<ReturnProductDto>(product);
+            return Ok(returnProduct);
         }
 
         /// <summary>
@@ -124,7 +125,7 @@ namespace TestApplication.Controllers
         /// </summary>
         [HttpPut("{id}")]
         [ServiceFilter(typeof(ValidateProductExistsAttribute))]
-        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        //[ServiceFilter(typeof(ValidationFilterAttribute))]
         //[Authorize(Roles = "Shipper Administrator")]
         public async Task<IActionResult> UpdateProduct(int kindId, int id, [FromBody] UpdateProductDto productDto)
         {
@@ -148,8 +149,7 @@ namespace TestApplication.Controllers
                 _logger.LogError("patchDoc object sent from client is null.");
                 return BadRequest("patchDoc object is null");
             }
-            var kind = await _modelsActions.Kind.GetKindAsync(kindId, false);
-            
+
             var product = await _modelsActions.Product.GetProductAsync(kindId, id, true);
             
             var productToPatch = _mapper.Map<UpdateProductDto>(product);

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Entities.Models;
 using Entities.ModelsDto;
+using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Pact;
@@ -35,9 +36,9 @@ namespace TestApplication.Controllers
         /// </summary>
         //[HttpGet(Name = "GetKinds"), Authorize]
         [HttpGet]
-        public async Task<IActionResult> GetKinds()
+        public async Task<IActionResult> GetKinds([FromQuery] KindParameters kindParameters)
         {
-            var kinds = await _modelsActions.Kind.GetAllKindsAsync(false);
+            var kinds = await _modelsActions.Kind.GetAllKindsAsync(kindParameters, false);
             var kindsDto = _mapper.Map<IEnumerable<ReturnKindDto>>(kinds);
             return Ok(kindsDto);
         }
