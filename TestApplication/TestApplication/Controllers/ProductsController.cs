@@ -60,6 +60,7 @@ namespace TestApplication.Controllers
 
             var productsDto = _mapper.Map<IEnumerable<ReturnProductDto>>(products);
             ReturnProductAndCountDto retProducts = new ReturnProductAndCountDto();
+
             retProducts.ProductsDto = productsDto;
             retProducts.CountPage = products.MetaData.TotalPages;
             retProducts.CurrentPage = products.MetaData.CurrentPage;
@@ -105,20 +106,7 @@ namespace TestApplication.Controllers
             return Ok(returnProduct);
         }
 
-        /// <summary>
-        /// Deleting a product
-        /// </summary>
-        [HttpDelete("{id}", Name = " ProductById")]
-        [ServiceFilter(typeof(ValidateProductExistsAttribute))]
-        //[Authorize(Roles = "Shipper Administrator")]
-        public async Task<IActionResult> DeleteProduct(int kindId, int id)
-        {
-            var product = await _modelsActions.Product.GetProductAsync(kindId, id, false);
-            
-            _modelsActions.Product.DeleteProduct(product);
-            await _modelsActions.SaveAsync();
-            return NoContent();
-        }
+        
 
         /// <summary>
         /// Updating a product
@@ -134,6 +122,22 @@ namespace TestApplication.Controllers
             await _modelsActions.SaveAsync();
             return NoContent();
         }
+
+        /// <summary>
+        /// Deleting a product
+        /// </summary>
+        [HttpDelete("{id}")]
+        [ServiceFilter(typeof(ValidateProductExistsAttribute))]
+        //[Authorize(Roles = "Shipper Administrator")]
+        public async Task<IActionResult> DeleteProduct(int kindId, int id)
+        {
+            var product = await _modelsActions.Product.GetProductAsync(kindId, id, false);
+
+            _modelsActions.Product.DeleteProduct(product);
+            await _modelsActions.SaveAsync();
+            return NoContent();
+        }
+
 
         /// <summary>
         /// Updating a product

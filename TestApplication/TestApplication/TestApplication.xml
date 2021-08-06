@@ -45,14 +45,14 @@
             Creating a product
             </summary>
         </member>
-        <member name="M:TestApplication.Controllers.ProductsController.DeleteProduct(System.Int32,System.Int32)">
-            <summary>
-            Deleting a product
-            </summary>
-        </member>
         <member name="M:TestApplication.Controllers.ProductsController.UpdateProduct(System.Int32,System.Int32,Entities.ModelsDto.UpdateProductDto)">
             <summary>
             Updating a product
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ProductsController.DeleteProduct(System.Int32,System.Int32)">
+            <summary>
+            Deleting a product
             </summary>
         </member>
         <member name="M:TestApplication.Controllers.ProductsController.PatchProduct(System.Int32,System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{Entities.ModelsDto.UpdateProductDto})">

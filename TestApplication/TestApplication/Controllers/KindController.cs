@@ -40,13 +40,21 @@ namespace TestApplication.Controllers
         {
             var kinds = await _modelsActions.Kind.GetAllKindsAsync( productParameters ,false);
             var kindsDto = _mapper.Map<IEnumerable<ReturnKindDto>>(kinds);
-            return Ok(kindsDto);
+
+            ReturnKindAndCountDto retKinds = new ReturnKindAndCountDto();
+
+            retKinds.KindsDto = kindsDto;
+            retKinds.CountPage = kinds.MetaData.TotalPages;
+            retKinds.CurrentPage = kinds.MetaData.CurrentPage;
+
+
+            return Ok(retKinds);
         }
 
         /// <summary>
         /// Get a kind by id
         /// </summary>
-        [HttpGet("{id}", Name = "ProductById")]
+        [HttpGet("{id}")]
         [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         public async Task<IActionResult> GetKind(int id)
         {
