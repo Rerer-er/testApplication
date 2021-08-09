@@ -17,6 +17,11 @@ namespace Entities.Models
         [Required(ErrorMessage = "Price is a required field.")]
         public decimal Price { get; set; }
 
+        [Required(ErrorMessage = "Product about is a required field.")]
+        [MaxLength(255, ErrorMessage = "Maximum length for the about is 255 characters.")]
+        public string About { get; set; }
+
+
         [ForeignKey(nameof(Kind))]
         public int KindId { get; set; }
         public Kind Kind { get; set; }
@@ -24,6 +29,8 @@ namespace Entities.Models
         [ForeignKey(nameof(Shipper))]
         public int ShipperId { get; set; }
         public Shipper Shipper { get; set; }
+
+        public string Foto { get; set; }
 
     }
 }

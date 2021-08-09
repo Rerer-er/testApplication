@@ -18,7 +18,7 @@ namespace ActionDB
         // todo: maybe, maybe there is an error in this code(check all classes)(0 => 3500)
         public async Task<PagedList<Product>> GetAllProductsAsync(int kindId, ProductParameters productParameters, bool trackChange)
         {
-            var products = await ReturnDistinct(e => (e.KindId.Equals(kindId)), trackChange)
+            var products = await ReturnDistinct(e => (e.KindId.Equals(kindId)), trackChange).Include(u => u.Shipper)
                 .FilterProduct(productParameters.MinPrice, productParameters.MaxPrice)
                 .Search(productParameters.SearchTerm).OrderBy(e => e.Name)
                 .Sort(productParameters.OrderBy).ToListAsync();

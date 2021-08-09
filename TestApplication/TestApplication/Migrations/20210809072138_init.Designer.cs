@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace TestApplication.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210712102616_AddedRolesToDb")]
-    partial class AddedRolesToDb
+    [Migration("20210809072138_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,11 +62,21 @@ namespace TestApplication.Migrations
                         .HasColumnName("ProductId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("About")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<int>("KindId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ShipperId")
                         .HasColumnType("int");
@@ -83,15 +93,19 @@ namespace TestApplication.Migrations
                         new
                         {
                             ProductId = 1,
+                            About = "ppppproo",
                             KindId = 1,
                             Name = "product",
+                            Price = 3500m,
                             ShipperId = 1
                         },
                         new
                         {
                             ProductId = 2,
+                            About = "ppp ",
                             KindId = 2,
-                            Name = "product",
+                            Name = "product2",
+                            Price = 7000m,
                             ShipperId = 2
                         });
                 });
@@ -105,7 +119,9 @@ namespace TestApplication.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.HasKey("ShipperId");
 
@@ -224,17 +240,24 @@ namespace TestApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "01679260-3738-4c47-9065-d0273ba10337",
-                            ConcurrencyStamp = "90335096-53f3-4532-ab3e-53bc464816c8",
+                            Id = "4c467161-51ba-4b39-8b91-a0804fa17b09",
+                            ConcurrencyStamp = "a29c79e3-7bfc-46f8-86a7-70864ec62bf6",
                             Name = "Shipper",
                             NormalizedName = "SHIPPER"
                         },
                         new
                         {
-                            Id = "794f777a-e1b4-4017-a266-27ca909a461e",
-                            ConcurrencyStamp = "68f9bed5-8f1f-4ee7-a629-dc9232cbac33",
+                            Id = "ab7ad6fa-f770-424b-acc2-1676d5d6a454",
+                            ConcurrencyStamp = "e9a77c6a-23de-4e9a-a7ed-ef8be3e81f0d",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
+                        },
+                        new
+                        {
+                            Id = "722fe4de-91e2-4ccc-8c71-ca22c6a86c42",
+                            ConcurrencyStamp = "0fbf932c-a00b-43b6-ba2b-0b3c6fcca8a2",
+                            Name = "User",
+                            NormalizedName = "USER"
                         });
                 });
 

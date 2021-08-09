@@ -45,13 +45,10 @@ namespace TestApplication.Controllers
         [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         public async Task<IActionResult> GetProducts(int kindId, [FromQuery] ProductParameters productParameters)
         {
-            _currencyConverter.UpdateCurrency();
             productParameters.MinPrice = _currencyConverter.ConvertToCurrentForFiltr(productParameters.MinPrice, productParameters.Currency);
             productParameters.MaxPrice = _currencyConverter.ConvertToCurrentForFiltr(productParameters.MaxPrice, productParameters.Currency);
 
             var products = await _modelsActions.Product.GetAllProductsAsync(kindId, productParameters, false);
-
-            //Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(products.MetaData));
 
             foreach (var product in products)
             {
@@ -75,7 +72,6 @@ namespace TestApplication.Controllers
         [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         public async Task<IActionResult> GetProduct(int kindId, int id, string currency = "rub")
         {
-            _currencyConverter.UpdateCurrency();
             var product = await _modelsActions.Product.GetProductAsync(kindId, id, false);
             
             _currencyConverter.ConvertToCurrent(product, currency);
@@ -98,15 +94,12 @@ namespace TestApplication.Controllers
                 return BadRequest("Invalid data");
             }
             var product = _mapper.Map<Product>(productDto);
-            product.ShipperId = 1;
             _modelsActions.Product.CreateProduct(kindId, product);
             await _modelsActions.SaveAsync();
 
             var returnProduct = _mapper.Map<ReturnProductDto>(product);
             return Ok(returnProduct);
         }
-
-        
 
         /// <summary>
         /// Updating a product

@@ -9,7 +9,7 @@ namespace TestApplication.AutoMapper
     {
         public MappingProfile()
         {
-            CreateMap<Product, ReturnProductDto>();
+            CreateMap<Product, ReturnProductDto>().ForMember(x => x.ShipperName, opt => opt.MapFrom(m => m.Shipper.Name ));
             //CreateMap<ReturnProductDto, ReturnProductAndCountDto>().ForMember(x => x.CountPage, x => x.MapFrom(m => m. + " " + m.LastName))
             CreateMap<UserForRegistrationDto, UserForAuthenticationDto>();
 

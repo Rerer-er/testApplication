@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace TestApplication.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210712120507_InitialRoles")]
-    partial class InitialRoles
+    [Migration("20210809091150_addfoto")]
+    partial class addfoto
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,11 +62,24 @@ namespace TestApplication.Migrations
                         .HasColumnName("ProductId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("About")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Foto")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("KindId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ShipperId")
                         .HasColumnType("int");
@@ -83,15 +96,21 @@ namespace TestApplication.Migrations
                         new
                         {
                             ProductId = 1,
+                            About = "ppppproo",
+                            Foto = "",
                             KindId = 1,
                             Name = "product",
+                            Price = 3500m,
                             ShipperId = 1
                         },
                         new
                         {
                             ProductId = 2,
+                            About = "ppp ",
+                            Foto = "",
                             KindId = 2,
-                            Name = "product",
+                            Name = "product2",
+                            Price = 7000m,
                             ShipperId = 2
                         });
                 });
@@ -105,7 +124,9 @@ namespace TestApplication.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.HasKey("ShipperId");
 
@@ -224,22 +245,22 @@ namespace TestApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0ee849f9-91ed-450c-b029-250e81e22572",
-                            ConcurrencyStamp = "795b42e3-0bcf-43a4-8bd1-8f9a0a1e0c42",
+                            Id = "e07ac8fb-b181-44fa-892b-dde8acec3403",
+                            ConcurrencyStamp = "79eca0be-ae69-4387-8e67-45419be30f21",
                             Name = "Shipper",
                             NormalizedName = "SHIPPER"
                         },
                         new
                         {
-                            Id = "d8851f15-7a69-4985-8358-0724169374a3",
-                            ConcurrencyStamp = "fbdbfe57-01ee-465c-a9c9-7e1bdace11a1",
+                            Id = "d592dc3d-1182-49d3-8288-cfd2a546aa5c",
+                            ConcurrencyStamp = "a77a5b2d-1b1d-4d89-80c0-ab8ac013eadd",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "d3221d2e-1e87-43d7-a96e-ea47f509efa4",
-                            ConcurrencyStamp = "9201c50e-a853-407a-8ab0-51d405410451",
+                            Id = "89dfa977-61f4-4452-94b1-ccbdd27409a3",
+                            ConcurrencyStamp = "af90dfa1-bbc6-462e-8ff3-9e67cc14adcc",
                             Name = "User",
                             NormalizedName = "USER"
                         });

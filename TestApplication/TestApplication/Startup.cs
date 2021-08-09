@@ -42,6 +42,7 @@ namespace TestApplication
             services.ConfigureFilters();
             services.AddScoped<ValidationFilterAttribute>();
             services.ConfigureVersioning();
+            services.AddSingleton<IConfiguration>(Configuration);
 
             //services.AddHostedService<CurrencyService>();
             //services.AddMemoryCache();

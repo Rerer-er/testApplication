@@ -9,5 +9,7 @@ namespace Entities.ModelsDto
         public string Name { get; set; }
         [Required(ErrorMessage = "Price is a required field.")]
         public decimal Price { get; set; }
+        public string About { get; set; }
+        public string Foto { get; set; }
     }
 }

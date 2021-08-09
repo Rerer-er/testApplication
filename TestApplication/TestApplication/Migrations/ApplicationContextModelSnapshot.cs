@@ -60,11 +60,21 @@ namespace TestApplication.Migrations
                         .HasColumnName("ProductId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("About")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Foto")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("KindId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -84,6 +94,8 @@ namespace TestApplication.Migrations
                         new
                         {
                             ProductId = 1,
+                            About = "ppppproo",
+                            Foto = "",
                             KindId = 1,
                             Name = "product",
                             Price = 3500m,
@@ -92,8 +104,10 @@ namespace TestApplication.Migrations
                         new
                         {
                             ProductId = 2,
+                            About = "ppp ",
+                            Foto = "",
                             KindId = 2,
-                            Name = "product",
+                            Name = "product2",
                             Price = 7000m,
                             ShipperId = 2
                         });
@@ -108,7 +122,9 @@ namespace TestApplication.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.HasKey("ShipperId");
 
@@ -227,22 +243,22 @@ namespace TestApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "acedfe50-e5a0-40e5-bb17-44a92317dc40",
-                            ConcurrencyStamp = "81f62316-7361-41bc-916b-913707584b76",
+                            Id = "e07ac8fb-b181-44fa-892b-dde8acec3403",
+                            ConcurrencyStamp = "79eca0be-ae69-4387-8e67-45419be30f21",
                             Name = "Shipper",
                             NormalizedName = "SHIPPER"
                         },
                         new
                         {
-                            Id = "dd2cf624-712b-4885-8758-4e013cb2b878",
-                            ConcurrencyStamp = "7a22dfd7-cd44-46d5-a56f-46b7771b6eb9",
+                            Id = "d592dc3d-1182-49d3-8288-cfd2a546aa5c",
+                            ConcurrencyStamp = "a77a5b2d-1b1d-4d89-80c0-ab8ac013eadd",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "a13715f6-b929-4747-b1fc-a60021395445",
-                            ConcurrencyStamp = "5fe2a832-22c5-4b73-b264-d0a685378f4c",
+                            Id = "89dfa977-61f4-4452-94b1-ccbdd27409a3",
+                            ConcurrencyStamp = "af90dfa1-bbc6-462e-8ff3-9e67cc14adcc",
                             Name = "User",
                             NormalizedName = "USER"
                         });

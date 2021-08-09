@@ -6,6 +6,5 @@ namespace Pact
     {
         decimal ConvertToCurrentForFiltr(decimal price, string currency);
         void ConvertToCurrent(Product products, string currency);
-        public void UpdateCurrency();
     }
 }

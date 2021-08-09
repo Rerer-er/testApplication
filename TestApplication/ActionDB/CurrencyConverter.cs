@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Microsoft.Extensions.Configuration;
 using Pact;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,15 @@ namespace ActionDB
     public class CurrencyConverter : ICurrencyConverter
     {
         private Dictionary<string, decimal> Currency;
+        
+        IConfiguration configuration { get; set; } 
 
-        public void UpdateCurrency()
+        public CurrencyConverter(IConfiguration _configuration)
         {
+            configuration = _configuration;
             Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-
-            XDocument xml = XDocument.Load("http://www.cbr.ru/scripts/XML_daily.asp");
+            XDocument xml = XDocument.Load(configuration["ConnectionStrings:currencyApi"]);
             Currency = new Dictionary<string, decimal>();
             Currency.Add("rub", 1);
             Currency.Add("usd", Convert.ToDecimal(xml.Elements("ValCurs").Elements("Valute").FirstOrDefault(x => x.Element("NumCode").Value == "840").Elements("Value").FirstOrDefault().Value));
