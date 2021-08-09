@@ -8,3 +8,6 @@ namespace Pact
         void ConvertToCurrent(Product products, string currency);
     }
 }
+
+
+
