@@ -31,7 +31,7 @@ namespace TestApplication.Controllers
 
         // <summary>
         /// Gets the list of all shippers
-        /// <summary>
+        /// </summary>
         [HttpGet]  
         public async Task<IActionResult> GetShippers()
         {
@@ -105,7 +105,6 @@ namespace TestApplication.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> UpdateShipper(int id, [FromBody] UpdateShipperDto shipperDto)
         {
-            ///sdgffdsg
             if (shipperDto == null)
             {
                 _logger.LogError("UpdateKindDto object sent from client is null.");

@@ -26,8 +26,6 @@ namespace TestApplication.Controllers
 
         private readonly ICurrencyConverter _currencyConverter;
 
-        //private IMemoryCache _memoryCache;
-
         public ProductsController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper, ICurrencyConverter currencyConverter)
         {
 
@@ -38,9 +36,10 @@ namespace TestApplication.Controllers
 
         }
 
-        /// <summary>
-        /// Gets the list of all products
-        /// <summary>
+        ///<summary>
+        ///Gets the list of all products.
+        ///</summary>
+        
         [HttpGet]
         [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         public async Task<IActionResult> GetProducts(int kindId, [FromQuery] ProductParameters productParameters)

@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 namespace TestApplication.Controllers
 {
     [Route("test")]
-    [ApiController]
+    [ApiController]  
     public class TestsController : ControllerBase
     {
         //[HttpGet(Name = "GetKinds"), Authorize]
         [HttpGet]
         public IActionResult GetValues()
         {
-            
             return Ok("qweqweqweqweqweqweqweqweqwe");
         }
     }

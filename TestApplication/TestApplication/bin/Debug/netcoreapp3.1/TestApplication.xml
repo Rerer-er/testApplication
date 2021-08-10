@@ -34,7 +34,11 @@
             Gets the list of all kinds
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:TestApplication.Controllers.ProductsController.GetProducts(System.Int32,Entities.RequestFeatures.ProductParameters)" -->
+        <member name="M:TestApplication.Controllers.ProductsController.GetProducts(System.Int32,Entities.RequestFeatures.ProductParameters)">
+            <summary>
+            Gets the list of all products.
+            </summary>
+        </member>
         <member name="M:TestApplication.Controllers.ProductsController.GetProduct(System.Int32,System.Int32,System.String)">
             <summary>
             Get a product by id
