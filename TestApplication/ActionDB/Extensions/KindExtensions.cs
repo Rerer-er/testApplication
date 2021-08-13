@@ -14,6 +14,8 @@ namespace ActionDB.Extensions
                 return kinds;
             var lowerCaseTerm = searchTerm.Trim().ToLower();
             return kinds.Where(e => e.Name.ToLower().Contains(lowerCaseTerm));
+
+            
         }
     }
 }
