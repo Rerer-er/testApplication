@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TestApplication</name>
+    </assembly>
+    <members>
+        <member name="M:TestApplication.Controllers.KindController.GetKinds(Entities.RequestFeatures.KindParameters)">
+            <summary>
+            Gets the list of all kinds
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.KindController.GetKind(System.Int32)">
+            <summary>
+            Get a kind by id
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.KindController.CreateKind(Entities.ModelsDto.CreateKindDto)">
+            <summary>
+            Creating a kind
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.KindController.DeleteKind(System.Int32)">
+            <summary>
+            Deleting a kind
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.KindController.UpdateKind(System.Int32,Entities.ModelsDto.UpdateKindDto)">
+            <summary>
+            Updating a kind
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.KindV2Controller.GetKinds(Entities.RequestFeatures.KindParameters)">
+            <summary>
+            Gets the list of all kinds
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ProductBasketController.CreateProduct(System.Int32)">
+            <summary>
+            Creating a product
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ProductsController.GetProducts(System.Int32,Entities.RequestFeatures.ProductParameters)">
+            <summary>
+            Gets the list of all products.
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ProductsController.GetProduct(System.Int32,System.Int32,System.String)">
+            <summary>
+            Get a product by id
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ProductsController.CreateProduct(System.Int32,Entities.ModelsDto.CreateProductDto)">
+            <summary>
+            Creating a product
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ProductsController.UpdateProduct(System.Int32,System.Int32,Entities.ModelsDto.UpdateProductDto)">
+            <summary>
+            Updating a product
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ProductsController.DeleteProduct(System.Int32,System.Int32)">
+            <summary>
+            Deleting a product
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ProductsController.PatchProduct(System.Int32,System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{Entities.ModelsDto.UpdateProductDto})">
+            <summary>
+            Updating a product
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:TestApplication.Controllers.ShipperController.GetShippers" -->
+        <member name="M:TestApplication.Controllers.ShipperController.GetShippers(System.Int32)">
+            <summary>
+            Get a shipper by id
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ShipperController.CreateShipper(Entities.ModelsDto.CreateShipperDto)">
+            <summary>
+            Creating a shipper
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ShipperController.DeleteShipper(System.Int32)">
+            <summary>
+            Deleting a product
+            </summary>
+        </member>
+        <member name="M:TestApplication.Controllers.ShipperController.UpdateShipper(System.Int32,Entities.ModelsDto.UpdateShipperDto)">
+            <summary>
+            Updating a product
+            </summary>
+        </member>
+    </members>
+</doc>
