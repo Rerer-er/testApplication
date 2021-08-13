@@ -11,6 +11,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ActionDB
 {
     public class AuthenticationManager : IAuthenticationManager
@@ -67,5 +68,10 @@ namespace ActionDB
             expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings.GetSection("expires").Value)), signingCredentials: signingCredentials);
             return tokenOptions;
         }
+        public User GetUser()
+        {
+            return this._user;
+        }
+
     }
 }

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace TestApplication.Controllers
 {
@@ -22,14 +23,20 @@ namespace TestApplication.Controllers
 
         private readonly ICurrencyConverter _currencyConverter;
 
-        public ProductBasketController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper, ICurrencyConverter currencyConverter)
-        {
+        private readonly IAuthenticationManager _authManager;
 
+        private readonly UserManager<User> _userManager;
+
+
+        public ProductBasketController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper, 
+               ICurrencyConverter currencyConverter, IAuthenticationManager authManager, UserManager<User> userManager)
+        {
+            _userManager = userManager;
             _logger = logger;
             _modelsActions = modelsActions;
             _mapper = mapper;
             _currencyConverter = currencyConverter;
-
+            _authManager = authManager;
         }
         [HttpGet]
         //[ServiceFilter(typeof(ValidateProductExistsAttribute))]
@@ -47,16 +54,17 @@ namespace TestApplication.Controllers
         //[ServiceFilter(typeof(ValidationFilterAttribute))]
         //[ServiceFilter(typeof(ValidateProductExistsAttribute))]
         //[Authorize(Roles = "Shipper Administrator")]
-        public async Task<IActionResult> CreateProduct(string userId, int productId)
+        public async Task<IActionResult> CreateProduct(int productId)
         {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
             var productsBasket = new ProductBasket()
             {
                 ProductId = productId,
-                UserId = userId,
+                UserId = user.Id,
             };
             _modelsActions.Basket.CreateProductBasket(productsBasket);
             await _modelsActions.SaveAsync();
-            return Ok(productsBasket);
+            return Ok(user);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Entities.ModelsDto;
+﻿using Entities.Models;
+using Entities.ModelsDto;
 using System.Threading.Tasks;
 
 namespace Pact
@@ -8,5 +9,6 @@ namespace Pact
         Task<bool> ValidateUser(UserForAuthenticationDto userForAuth);
         Task<string> CreateToken();
 
+        User GetUser();
     }
 }
