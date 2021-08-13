@@ -79,6 +79,9 @@ namespace TestApplication
             });
 
 
+
+
+
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.All

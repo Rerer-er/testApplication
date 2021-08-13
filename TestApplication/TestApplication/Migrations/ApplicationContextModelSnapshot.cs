@@ -113,6 +113,28 @@ namespace TestApplication.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Entities.Models.ProductBasket", b =>
+                {
+                    b.Property<int>("ProductBasketId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ProductBasketId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Baskets");
+                });
+
             modelBuilder.Entity("Entities.Models.Shipper", b =>
                 {
                     b.Property<int>("ShipperId")
@@ -243,22 +265,22 @@ namespace TestApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e07ac8fb-b181-44fa-892b-dde8acec3403",
-                            ConcurrencyStamp = "79eca0be-ae69-4387-8e67-45419be30f21",
+                            Id = "1815f59b-671e-4148-8998-51db47822b14",
+                            ConcurrencyStamp = "0c4ab768-c5ae-4305-a11f-00adea49e7a3",
                             Name = "Shipper",
                             NormalizedName = "SHIPPER"
                         },
                         new
                         {
-                            Id = "d592dc3d-1182-49d3-8288-cfd2a546aa5c",
-                            ConcurrencyStamp = "a77a5b2d-1b1d-4d89-80c0-ab8ac013eadd",
+                            Id = "62aef7e7-e375-439e-84c9-315248cc72bc",
+                            ConcurrencyStamp = "f582f54f-2c7e-458a-a70c-242da6e57350",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "89dfa977-61f4-4452-94b1-ccbdd27409a3",
-                            ConcurrencyStamp = "af90dfa1-bbc6-462e-8ff3-9e67cc14adcc",
+                            Id = "3d0e8cf7-33c1-415b-9d19-d8488cce199e",
+                            ConcurrencyStamp = "9ceb8a8f-8a95-4c6c-8cc0-f179c5584474",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -385,6 +407,23 @@ namespace TestApplication.Migrations
                     b.Navigation("Kind");
 
                     b.Navigation("Shipper");
+                });
+
+            modelBuilder.Entity("Entities.Models.ProductBasket", b =>
+                {
+                    b.HasOne("Entities.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

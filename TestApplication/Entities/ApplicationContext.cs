@@ -18,8 +18,8 @@ namespace Entities
             modelBuilder.ApplyConfiguration(new KindConfiguration());
             modelBuilder.ApplyConfiguration(new ShipperConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
-
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductBasketConfiguration());
         }
         public DbSet<Kind> Kinds { get; set; }
         public DbSet<Product> Products { get; set; }

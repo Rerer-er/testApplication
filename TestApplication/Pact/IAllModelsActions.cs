@@ -7,6 +7,8 @@ namespace Pact
         IProductActionsDB Product { get; }
         IKindActionsDB Kind { get; }
         IShipperActionsDB Shipper { get; }
+
+        IProductBasketActionsDB Basket { get; }
         Task SaveAsync();
     }
 }

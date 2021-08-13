@@ -13,6 +13,7 @@ namespace ActionDB
         private IProductActionsDB product;
         private IKindActionsDB kind;
         private IShipperActionsDB shipper;
+        private IProductBasketActionsDB basket;
 
         public AllModelsActions(ApplicationContext _context)
         {
@@ -43,6 +44,15 @@ namespace ActionDB
                 if (shipper == null)
                     shipper = new ShipperActionsDB(context);
                 return shipper;
+            }
+        }
+        public IProductBasketActionsDB Basket
+        {
+            get
+            {
+                if (basket == null)
+                    basket = new ProductBasketActionsDB(context);
+                return basket;
             }
         }
         public async Task SaveAsync() => await context.SaveChangesAsync();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
@@ -7,12 +8,17 @@ namespace Entities.Models
 {
     public class ProductBasket
     {
-        [ForeignKey(nameof(Product))]
+        [Key]
+        public int ProductBasketId { get; set; }
+
+        
         public int ProductId { get; set; }
+        [ForeignKey("ProductId")]
         public Product Product { get; set; }
 
-        [ForeignKey(nameof(User))]
-        public int UserId { get; set; }
-        public User Shipper { get; set; }
+
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public User User { get; set; }
     }
 }

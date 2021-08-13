@@ -34,6 +34,11 @@
             Gets the list of all kinds
             </summary>
         </member>
+        <member name="M:TestApplication.Controllers.ProductBasketController.CreateProduct(System.String,System.Int32)">
+            <summary>
+            Creating a product
+            </summary>
+        </member>
         <member name="M:TestApplication.Controllers.ProductsController.GetProducts(System.Int32,Entities.RequestFeatures.ProductParameters)">
             <summary>
             Gets the list of all products.
