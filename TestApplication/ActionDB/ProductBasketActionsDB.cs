@@ -15,7 +15,7 @@ namespace ActionDB
         {
         }
         public async Task<IEnumerable<ProductBasket>> GetsProductsBasketAsync(string userId,  bool trackChange) =>
-            await ReturnDistinct(c => c.UserId.Equals(userId), trackChange).ToListAsync();
+            await ReturnDistinct(c => c.UserId.Equals(userId), trackChange).Include(p => p.Product).ToListAsync();
 
         public void CreateProductBasket(ProductBasket busket)
         {

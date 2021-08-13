@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Entities.ModelsDto;
 
 namespace TestApplication.Controllers
 {
@@ -40,11 +42,14 @@ namespace TestApplication.Controllers
         }
         [HttpGet]
         //[ServiceFilter(typeof(ValidateProductExistsAttribute))]
-        public async Task<IActionResult> GetProduct(string userId)
+        public async Task<IActionResult> GetProduct()
         {
-            var productsBasket = await _modelsActions.Basket.GetsProductsBasketAsync(userId, false);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var productsBasket = await _modelsActions.Basket.GetsProductsBasketAsync(user.Id, false);
 
-            return Ok(productsBasket);
+            var products = _mapper.Map<IEnumerable<ReturnProductBasketDto>>(productsBasket);
+
+            return Ok(products);
         }
 
         /// <summary>
@@ -53,7 +58,7 @@ namespace TestApplication.Controllers
         [HttpPost]
         //[ServiceFilter(typeof(ValidationFilterAttribute))]
         //[ServiceFilter(typeof(ValidateProductExistsAttribute))]
-        //[Authorize(Roles = "Shipper Administrator")]
+        [Authorize]
         public async Task<IActionResult> CreateProduct(int productId)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
