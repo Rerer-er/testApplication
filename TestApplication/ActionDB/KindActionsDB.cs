@@ -21,7 +21,6 @@ namespace ActionDB
         {
             var kinds = await ReturnAll(trackChange).Search(kindParameters.SearchTerm).ToListAsync();   
             return PagedList<Kind>.ToPagedList(kinds, kindParameters.PageNumber, kindParameters.PageSize);
-
         }
             //=> await ReturnAll(trackChange).ToListAsync();
         public async Task<Kind> GetKindAsync(int kindId, bool trackChange) => await ReturnDistinct(c => c.KindId.Equals(kindId), trackChange).SingleOrDefaultAsync();
