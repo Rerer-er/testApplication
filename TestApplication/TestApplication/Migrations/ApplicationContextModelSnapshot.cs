@@ -120,6 +120,9 @@ namespace TestApplication.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
@@ -265,22 +268,22 @@ namespace TestApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1815f59b-671e-4148-8998-51db47822b14",
-                            ConcurrencyStamp = "0c4ab768-c5ae-4305-a11f-00adea49e7a3",
+                            Id = "00db0367-74dc-480d-b768-4a0ceeab7031",
+                            ConcurrencyStamp = "14eb7d6a-9a5e-494f-857d-58c1e6f11d05",
                             Name = "Shipper",
                             NormalizedName = "SHIPPER"
                         },
                         new
                         {
-                            Id = "62aef7e7-e375-439e-84c9-315248cc72bc",
-                            ConcurrencyStamp = "f582f54f-2c7e-458a-a70c-242da6e57350",
+                            Id = "d2bcafdc-bfe7-4ef0-8457-94a9731956d0",
+                            ConcurrencyStamp = "9391889f-3e03-43e4-bc52-a4985e5e5e4c",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "3d0e8cf7-33c1-415b-9d19-d8488cce199e",
-                            ConcurrencyStamp = "9ceb8a8f-8a95-4c6c-8cc0-f179c5584474",
+                            Id = "326b04d3-c7e8-47e6-84c6-3ed3b4bf46f7",
+                            ConcurrencyStamp = "b2d4429d-1f72-4424-bbb4-6edb4c35cfe2",
                             Name = "User",
                             NormalizedName = "USER"
                         });

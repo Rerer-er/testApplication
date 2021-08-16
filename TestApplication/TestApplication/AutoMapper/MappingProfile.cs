@@ -2,6 +2,7 @@
 
 using Entities.Models;
 using Entities.ModelsDto;
+using System.Collections.Generic;
 
 namespace TestApplication.AutoMapper
 {
@@ -11,7 +12,8 @@ namespace TestApplication.AutoMapper
         {
             CreateMap<Product, ReturnProductDto>().ForMember(x => x.ShipperName, opt => opt.MapFrom(m => m.Shipper.Name));
 
-            //CreateMap<ProductBasket, ReturnProductBasketDto>().ConvertUsing();
+            CreateMap<ProductBasket, ReturnProductBasketDto>().ForMember(x => x.returnProduct, opt => opt.MapFrom(m => m.Product))
+                .ForMember(x => x.Count, opt => opt.MapFrom(m => m.Count));
             //CreateMap<ReturnProductDto, ReturnProductAndCountDto>().ForMember(x => x.CountPage, x => x.MapFrom(m => m. + " " + m.LastName))
             CreateMap<UserForRegistrationDto, UserForAuthenticationDto>();
 
