@@ -34,7 +34,7 @@
             Gets the list of all kinds
             </summary>
         </member>
-        <member name="M:TestApplication.Controllers.ProductBasketController.CreateProduct(System.Int32)">
+        <member name="M:TestApplication.Controllers.ProductBasketController.CreateProduct(TestApplication.Controllers.re)">
             <summary>
             Creating a product
             </summary>

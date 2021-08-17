@@ -13,6 +13,11 @@ using Entities.ModelsDto;
 
 namespace TestApplication.Controllers
 {
+    public class re
+    {
+        public int id { get; set; }
+        public int count { get; set; }
+    }
     [Route("api/[controller]")]
     [ApiController]
     public class ProductBasketController : ControllerBase
@@ -41,6 +46,7 @@ namespace TestApplication.Controllers
             _authManager = authManager;
         }
         [HttpGet]
+        [Authorize]
         //[ServiceFilter(typeof(ValidateProductExistsAttribute))]
         public async Task<IActionResult> GetProduct()
         {
@@ -59,17 +65,45 @@ namespace TestApplication.Controllers
         //[ServiceFilter(typeof(ValidationFilterAttribute))]
         //[ServiceFilter(typeof(ValidateProductExistsAttribute))]
         [Authorize]
-        public async Task<IActionResult> CreateProduct(int productId)
+        public async Task<IActionResult> CreateProduct([FromBody] re a)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var products = await _modelsActions.Basket.GetsProductsBasketAsync(user.Id, true);
+            foreach(var product in products)
+            {
+                if(product.Product.ProductId == a.id)
+                {
+                    product.Count = a.count;
+                    await _modelsActions.SaveAsync();
+                    return Ok();
+                }
+            }
             var productsBasket = new ProductBasket()
             {
-                ProductId = productId,
+                ProductId = a.id,
                 UserId = user.Id,
             };
             _modelsActions.Basket.CreateProductBasket(productsBasket);
             await _modelsActions.SaveAsync();
-            return Ok(user);
+            return Ok();
+        }
+        [HttpDelete("{id}")]
+        //[Authorize(Roles = "Shipper Administrator")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var products = await _modelsActions.Basket.GetsProductsBasketAsync(user.Id, true);
+            foreach (var product in products)
+            {
+                if (product.Product.ProductId == id)
+                {
+                    _modelsActions.Basket.DeleteProduct(product);
+                    await _modelsActions.SaveAsync();
+                    return NoContent();
+                }
+            }
+            await _modelsActions.SaveAsync();
+            return NoContent();
         }
     }
 }

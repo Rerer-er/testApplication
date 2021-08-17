@@ -11,5 +11,6 @@ namespace Pact
         public Task<IEnumerable<ProductBasket>> GetsProductsBasketAsync(string userId, bool trackChange);
 
         public void CreateProductBasket(ProductBasket busket);
+        public void DeleteProduct(ProductBasket basket);
     }
 }

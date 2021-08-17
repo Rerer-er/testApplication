@@ -16,7 +16,7 @@ namespace Entities.Models
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
 
-        public int Count { get; set; }
+        public int Count { get; set; } = 1;
 
         public string UserId { get; set; }
         [ForeignKey("UserId")]
