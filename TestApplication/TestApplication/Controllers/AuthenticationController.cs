@@ -3,7 +3,9 @@ using Entities.Models;
 using Entities.ModelsDto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Pact;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TestApplication.ActionFilters;
 
@@ -31,7 +33,6 @@ namespace TestApplication.Controllers
         //[ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
         {
-            _logger.LogInfo(userForRegistration.Password);
             var user = _mapper.Map<User>(userForRegistration);
             var result = await _userManager.CreateAsync(user, userForRegistration.Password);
             if (!result.Succeeded)
@@ -49,6 +50,8 @@ namespace TestApplication.Controllers
                 _logger.LogWarn($"{nameof(RegisterUser)}: Authentication failed. Wrong user name or password.");
                 return Unauthorized();
             }
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(userForRegistration.Roles));
+
             return Ok(new { Token = await _authManager.CreateToken() });
             //return StatusCode(201);
         }
@@ -61,6 +64,12 @@ namespace TestApplication.Controllers
                 _logger.LogWarn($"{nameof(Authenticate)}: Authentication failed. Wrong user name or password.");
                 return Unauthorized();
             }
+            ICollection<string> roles = await _authManager.GetRoles(user.UserName);
+            if(roles != null)
+            {
+                Response.Headers.Add("Roles", JsonConvert.SerializeObject(roles));
+            }
+
             return Ok(new { Token = await _authManager.CreateToken() });
         }
     }

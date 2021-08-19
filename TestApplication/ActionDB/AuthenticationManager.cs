@@ -28,8 +28,7 @@ namespace ActionDB
         public async Task<bool> ValidateUser(UserForAuthenticationDto userForAuth)
         {
             _user = await _userManager.FindByNameAsync(userForAuth.UserName);
-            return (_user != null && await _userManager.CheckPasswordAsync(_user,
-            userForAuth.Password));
+            return (_user != null && await _userManager.CheckPasswordAsync(_user, userForAuth.Password));
         }
         public async Task<string> CreateToken()
         {
@@ -51,10 +50,13 @@ namespace ActionDB
                 new Claim(ClaimTypes.Name, _user.UserName)
             };
             var roles = await _userManager.GetRolesAsync(_user);
+
             foreach (var role in roles)
             {
+
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
+
             return claims;
         }
         private JwtSecurityToken GenerateTokenOptions(SigningCredentials signingCredentials, List<Claim> claims)
@@ -65,12 +67,14 @@ namespace ActionDB
             issuer: jwtSettings.GetSection("validIssuer").Value,
             audience: jwtSettings.GetSection("validAudience").Value,
             claims: claims,
-            expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings.GetSection("expires").Value)), signingCredentials: signingCredentials);
+            expires: DateTime.Now.AddDays(14));
+            // expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings.GetSection("expires").Value)), signingCredentials: signingCredentials);
             return tokenOptions;
         }
-        public User GetUser()
+        public async Task<ICollection<string>> GetRoles(string user)
         {
-            return this._user;
+            _user = await _userManager.FindByNameAsync(user);
+            return await _userManager.GetRolesAsync(_user);
         }
 
     }
