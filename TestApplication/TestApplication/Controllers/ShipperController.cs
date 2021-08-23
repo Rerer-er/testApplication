@@ -126,7 +126,7 @@ namespace TestApplication.Controllers
         [HttpPost("rating/{id}")]
         //[ServiceFilter(typeof(ValidateProductExistsAttribute))]
         //[Authorize(Roles = "Shipper Administrator")]
-        public async Task<IActionResult> PatchShipper(int id, byte Stars)
+        public async Task<IActionResult> PatchShipper(int id,[FromBody] byte Stars)
         {
            
             var shipper = await _modelsActions.Shipper.GetShipperAsync(id, true);

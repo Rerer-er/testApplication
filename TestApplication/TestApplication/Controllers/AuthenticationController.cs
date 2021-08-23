@@ -50,7 +50,6 @@ namespace TestApplication.Controllers
                 _logger.LogWarn($"{nameof(RegisterUser)}: Authentication failed. Wrong user name or password.");
                 return Unauthorized();
             }
-            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(userForRegistration.Roles));
 
             return Ok(new { Token = await _authManager.CreateToken() });
             //return StatusCode(201);

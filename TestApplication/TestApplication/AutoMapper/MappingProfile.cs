@@ -28,7 +28,7 @@ namespace TestApplication.AutoMapper
 
             CreateMap<Shipper, ReturnShipperDto>();
             CreateMap<CreateShipperDto, Shipper>();
-            CreateMap<UpdateShipperDto, Shipper>().ForMember(x => x.CountRating, opt => opt.MapFrom(m => m.Rating));
+            CreateMap<UpdateShipperDto, Shipper>().ForMember(x => x.FinalRating, opt => opt.Ignore());
             CreateMap<Shipper, UpdateShipperDto>();
 
             CreateMap<UserForRegistrationDto, User>();

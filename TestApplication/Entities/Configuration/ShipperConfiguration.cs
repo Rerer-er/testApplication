@@ -19,7 +19,7 @@ namespace Entities.Configuration
                 new Shipper
                 {
                     Name = "shipper2",
-                    ShipperId = 2
+                    ShipperId = 2,
                 }
                 ); ;
         }
