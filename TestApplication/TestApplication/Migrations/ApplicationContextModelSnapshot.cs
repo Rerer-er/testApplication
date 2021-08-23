@@ -146,10 +146,28 @@ namespace TestApplication.Migrations
                         .HasColumnName("ShipperId")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<decimal>("CountRating")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("FinalRating")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Foto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("LocationLat")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("LocationLng")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
+
+                    b.Property<decimal>("SumRating")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("ShipperId");
 
@@ -159,12 +177,22 @@ namespace TestApplication.Migrations
                         new
                         {
                             ShipperId = 1,
-                            Name = "shipper1"
+                            CountRating = 0m,
+                            FinalRating = 0m,
+                            LocationLat = 0m,
+                            LocationLng = 0m,
+                            Name = "shipper1",
+                            SumRating = 0m
                         },
                         new
                         {
                             ShipperId = 2,
-                            Name = "shipper2"
+                            CountRating = 0m,
+                            FinalRating = 0m,
+                            LocationLat = 0m,
+                            LocationLng = 0m,
+                            Name = "shipper2",
+                            SumRating = 0m
                         });
                 });
 
@@ -268,22 +296,22 @@ namespace TestApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "00db0367-74dc-480d-b768-4a0ceeab7031",
-                            ConcurrencyStamp = "14eb7d6a-9a5e-494f-857d-58c1e6f11d05",
+                            Id = "f3fba386-5fe2-4c30-819e-52c7cd5de714",
+                            ConcurrencyStamp = "a7e86ed4-f6b5-4e2d-b81c-42cec237712c",
                             Name = "Shipper",
                             NormalizedName = "SHIPPER"
                         },
                         new
                         {
-                            Id = "d2bcafdc-bfe7-4ef0-8457-94a9731956d0",
-                            ConcurrencyStamp = "9391889f-3e03-43e4-bc52-a4985e5e5e4c",
+                            Id = "8462f356-4b01-4547-abb7-01b8328912a8",
+                            ConcurrencyStamp = "29864154-88cd-47eb-9063-8f93e0f9dbb5",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "326b04d3-c7e8-47e6-84c6-3ed3b4bf46f7",
-                            ConcurrencyStamp = "b2d4429d-1f72-4424-bbb4-6edb4c35cfe2",
+                            Id = "6220fc5e-be74-4d2c-b47e-d1d573152879",
+                            ConcurrencyStamp = "a523f46c-0d0f-4ba7-828e-fe65baf7e9ea",
                             Name = "User",
                             NormalizedName = "USER"
                         });

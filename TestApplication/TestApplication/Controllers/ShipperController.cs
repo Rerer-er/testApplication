@@ -2,6 +2,7 @@
 using Entities.Models;
 using Entities.ModelsDto;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Pact;
 using System.Collections.Generic;
@@ -121,5 +122,28 @@ namespace TestApplication.Controllers
             await _modelsActions.SaveAsync();
             return NoContent();
         }
+        
+        [HttpPost("rating/{id}")]
+        //[ServiceFilter(typeof(ValidateProductExistsAttribute))]
+        //[Authorize(Roles = "Shipper Administrator")]
+        public async Task<IActionResult> PatchShipper(int id, byte Stars)
+        {
+           
+            var shipper = await _modelsActions.Shipper.GetShipperAsync(id, true);
+            if (shipper == null)
+            {
+                _logger.LogInfo($"Kind with id: {id} doesn't exist in the database.");
+                return NotFound();
+            }
+
+            shipper.SumRating += Stars;
+            shipper.CountRating += 1;
+            shipper.FinalRating = shipper.SumRating / shipper.CountRating;
+
+            await _modelsActions.SaveAsync();
+            return NoContent();
+        }
+
+
     }
 }

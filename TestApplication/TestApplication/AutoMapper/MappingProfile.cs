@@ -28,7 +28,8 @@ namespace TestApplication.AutoMapper
 
             CreateMap<Shipper, ReturnShipperDto>();
             CreateMap<CreateShipperDto, Shipper>();
-            CreateMap<UpdateShipperDto, Shipper>().ReverseMap();
+            CreateMap<UpdateShipperDto, Shipper>().ForMember(x => x.CountRating, opt => opt.MapFrom(m => m.Rating));
+            CreateMap<Shipper, UpdateShipperDto>();
 
             CreateMap<UserForRegistrationDto, User>();
         }
