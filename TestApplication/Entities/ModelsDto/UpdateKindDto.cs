@@ -11,5 +11,6 @@ namespace Entities.ModelsDto
         [MaxLength(60, ErrorMessage = "Maximum length for the about is 60 characters.")]
         public string About { get; set; }
 
+        public string Foto { get; set; }
     }
 }

@@ -30,6 +30,9 @@ namespace TestApplication.Migrations
                     b.Property<string>("About")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Foto")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -296,22 +299,22 @@ namespace TestApplication.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f3fba386-5fe2-4c30-819e-52c7cd5de714",
-                            ConcurrencyStamp = "a7e86ed4-f6b5-4e2d-b81c-42cec237712c",
+                            Id = "12bafe9f-71bf-416d-8d5b-4d8d971c8ee7",
+                            ConcurrencyStamp = "8d76927a-afad-4462-a904-0d04e2b5ec8e",
                             Name = "Shipper",
                             NormalizedName = "SHIPPER"
                         },
                         new
                         {
-                            Id = "8462f356-4b01-4547-abb7-01b8328912a8",
-                            ConcurrencyStamp = "29864154-88cd-47eb-9063-8f93e0f9dbb5",
+                            Id = "3033b6db-7e64-4acf-8c75-4915db4a44e8",
+                            ConcurrencyStamp = "bc48cccf-96df-4150-ac8f-d39bbe6c1749",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "6220fc5e-be74-4d2c-b47e-d1d573152879",
-                            ConcurrencyStamp = "a523f46c-0d0f-4ba7-828e-fe65baf7e9ea",
+                            Id = "b0423833-f775-4a55-9244-9b9c801aaac8",
+                            ConcurrencyStamp = "4b872010-1543-4b3b-8738-3b84185dd9aa",
                             Name = "User",
                             NormalizedName = "USER"
                         });

@@ -14,6 +14,7 @@ namespace Entities.Models
         
         public string About { get; set; }
 
+        public string Foto { get; set; }
         public ICollection<Product> Products { get; set; }
     }
 }
