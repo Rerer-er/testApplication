@@ -77,11 +77,6 @@ namespace TestApplication
                 s.SwaggerEndpoint("/swagger/v1/swagger.json", "Rerer-er Web Api v1");
                 s.SwaggerEndpoint("/swagger/v2/swagger.json", "Rerer-er Web Api v2");
             });
-
-
-
-
-
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.All

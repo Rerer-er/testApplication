@@ -103,7 +103,7 @@ namespace TestApplication.Controllers
         /// </summary>
         [HttpPut("{id}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public async Task<IActionResult> UpdateShipper(int id, [FromBody] UpdateShipperDto shipperDto)
         {
             if (shipperDto == null)
