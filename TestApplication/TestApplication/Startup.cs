@@ -1,4 +1,5 @@
 using ActionDB;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -8,9 +9,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLog;
 using Pact;
+using System;
 using System.IO;
 using TestApplication.ActionFilters;
 using TestApplication.Services;
+
 
 namespace TestApplication
 {
@@ -27,6 +30,11 @@ namespace TestApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddOptions();
+
+            //services.Configure<RabbitMqConfiguration>(Configuration.GetSection("RabbitMq"));
+
             services.ConfigureCors();
             services.ConfigureIISIntegration();
             services.ConfigureSqlContext(Configuration);
@@ -44,15 +52,25 @@ namespace TestApplication
             services.ConfigureVersioning();
             services.AddSingleton<IConfiguration>(Configuration);
 
+            services.AddMassTransit(x =>
+            {
+                x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(config =>
+                {                        // amqps://gpqcunnl:5Qc8rpPCYk7gvXQwLIXZwXqhvVwYjClr@beaver.rmq.cloudamqp.com/gpqcunnl       
+                    config.UseHealthCheck(provider);
+                    config.Host(new Uri("amqps://gpqcunnl:5Qc8rpPCYk7gvXQwLIXZwXqhvVwYjClr@beaver.rmq.cloudamqp.com/gpqcunnl&queue=queue1"));
+                }));
+                services.AddMassTransitHostedService();
+            });
+
+            services.ConfigureMicroserviceOrder();
+            
             //services.AddHostedService<CurrencyService>();
             //services.AddMemoryCache();
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
-
-
-
+    
             services.AddControllers().AddNewtonsoftJson();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

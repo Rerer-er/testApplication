@@ -18,6 +18,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using TestApplication.ActionFilters;
+using TestApplication.Microservices;
 //using Entities.ActionDB;
 
 namespace TestApplication.Services
@@ -158,5 +159,12 @@ namespace TestApplication.Services
         }
         public static void ConfigureCurrencyService(this IServiceCollection services) =>
             services.AddScoped<ICurrencyConverter, CurrencyConverter>();
+
+        public static void ConfigureMicroserviceOrder(this IServiceCollection services)
+        {
+            services.AddSingleton<IOrderMicroservice, OrderMicroservice>();
+            //services.AddSingleton
+        }
+
     }
 }

@@ -20,8 +20,7 @@ namespace Entities.Models
         [Required(ErrorMessage = "Product about is a required field.")]
         [MaxLength(255, ErrorMessage = "Maximum length for the about is 255 characters.")]
         public string About { get; set; }
-
-
+           
         [ForeignKey(nameof(Kind))]
         public int KindId { get; set; }
         public Kind Kind { get; set; }
@@ -30,6 +29,7 @@ namespace Entities.Models
         public int ShipperId { get; set; }
         public Shipper Shipper { get; set; }
 
+        [Required(ErrorMessage = "Product Foto is a required field.")]
         public string Foto { get; set; }
 
     }
