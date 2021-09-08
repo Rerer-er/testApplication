@@ -69,7 +69,11 @@
             Updating a product
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:TestApplication.Controllers.ShipperController.GetShippers" -->
+        <member name="M:TestApplication.Controllers.ShipperController.GetShippers">
+            <summary>
+            Gets the list of all shippers
+            </summary>
+        </member>
         <member name="M:TestApplication.Controllers.ShipperController.GetShippers(System.Int32)">
             <summary>
             Get a shipper by id

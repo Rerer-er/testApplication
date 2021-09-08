@@ -32,6 +32,9 @@ namespace TestApplication.AutoMapper
             CreateMap<Shipper, UpdateShipperDto>();
 
             CreateMap<UserForRegistrationDto, User>();
+
+            CreateMap<Order, OrderDto>().ForMember(x => x.method, opt => opt.Ignore()).ForMember(x => x.order, opt => opt.MapFrom(m => m));
+
         }
 
     }

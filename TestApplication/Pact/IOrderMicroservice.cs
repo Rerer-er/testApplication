@@ -7,6 +7,6 @@ namespace Pact
 {
     public interface IOrderMicroservice
     {
-        public Task Publish(string message);
+        public void Publish(string message);
     }
 }

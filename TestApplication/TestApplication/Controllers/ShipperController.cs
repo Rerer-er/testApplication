@@ -30,7 +30,7 @@ namespace TestApplication.Controllers
             _mapper = mapper;
         }
 
-        // <summary>
+        /// <summary>
         /// Gets the list of all shippers
         /// </summary>
         [HttpGet]  

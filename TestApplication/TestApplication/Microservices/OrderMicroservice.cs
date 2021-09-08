@@ -25,7 +25,7 @@ namespace TestApplication.Microservices
         }
 
 
-        public async Task Publish(string message)
+        public void Publish(string message)
         {
             //var factory = new ConnectionFactory() { Uri = new Uri("amqps://gpqcunnl:5Qc8rpPCYk7gvXQwLIXZwXqhvVwYjClr@beaver.rmq.cloudamqp.com/gpqcunnl") };
             //using (var connection = _factory.CreateConnection())
@@ -33,9 +33,9 @@ namespace TestApplication.Microservices
             //    using (var channel = connection.CreateModel())
             //    {
 
-                    _channel.QueueDeclare("queue1", false, false, false, null);
-                    var body = Encoding.UTF8.GetBytes(message);
-                    _channel.BasicPublish("", "queue1", null, body);
+            _channel.QueueDeclare("queue1", false, false, false, null);
+            var body = Encoding.UTF8.GetBytes(message);
+            _channel.BasicPublish("", "queue1", null, body);
             //    }
             //}
             //await _endpoint.Publish<string>(message);

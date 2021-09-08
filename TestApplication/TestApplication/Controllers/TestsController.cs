@@ -67,11 +67,44 @@ namespace TestApplication.Controllers
                 Name = kinds.Name,
                 AveragePrice = price,
             };
-            string json = JsonSerializer.Serialize<Order>(order);
-
+            var orderDto = _mapper.Map<OrderDto>(order);
+            orderDto.method = "post";
+            string json = JsonSerializer.Serialize<OrderDto>(orderDto);
+            
+            
             _orderMicroservice.Publish(json);
 
 
+            return Ok($"");
+        }
+        [HttpDelete]
+        public IActionResult DeleteOrder(int OrderId)
+        {
+
+            Order order = new Order
+            {
+                Id = OrderId,
+            };
+            var orderDto = _mapper.Map<OrderDto>(order);
+            orderDto.method = "delete";
+            string json = JsonSerializer.Serialize<OrderDto>(orderDto);
+
+            _orderMicroservice.Publish(json);
+
+            return Ok($"");
+        }
+        [HttpPut]
+        public IActionResult UpdateOrder( int OrderId)
+        {
+            Order order = new Order
+            {
+                Id = OrderId,
+            };
+            var orderDto = _mapper.Map<OrderDto>(order);
+            orderDto.method = "put";
+            string json = JsonSerializer.Serialize<OrderDto>(orderDto);
+
+            _orderMicroservice.Publish(json);
 
             return Ok($"");
         }

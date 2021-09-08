@@ -56,7 +56,7 @@ namespace TestApplication
             {
                 x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(config =>
                 {                        // amqps://gpqcunnl:5Qc8rpPCYk7gvXQwLIXZwXqhvVwYjClr@beaver.rmq.cloudamqp.com/gpqcunnl       
-                    config.UseHealthCheck(provider);
+                    //config.UseHealthCheck(provider);
                     config.Host(new Uri("amqps://gpqcunnl:5Qc8rpPCYk7gvXQwLIXZwXqhvVwYjClr@beaver.rmq.cloudamqp.com/gpqcunnl&queue=queue1"));
                 }));
                 services.AddMassTransitHostedService();
