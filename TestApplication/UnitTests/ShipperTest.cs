@@ -1,24 +1,19 @@
-using System;
-using Xunit;
-
-
-using TestApplication;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.AspNetCore.Hosting;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Net;
-using Microsoft.AspNetCore.Http;
-using TestApplication.Controllers;
-using Microsoft.AspNetCore.Mvc;
-using Moq;
-using Pact;
 using AutoMapper;
 using Entities.Models;
-using System.Text.Json;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
+using Moq;
+using Pact;
+using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
+using TestApplication;
+using TestApplication.Controllers;
+using Xunit;
 //using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
@@ -47,11 +42,11 @@ namespace UnitTests
             var webBuilder = new WebHostBuilder()
             .UseConfiguration(builder.Build())
             .UseStartup<Startup>();
-            
+
             var server = new TestServer(webBuilder);
 
             _client = server.CreateClient();
-            
+
             //Configuration = builder.Build();
         }
 
