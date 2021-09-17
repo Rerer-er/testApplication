@@ -38,6 +38,7 @@ namespace TestApplication.Controllers
         {
             var shippers = await _modelsActions.Shipper.GetAllShippersAsync(false);
             var shipperDto = _mapper.Map<IEnumerable<ReturnShipperDto>>(shippers);
+            
             return Ok(shipperDto);
         }
 
