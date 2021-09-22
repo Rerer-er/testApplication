@@ -33,8 +33,7 @@ namespace ActionDB
         {
 
             if (Currency.ContainsKey(currency)) return this.Currency[currency];
-            else return 1;
-            
+            else return 1;  
         }
         public decimal ConvertToCurrentForFiltr(decimal price, string currency)
         {

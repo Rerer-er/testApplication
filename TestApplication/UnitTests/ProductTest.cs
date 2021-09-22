@@ -51,6 +51,8 @@ namespace UnitTests
         {
             return new Product { ProductId = 50, Name = "rwer", Price = 3000, };
         }
+        //[Theory]
+        //[InlineData]
         [Fact]
         public async Task Get_Products_AllAsync()
         {
@@ -62,6 +64,7 @@ namespace UnitTests
             var okResult = result as OkObjectResult;
             Assert.NotNull(okResult);
         }
+
         [Theory]
         [InlineData(1,1,"rub")]
         [InlineData(2,1,"rub")]
@@ -77,6 +80,8 @@ namespace UnitTests
             var okResult = result as OkObjectResult;
             Assert.NotNull(okResult);
         }
+
+
         //[Theory]
         //[InlineData(1, 1, "rub")]
         //public async Task Create_Product(int kindId, int productId, string currency)

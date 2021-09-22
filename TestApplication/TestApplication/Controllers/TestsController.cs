@@ -31,44 +31,6 @@ namespace TestApplication.Controllers
             _modelsActions = modelsActions;
             _mapper = mapper;
         }
-        [HttpGet]
-        [Route("test")]
-        public IActionResult GetValues1()
-        {
-            //var factory = new ConnectionFactory() { Uri = new Uri( "amqps://gpqcunnl:5Qc8rpPCYk7gvXQwLIXZwXqhvVwYjClr@beaver.rmq.cloudamqp.com/gpqcunnl") };
-            //using (var connection = factory.CreateConnection())
-            //{
-            //    using (var channel = connection.CreateModel())
-            //    {
-
-            //        channel.QueueDeclare("queue1", false, false, false, null);
-            //        var body = Encoding.UTF8.GetBytes("fdgdfg");
-            //        channel.BasicPublish("", "queue1", null, body);
-            //    }
-            //}
-            return Ok($"");
-        }
-        [HttpGet]
-        public IActionResult GetValues()
-        {
-            _orderMicroservice.Publish("123");
-
-
-
-
-            //var factory = new ConnectionFactory() { Uri = new Uri( "amqps://gpqcunnl:5Qc8rpPCYk7gvXQwLIXZwXqhvVwYjClr@beaver.rmq.cloudamqp.com/gpqcunnl") };
-            //using (var connection = factory.CreateConnection())
-            //{
-            //    using (var channel = connection.CreateModel())
-            //    {
-                    
-            //        channel.QueueDeclare("queue1", false, false, false, null);
-            //        var body = Encoding.UTF8.GetBytes("fdgdfg");
-            //        channel.BasicPublish("", "queue1", null, body);
-            //    }
-            //}
-            return Ok($"");
-        }
         [HttpPost]
         public async Task<IActionResult> CreateOrder(int id)
         {

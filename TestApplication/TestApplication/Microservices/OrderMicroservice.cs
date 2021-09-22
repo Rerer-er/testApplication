@@ -28,7 +28,6 @@ namespace TestApplication.Microservices
         public void Publish(string message)
         {
             
-
             _channel.QueueDeclare("queue1", false, false, false, null);
             var body = Encoding.UTF8.GetBytes(message);
             _channel.BasicPublish("", "queue1", null, body);

@@ -35,20 +35,33 @@ namespace UnitTests
         [Fact]
         public void ProductActionsDBTest1()
         {
-            var product = new Product();
+            //var product = new Product();
+            //var kind = new Kind();
+            //var shipper = new Shipper();
+            //var productBasket = new ProductBasket();
 
-            var context = new Mock<DbContext>();
-            var dbSetMock = new Mock<DbSet<Product>>();
-            context.Setup(x => x.Set<Product>()).Returns(dbSetMock.Object);
+            //var dbContext = new Mock<DbContextOptions>();
+            //var dbSetMock = new Mock<DbSet<Product>>();
+            //var dbSetMock1 = new Mock<DbSet<Kind>>();
+            //var dbSetMock2= new Mock<DbSet<Shipper>>();
+            //var dbSetMock3 = new Mock<DbSet<ProductBasket>>();
+            ////dbSetMock.Setup(x => x.)
+            //var mockContext = new Mock<ApplicationContext>(dbContext.Object);
+            //mockContext.Setup(x => x.Kinds).Returns(dbSetMock1.Object);
+            //mockContext.Setup(x => x.Shippers).Returns(dbSetMock2.Object);
+            //mockContext.Setup(x => x.Products).Returns(dbSetMock.Object);
+            //mockContext.Setup(x => x.Baskets).Returns(dbSetMock3.Object);
+
+
+            ///////////////////////////////////////////////////////////////////
+            
             //dbSetMock.Setup(x => x.Add(It.IsAny<Product>())).Returns(product);
-
-
-            var repository = new ProductActionsDB(context.Object);
+            
+            //var repository = new ProductActionsDB(mockContext.Object);
 
             //repository.Setup(x => x.ReturnAll(It.IsAny<bool>()))
             //    .Returns((int i) => bookInMemoryDatabase.Single(bo => bo.Id == i));
             //var mockSetProducts = new Mock<DbSet<Product>>();
-            //var mockContext = new Mock<ApplicationContext>();
 
             //mockContext.Setup(m => m.Products).Returns(mockSetProducts.Object);
 

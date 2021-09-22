@@ -60,7 +60,7 @@ namespace TestApplication.Controllers
         /// </summary>
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public async Task<IActionResult> CreateShipper([FromBody] CreateShipperDto shipperDto)
         {
             if (shipperDto == null)

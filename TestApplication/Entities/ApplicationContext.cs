@@ -21,10 +21,10 @@ namespace Entities
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
             modelBuilder.ApplyConfiguration(new ProductBasketConfiguration());
         }
-        public DbSet<Kind> Kinds { get; set; }
+        public virtual DbSet<Kind> Kinds { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public DbSet<Shipper> Shippers { get; set; }
-        public DbSet<ProductBasket> Baskets { get; set; } 
+        public virtual DbSet<Shipper> Shippers { get; set; }
+        public virtual DbSet<ProductBasket> Baskets { get; set; } 
 
     }
 }
