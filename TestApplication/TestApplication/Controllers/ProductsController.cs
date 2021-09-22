@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Pact;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TestApplication.ActionFilters;
@@ -72,7 +73,6 @@ namespace TestApplication.Controllers
         public async Task<IActionResult> GetProduct(int kindId, int id, string currency = "rub")
         {
             var product = await _modelsActions.Product.GetProductAsync(kindId, id, false);
-            
             _currencyConverter.ConvertToCurrent(product, currency);
             var productDto = _mapper.Map<ReturnProductDto>(product);
             return Ok(productDto);
@@ -154,6 +154,5 @@ namespace TestApplication.Controllers
             await _modelsActions.SaveAsync();
             return NoContent();
         }
-
     }
 }
