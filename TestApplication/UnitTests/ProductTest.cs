@@ -61,7 +61,6 @@ namespace UnitTests
         [Fact]
         public async Task Get_Products_AllAsync_Test()
         {
-            //Arrange
             // Act
             var result = await controller.GetProducts(1, productParametrs);
             //Assert
@@ -76,6 +75,7 @@ namespace UnitTests
         public async Task Get_Product_Async_Test(int kindId, int productId, string currency)
         {
             //Arrange
+
             // Act
             var result = await controller.GetProduct(kindId, productId, currency);
             //Assert
@@ -92,7 +92,6 @@ namespace UnitTests
                 new CreateProductDto() { Name = "test create product", About = "test", Foto = "qwe", Price = 400 });
             
             //Assert
-            var objectResponse = Xunit.Assert.IsType<NoContentResult>(result);
             var okResult = result as OkObjectResult;
             Assert.NotNull(okResult);
         }

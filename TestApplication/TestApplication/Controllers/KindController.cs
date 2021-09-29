@@ -28,6 +28,7 @@ namespace TestApplication.Controllers
             _modelsActions = modelsActions;
             _mapper = mapper;
 
+
         }
 
         /// <summary>
@@ -35,6 +36,7 @@ namespace TestApplication.Controllers
         /// </summary>
         //[HttpGet(Name = "GetKinds"), Authorize]
         [HttpGet]
+        //[ValidateAntiForgeryToken]
         //[Authorize]
         public async Task<IActionResult> GetKinds([FromQuery] KindParameters productParameters)
         {
@@ -55,6 +57,7 @@ namespace TestApplication.Controllers
         /// Get a kind by id
         /// </summary>
         [HttpGet("{id}")]
+        //[ValidateAntiForgeryToken]
         [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         public async Task<IActionResult> GetKind(int id)
         {
@@ -69,6 +72,7 @@ namespace TestApplication.Controllers
         /// Creating a kind
         /// </summary>
         [HttpPost]
+        //[ValidateAntiForgeryToken]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         //[Authorize(Roles = "Administrator")]
         public async Task<IActionResult> CreateKind([FromBody] CreateKindDto kindDto)
@@ -85,6 +89,7 @@ namespace TestApplication.Controllers
         /// Deleting a kind
         /// </summary>
         [HttpDelete("{id}")]
+        //[ValidateAntiForgeryToken]
         //[Authorize(Roles = "Administrator")]
         [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         public async Task<IActionResult> DeleteKind(int id)
@@ -101,6 +106,7 @@ namespace TestApplication.Controllers
         /// </summary>
         [ServiceFilter(typeof(ValidateKindExistsAttribute))]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        //[ValidateAntiForgeryToken]
         [HttpPut("{id}")]
         //[Authorize(Roles = "Administrator")]
         public async Task<IActionResult> UpdateKind(int id, [FromBody] UpdateKindDto kindDto)

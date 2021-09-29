@@ -1,7 +1,9 @@
 using ActionDB;
 using MassTransit;
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -51,7 +53,14 @@ namespace TestApplication
             services.AddScoped<ValidationFilterAttribute>();
             services.ConfigureVersioning();
             services.AddSingleton<IConfiguration>(Configuration);
+            services.AddAntiforgery(options =>
+            {
+                //options.FormFieldName = "AntiForgeryFieldName";
+                options.HeaderName = "X-XSRF-TOKEN";
+                options.Cookie.Name = "XSRF-TOKEN";
+            });
 
+            //services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
             services.AddMassTransit(x =>
             {
                 x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(config =>
@@ -72,9 +81,10 @@ namespace TestApplication
             });
     
             services.AddControllers().AddNewtonsoftJson();
+            services.AddControllersWithViews();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerManager logger, IAntiforgery antiforgery)
         {
             if (env.IsDevelopment())
             {
@@ -86,9 +96,23 @@ namespace TestApplication
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");
 
+
+
             app.UseAuthentication();
             app.UseAuthorization();
 
+            //app.Use(next => context =>
+            //{
+            //    string path = context.Request.Path.Value;
+
+            //    //if (string.Equals(path, "/", StringComparison.OrdinalIgnoreCase))
+            //    //{
+            //        var tokens = antiforgery.GetAndStoreTokens(context);
+            //        context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken,
+            //            new CookieOptions() { HttpOnly = false });
+            //    //}
+            //    return next(context);
+            //});
             app.UseSwagger();
             app.UseSwaggerUI(s =>
             {
@@ -99,7 +123,6 @@ namespace TestApplication
             {
                 ForwardedHeaders = ForwardedHeaders.All
             });
-
 
             app.UseRouting();
 

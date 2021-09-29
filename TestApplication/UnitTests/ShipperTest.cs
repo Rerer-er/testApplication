@@ -26,6 +26,7 @@ namespace UnitTests
 {
     public class ShipperTest
     {
+        ShipperController controller;
         private readonly HttpClient _client;
         private readonly Mock<ILoggerManager> loggerManager;
         private readonly Mock<IAllModelsActions> modelsActions;
@@ -68,28 +69,10 @@ namespace UnitTests
             _context = new ApplicationContext(optionsBuilder.Options); 
             
             shipperController = new ShipperController(loggerManager.Object, modelsActions.Object, __mapper);
+
+            controller = new ShipperController(loggerManager.Object, modelsActions.Object, _mapper.Object);
+            modelsActions.Setup(repo => repo.Shipper.GetAllShippersAsync(It.IsAny<bool>())).Returns(GetTestShippers());
         }
-
-        //[Fact]
-        //public async Task ProductActionsDBTest1()
-        //{
-        //    var repository = new ProductActionsDB(_context);
-
-        //    var list = await repository.GetAllProductsAsync(1, new ProductParameters() { PageSize = 50 }, false);
-        //    var a = 1;
-        //    //repository.Setup(x => x.ReturnAll(It.IsAny<bool>()))
-        //    //    .Returns((int i) => bookInMemoryDatabase.Single(bo => bo.Id == i));
-        //    //var mockSetProducts = new Mock<DbSet<Product>>();
-
-        //    //mockContext.Setup(m => m.Products).Returns(mockSetProducts.Object);
-
-        //    //var service = new ProductActionsDB(mockContext.Object);
-        //    //service.CreateProduct(GetProduct().KindId, GetProduct());
-
-        //    //mockSetProducts.Verify(m => m.Add(It.IsAny<Product>()), Times.Once());
-        //    //mockContext.Verify(m => m.SaveChanges(), Times.Once());
-        //}
-
 
         private async Task<IEnumerable<Shipper>> GetTestShippers()
         {
@@ -103,38 +86,26 @@ namespace UnitTests
             return shippers;
         }
         [Fact]
-        public async Task GetPublicHealthEndpoint()
-        {
-            var apiResponse = await _client.GetAsync("/kinds");
-            Assert.Equal(StatusCodes.Status200OK, (int)apiResponse.StatusCode);
-        }
-
-        [Fact]
         public async Task Get_Shipper_AllAsync()
         {
-            //Arrange
-            var controller = new ShipperController(loggerManager.Object, modelsActions.Object, _mapper.Object);
-            modelsActions.Setup(repo => repo.Shipper.GetAllShippersAsync(It.IsAny<bool>())).Returns(GetTestShippers());//.ReturnsAsync((Shipper)null)
+            //.ReturnsAsync((Shipper)null)
             // Act
             var result = await controller.GetShippers();
             //Assert
             var okResult = result as OkObjectResult;
             Assert.NotNull(okResult);
         }
-        [Fact]
-        public async Task Create_Shipper_Async()
-        {
-            //var random = new System.Random();
-            //int randomId = random.Next(100, 1000);
-            ////Arrange
-            //var controller = new ShipperController(loggerManager.Object, modelsActions.Object, mapper.Object);
-            //modelsActions.Setup(repo => repo.Shipper.GetAllShippersAsync(It.IsAny<bool>())).Returns(GetTestShippers());//.ReturnsAsync((Shipper)null)
-            //// Act
-            //var result = await controller.GetShippers();
-            ////Assert
-            //var okResult = result as OkObjectResult;
-            //Assert.NotNull(okResult);
-        }
+        //[Fact]
+        //public async Task Create_Shipper_Async()
+        //{
+        //    // Act
+        //    var result = await controller.CreateShipper();
+        //        new CreateProductDto() { Name = "test create product", About = "test", Foto = "qwe", Price = 400 });
+        //    //Assert
+        //    var objectResponse = Xunit.Assert.IsType<NoContentResult>(result);
+        //    var okResult = result as OkObjectResult;
+        //    Assert.NotNull(okResult);
+        //}
         [Fact]
         public async Task Delete_Shipper_Async()
         {
