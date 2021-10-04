@@ -57,7 +57,7 @@ namespace TestApplication
             {
                 //options.FormFieldName = "AntiForgeryFieldName";
                 options.HeaderName = "X-XSRF-TOKEN";
-                options.Cookie.Name = "XSRF-TOKEN";
+                //options.Cookie.Name = "XSRF-TOKEN";
             });
 
             //services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
@@ -101,18 +101,18 @@ namespace TestApplication
             app.UseAuthentication();
             app.UseAuthorization();
 
-            //app.Use(next => context =>
-            //{
-            //    string path = context.Request.Path.Value;
+            app.Use(next => context =>
+            {
+                string path = context.Request.Path.Value;
 
-            //    //if (string.Equals(path, "/", StringComparison.OrdinalIgnoreCase))
-            //    //{
-            //        var tokens = antiforgery.GetAndStoreTokens(context);
-            //        context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken,
-            //            new CookieOptions() { HttpOnly = false });
-            //    //}
-            //    return next(context);
-            //});
+                //if (string.Equals(path, "/", StringComparison.OrdinalIgnoreCase))
+                //{
+                var tokens = antiforgery.GetAndStoreTokens(context);
+                context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken,
+                    new CookieOptions() { HttpOnly = false });
+                //}
+                return next(context);
+            });
             app.UseSwagger();
             app.UseSwaggerUI(s =>
             {

@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Entities.ModelsDto;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.TestHost;
@@ -6,8 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TestApplication;
@@ -17,7 +20,12 @@ namespace UnitTests
 {
     public class KindTest
     {
+        private readonly string _headersAuth;
         private readonly HttpClient _client;
+        class Parse
+        {
+            public string token { get; set; }
+        }
         public static IEnumerable<object[]> TestKind1()
         {
             yield return new object[]
@@ -32,8 +40,13 @@ namespace UnitTests
                    new Kind(){ Name = "testname2", About = "testname2", Foto = "https" },
                 };
         }
+        public static UserForAuthenticationDto TestUser()
+        {
+            return new UserForAuthenticationDto() { UserName = "test1", Password = "test1test1"};
+        }
         public KindTest()
         {
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json");
@@ -43,8 +56,22 @@ namespace UnitTests
                 .UseStartup<Startup>();
 
             var server = new TestServer(webBuilder);
-
             _client = server.CreateClient();
+            _headersAuth =  AddNewUser(TestUser());
+            _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _headersAuth);
+        }
+
+        
+        public string AddNewUser(UserForAuthenticationDto newUser)
+        {
+            var stringContent = new StringContent(JsonConvert.SerializeObject(newUser), Encoding.UTF8, "application/json");
+            var apiResponse = _client.PostAsync($"/authentication/login", stringContent);
+            var a = apiResponse.Result.Content.ReadAsStringAsync();
+            var str = a.Result;
+            var sr = JsonConvert.DeserializeObject<Parse>(str);
+            return sr.token;
+            //var apiResponse = await _client.GetAsync("/authentication");
+            //Assert.Equal(StatusCodes.Status200OK, (int)apiResponse.StatusCode);
         }
         [Fact]
         public async Task GetAllKindsTest()

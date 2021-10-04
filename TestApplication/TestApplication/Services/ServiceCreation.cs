@@ -80,7 +80,6 @@ namespace TestApplication.Services
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateLifetime = true,

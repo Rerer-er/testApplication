@@ -53,14 +53,16 @@ namespace TestApplication.Controllers
             _orderMicroservice.Publish(json);
 
             return Ok($"");
+
+
         }
         [HttpDelete]
-        public IActionResult DeleteOrder(int OrderId)
+        public IActionResult DeleteOrder(string OrderId)
         {
 
             Order order = new Order
             {
-                Id = OrderId,
+                _id = OrderId,
             };
             var orderDto = _mapper.Map<OrderDto>(order);
             orderDto.method = "delete";
@@ -71,11 +73,11 @@ namespace TestApplication.Controllers
             return Ok($"");
         }
         [HttpPut]
-        public IActionResult UpdateOrder( int OrderId)
+        public IActionResult UpdateOrder(string OrderId)
         {
             Order order = new Order
             {
-                Id = OrderId,
+                _id = OrderId,
             };
             var orderDto = _mapper.Map<OrderDto>(order);
             orderDto.method = "put";

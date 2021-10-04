@@ -6,7 +6,7 @@ namespace Entities.Models
 {
     public class Order
     {
-        public int Id { get; set; }
+        public string _id { get; set; }
         public int KindId { get; set; }
         public string Name { get; set; }
         public string Foto  { get; set; }

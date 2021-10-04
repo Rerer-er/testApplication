@@ -2,6 +2,8 @@
 using Entities.Models;
 using Entities.ModelsDto;
 using Entities.RequestFeatures;
+using Microsoft.AspNetCore.Antiforgery;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Pact;
 using System.Collections.Generic;
@@ -21,13 +23,14 @@ namespace TestApplication.Controllers
         private readonly IAllModelsActions _modelsActions;
 
         private readonly IMapper _mapper;
+        private readonly IAntiforgery _antiforgery;
 
-        public KindController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper)
+        public KindController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper, IAntiforgery antiforgery)
         {
             _logger = logger;
             _modelsActions = modelsActions;
             _mapper = mapper;
-
+            _antiforgery = antiforgery;
 
         }
 
@@ -37,7 +40,7 @@ namespace TestApplication.Controllers
         //[HttpGet(Name = "GetKinds"), Authorize]
         [HttpGet]
         //[ValidateAntiForgeryToken]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> GetKinds([FromQuery] KindParameters productParameters)
         {
             var kinds = await _modelsActions.Kind.GetAllKindsAsync( productParameters ,false);
