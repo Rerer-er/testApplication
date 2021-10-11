@@ -1,11 +1,8 @@
-using ActionDB;
 using AutoMapper;
 using Entities;
 using Entities.Models;
 using Entities.ModelsDto;
-using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
@@ -66,8 +63,8 @@ namespace UnitTests
             configuration = builder.Build();
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationContext>();
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("sqlConnection"));
-            _context = new ApplicationContext(optionsBuilder.Options); 
-            
+            _context = new ApplicationContext(optionsBuilder.Options);
+
             shipperController = new ShipperController(loggerManager.Object, modelsActions.Object, __mapper);
 
             controller = new ShipperController(loggerManager.Object, modelsActions.Object, _mapper.Object);
@@ -118,7 +115,7 @@ namespace UnitTests
             //_mapper.Setup(repo => repo.(It.IsAny<bool>())).Returns(GetTestShippers());//.ReturnsAsync((Shipper)null)
 
             Shipper shipper;
-            var result = await shipperController.CreateShipper(new CreateShipperDto() { Name = "testProduct"});
+            var result = await shipperController.CreateShipper(new CreateShipperDto() { Name = "testProduct" });
             var result1 = await shipperController.CreateShipper(new CreateShipperDto() { Name = "testProduct" });
             var result2 = await shipperController.CreateShipper(new CreateShipperDto() { Name = "testProduct" });
             var result3 = await shipperController.CreateShipper(new CreateShipperDto() { Name = "testProduct" });
@@ -137,7 +134,7 @@ namespace UnitTests
             var okResult2 = result2 as ObjectResult;
             var okResult3 = result3 as ObjectResult;
             //var actualShipper = okResult.Value as ReturnShipperDto;
-            var a =1 ;
+            var a = 1;
             //Assert.NotNull(okResult);
         }
     }

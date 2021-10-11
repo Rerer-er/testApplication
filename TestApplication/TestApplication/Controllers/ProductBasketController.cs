@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
 using Entities.Models;
-using Microsoft.AspNetCore.Http;
+using Entities.ModelsDto;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Pact;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authorization;
-using Entities.ModelsDto;
 
 namespace TestApplication.Controllers
 {
@@ -35,7 +32,7 @@ namespace TestApplication.Controllers
         private readonly UserManager<User> _userManager;
 
 
-        public ProductBasketController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper, 
+        public ProductBasketController(ILoggerManager logger, IAllModelsActions modelsActions, IMapper mapper,
                ICurrencyConverter currencyConverter, IAuthenticationManager authManager, UserManager<User> userManager)
         {
             _userManager = userManager;
@@ -69,9 +66,9 @@ namespace TestApplication.Controllers
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             var products = await _modelsActions.Basket.GetsProductsBasketAsync(user.Id, true);
-            foreach(var product in products)
+            foreach (var product in products)
             {
-                if(product.Product.ProductId == a.id)
+                if (product.Product.ProductId == a.id)
                 {
                     product.Count = a.count;
                     await _modelsActions.SaveAsync();

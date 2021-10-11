@@ -5,12 +5,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TestApplication;
@@ -42,7 +39,7 @@ namespace UnitTests
         }
         public static UserForAuthenticationDto TestUser()
         {
-            return new UserForAuthenticationDto() { UserName = "test1", Password = "test1test1"};
+            return new UserForAuthenticationDto() { UserName = "test1", Password = "test1test1" };
         }
         public KindTest()
         {
@@ -57,11 +54,9 @@ namespace UnitTests
 
             var server = new TestServer(webBuilder);
             _client = server.CreateClient();
-            _headersAuth =  AddNewUser(TestUser());
+            _headersAuth = AddNewUser(TestUser());
             _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + _headersAuth);
         }
-
-        
         public string AddNewUser(UserForAuthenticationDto newUser)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(newUser), Encoding.UTF8, "application/json");
@@ -70,8 +65,7 @@ namespace UnitTests
             var str = a.Result;
             var sr = JsonConvert.DeserializeObject<Parse>(str);
             return sr.token;
-            //var apiResponse = await _client.GetAsync("/authentication");
-            //Assert.Equal(StatusCodes.Status200OK, (int)apiResponse.StatusCode);
+
         }
         [Fact]
         public async Task GetAllKindsTest()
@@ -107,7 +101,7 @@ namespace UnitTests
             var rootobject = JsonConvert.DeserializeObject<Kind>(apiResponse.Content.ReadAsStringAsync().Result);
             rootobject.Name = "puttest";
             stringContent = new StringContent(JsonConvert.SerializeObject(rootobject), Encoding.UTF8, "application/json");
-            
+
             apiResponse = await _client.PutAsync($"/kinds/{rootobject.KindId}", stringContent);
             Assert.Equal(StatusCodes.Status204NoContent, (int)apiResponse.StatusCode);
 
@@ -124,7 +118,7 @@ namespace UnitTests
             var apiResponse = await _client.PostAsync($"/kinds", stringContent);
 
             var newKind = JsonConvert.DeserializeObject<Kind>(apiResponse.Content.ReadAsStringAsync().Result);
-            
+
             apiResponse = await _client.DeleteAsync($"/kinds/{newKind.KindId}");
             Assert.Equal(StatusCodes.Status204NoContent, (int)apiResponse.StatusCode);
 

@@ -1,8 +1,6 @@
 ﻿using ActionDB;
 using Entities.Models;
 using Microsoft.Extensions.Configuration;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -44,7 +42,7 @@ namespace UnitTests
             //Act
             _currencyConverter.ConvertToCurrent(productTest, currency);
             //Assert
-            Xunit.Assert.Equal(Math.Round(finalPrice,2), productTest.Price);
+            Xunit.Assert.Equal(Math.Round(finalPrice, 2), productTest.Price);
         }
 
         [Theory]

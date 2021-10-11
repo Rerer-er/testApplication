@@ -1,13 +1,9 @@
 ﻿using ActionDB;
 using Entities;
 using Entities.Models;
-using Entities.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -63,7 +59,7 @@ namespace TestsRepository
         //[InlineData()]
         public async Task CreateShipperTest()
         {
-            Shipper shipper = new Shipper() { Name = "test product", Foto = "fds", LocationLat = 10, LocationLng = 12, FinalRating = 0, CountRating = 0, SumRating = 0  };
+            Shipper shipper = new Shipper() { Name = "test product", Foto = "fds", LocationLat = 10, LocationLng = 12, FinalRating = 0, CountRating = 0, SumRating = 0 };
             _actions.Shipper.CreateShipper(shipper);
             await _actions.SaveAsync();
             var returnProduct = await _actions.Shipper.GetShipperAsync(shipper.ShipperId, false);

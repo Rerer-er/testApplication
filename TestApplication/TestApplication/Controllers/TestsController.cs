@@ -1,25 +1,19 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Entities.Models;
+using Entities.ModelsDto;
+using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
-using System;
+using Pact;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
-using System.Threading;
-using System.Text;
-using Pact;
-using Entities.RequestFeatures;
-using AutoMapper;
-using Entities.ModelsDto;
-using Entities.Models;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace TestApplication.Controllers
 {
 
     [Route("test")]
-    [ApiController]  
+    [ApiController]
     public class TestsController : ControllerBase
     {
         private readonly IAllModelsActions _modelsActions;
@@ -35,9 +29,9 @@ namespace TestApplication.Controllers
         public async Task<IActionResult> CreateOrder(int id)
         {
             var kinds = await _modelsActions.Kind.GetKindAsync(id, false);
-            var products = await _modelsActions.Product.GetAllProductsAsync(id,new ProductParameters { }, false);
+            var products = await _modelsActions.Product.GetAllProductsAsync(id, new ProductParameters { }, false);
             decimal price = products.Average(n => n.Price);
-            
+
 
             var productsDto = _mapper.Map<IEnumerable<ReturnProductDto>>(products);
             Order order = new Order
@@ -49,7 +43,7 @@ namespace TestApplication.Controllers
             var orderDto = _mapper.Map<OrderDto>(order);
             orderDto.method = "post";
             string json = JsonSerializer.Serialize<OrderDto>(orderDto);
-            
+
             _orderMicroservice.Publish(json);
 
             return Ok($"");

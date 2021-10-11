@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 using Pact;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TestApplication.ActionFilters;
 
 namespace TestApplication.Controllers
 {
@@ -28,7 +27,7 @@ namespace TestApplication.Controllers
             _authManager = authManager;
         }
 
-        [HttpPost]  
+        [HttpPost]
         //[ServiceFilter(typeof(ValidationFilterAttribute))]
         //[ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
@@ -64,7 +63,7 @@ namespace TestApplication.Controllers
                 return Unauthorized();
             }
             ICollection<string> roles = await _authManager.GetRoles(user.UserName);
-            if(roles != null)
+            if (roles != null)
             {
                 Response.Headers.Add("Roles", JsonConvert.SerializeObject(roles));
             }

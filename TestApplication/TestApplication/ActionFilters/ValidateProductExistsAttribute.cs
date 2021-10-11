@@ -2,10 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Pact;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace TestApplication.ActionFilters
 {
@@ -31,7 +27,7 @@ namespace TestApplication.ActionFilters
                 _logger.LogInfo($"Kind with id: {kindId} doesn't exist in the database.");
                 context.Result = new NotFoundResult();
             }
-            
+
             if (context.ActionArguments.ContainsKey("id"))
             {
                 var id = (int)context.ActionArguments["id"];
@@ -42,7 +38,7 @@ namespace TestApplication.ActionFilters
                     context.Result = new NotFoundResult();
                 }
             }
-            
+
         }
         public void OnActionExecuted(ActionExecutedContext context) { }
     }

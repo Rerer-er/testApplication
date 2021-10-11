@@ -30,7 +30,7 @@ namespace Entities.Configuration
                     Foto = "",
                     KindId = 2
                 });
-            
+
         }
 
 

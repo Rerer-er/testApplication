@@ -43,7 +43,7 @@ namespace TestApplication.Controllers
         [Authorize]
         public async Task<IActionResult> GetKinds([FromQuery] KindParameters productParameters)
         {
-            var kinds = await _modelsActions.Kind.GetAllKindsAsync( productParameters ,false);
+            var kinds = await _modelsActions.Kind.GetAllKindsAsync(productParameters, false);
             var kindsDto = _mapper.Map<IEnumerable<ReturnKindDto>>(kinds);
 
             ReturnKindAndCountDto retKinds = new ReturnKindAndCountDto();
@@ -65,7 +65,7 @@ namespace TestApplication.Controllers
         public async Task<IActionResult> GetKind(int id)
         {
             var kind = await _modelsActions.Kind.GetKindAsync(id, false);
-            
+
             var kindDto = _mapper.Map<ReturnKindDto>(kind);
 
             return Ok(kindDto);
@@ -116,7 +116,7 @@ namespace TestApplication.Controllers
         {
 
             var kind = await _modelsActions.Kind.GetKindAsync(id, true);
-            
+
             _mapper.Map(kindDto, kind);
             await _modelsActions.SaveAsync();
             return NoContent();

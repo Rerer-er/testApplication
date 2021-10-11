@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Pact;
-using System.Threading.Tasks;
 
 namespace TestApplication.ActionFilters
 {

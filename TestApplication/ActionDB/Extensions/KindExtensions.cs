@@ -1,8 +1,5 @@
 ﻿using Entities.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ActionDB.Extensions
 {
@@ -15,7 +12,7 @@ namespace ActionDB.Extensions
             var lowerCaseTerm = searchTerm.Trim().ToLower();
             return kinds.Where(e => e.Name.ToLower().Contains(lowerCaseTerm));
 
-            
+
         }
     }
 }

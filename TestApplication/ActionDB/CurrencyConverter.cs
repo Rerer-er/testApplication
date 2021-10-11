@@ -14,8 +14,8 @@ namespace ActionDB
     public class CurrencyConverter : ICurrencyConverter
     {
         private Dictionary<string, decimal> Currency;
-        
-        IConfiguration configuration { get; set; } 
+
+        IConfiguration configuration { get; set; }
 
         public CurrencyConverter(IConfiguration _configuration)
         {
@@ -33,7 +33,7 @@ namespace ActionDB
         {
 
             if (Currency.ContainsKey(currency)) return this.Currency[currency];
-            else return 1;  
+            else return 1;
         }
         public decimal ConvertToCurrentForFiltr(decimal price, string currency)
         {

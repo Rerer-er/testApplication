@@ -2,12 +2,9 @@
 using Entities.Models;
 using Entities.ModelsDto;
 using Entities.RequestFeatures;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using Pact;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TestApplication.ActionFilters;
@@ -40,7 +37,7 @@ namespace TestApplication.Controllers
         ///<summary>
         ///Gets the list of all products.
         ///</summary>
-        
+
         [HttpGet]
         [ServiceFilter(typeof(ValidateProductExistsAttribute))]
         public async Task<IActionResult> GetProducts(int kindId, [FromQuery] ProductParameters productParameters)
@@ -147,7 +144,7 @@ namespace TestApplication.Controllers
             }
 
             var product = await _modelsActions.Product.GetProductAsync(kindId, id, true);
-            
+
             var productToPatch = _mapper.Map<UpdateProductDto>(product);
             patchDoc.ApplyTo(productToPatch);
             _mapper.Map(productToPatch, product);

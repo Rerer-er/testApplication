@@ -3,16 +3,11 @@ using Entities.Models;
 using Entities.ModelsDto;
 using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using Newtonsoft.Json.Linq;
 using Pact;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using TestApplication.Controllers;
 using Xunit;
@@ -68,10 +63,10 @@ namespace UnitTests
             Assert.NotNull(okResult);
         }
         [Theory]
-        [InlineData(1,1,"rub")]
-        [InlineData(2,1,"rub")]
-        [InlineData(5,1,"rub")]
-        [InlineData(6,1,"rub")]
+        [InlineData(1, 1, "rub")]
+        [InlineData(2, 1, "rub")]
+        [InlineData(5, 1, "rub")]
+        [InlineData(6, 1, "rub")]
         public async Task Get_Product_Async_Test(int kindId, int productId, string currency)
         {
             //Arrange
@@ -88,15 +83,15 @@ namespace UnitTests
         public async Task Create_Product_Test(int kindId)
         {
             // Act
-            var result = await controller.CreateProduct(kindId, 
+            var result = await controller.CreateProduct(kindId,
                 new CreateProductDto() { Name = "test create product", About = "test", Foto = "qwe", Price = 400 });
-            
+
             //Assert
             var okResult = result as OkObjectResult;
             Assert.NotNull(okResult);
         }
         [Theory]
-        [InlineData(1,3)]
+        [InlineData(1, 3)]
         public async Task Delete_Product_Test(int kindId, int productId)
         {
             // Act

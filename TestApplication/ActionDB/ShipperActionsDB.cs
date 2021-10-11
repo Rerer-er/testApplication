@@ -11,7 +11,7 @@ namespace ActionDB
     public class ShipperActionsDB : BaseActionDB<Shipper>, IShipperActionsDB
     {
         public ShipperActionsDB(ApplicationContext context) : base(context)
-        { 
+        {
 
 
 

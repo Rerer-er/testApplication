@@ -72,14 +72,14 @@ namespace TestApplication
             });
 
             services.ConfigureMicroserviceOrder();
-            
+
             //services.AddHostedService<CurrencyService>();
             //services.AddMemoryCache();
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
-    
+
             services.AddControllers().AddNewtonsoftJson();
             services.AddControllersWithViews();
         }

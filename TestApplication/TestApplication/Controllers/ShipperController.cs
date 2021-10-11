@@ -2,7 +2,6 @@
 using Entities.Models;
 using Entities.ModelsDto;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Pact;
 using System.Collections.Generic;
@@ -33,12 +32,12 @@ namespace TestApplication.Controllers
         /// <summary>
         /// Gets the list of all shippers
         /// </summary>
-        [HttpGet]  
+        [HttpGet]
         public async Task<IActionResult> GetShippers()
         {
             var shippers = await _modelsActions.Shipper.GetAllShippersAsync(false);
             var shipperDto = _mapper.Map<IEnumerable<ReturnShipperDto>>(shippers);
-            
+
             return Ok(shipperDto);
         }
 
@@ -46,11 +45,11 @@ namespace TestApplication.Controllers
         /// Get a shipper by id
         /// </summary>
         [HttpGet("{id}", Name = "ShipperById")]
-        [ServiceFilter(typeof(ValidateShipperExistsAttribute))] 
+        [ServiceFilter(typeof(ValidateShipperExistsAttribute))]
         public async Task<IActionResult> GetShippers(int id)
         {
             var shipper = await _modelsActions.Shipper.GetShipperAsync(id, false);
-            
+
             var shipperDto = _mapper.Map<ReturnShipperDto>(shipper);
             return Ok(shipperDto);
         }
@@ -123,13 +122,13 @@ namespace TestApplication.Controllers
             await _modelsActions.SaveAsync();
             return NoContent();
         }
-        
+
         [HttpPost("rating/{id}")]
         //[ServiceFilter(typeof(ValidateProductExistsAttribute))]
         //[Authorize(Roles = "Shipper Administrator")]
-        public async Task<IActionResult> PatchShipper(int id,[FromBody] byte Stars)
+        public async Task<IActionResult> PatchShipper(int id, [FromBody] byte Stars)
         {
-           
+
             var shipper = await _modelsActions.Shipper.GetShipperAsync(id, true);
             if (shipper == null)
             {

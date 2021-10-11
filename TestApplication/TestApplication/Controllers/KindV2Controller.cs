@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
-using Entities.Models;
 using Entities.ModelsDto;
 using Entities.RequestFeatures;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Pact;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TestApplication.ActionFilters;
 
 namespace TestApplication.Controllers
 {

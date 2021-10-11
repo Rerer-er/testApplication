@@ -1,11 +1,7 @@
-﻿using MassTransit;
-using Pact;
+﻿using Pact;
 using RabbitMQ.Client;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TestApplication.Microservices
 {
@@ -27,7 +23,7 @@ namespace TestApplication.Microservices
 
         public void Publish(string message)
         {
-            
+
             _channel.QueueDeclare("queue1", false, false, false, null);
             var body = Encoding.UTF8.GetBytes(message);
             _channel.BasicPublish("", "queue1", null, body);

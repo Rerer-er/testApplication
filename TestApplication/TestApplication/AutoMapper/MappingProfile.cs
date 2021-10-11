@@ -2,7 +2,6 @@
 
 using Entities.Models;
 using Entities.ModelsDto;
-using System.Collections.Generic;
 
 namespace TestApplication.AutoMapper
 {
